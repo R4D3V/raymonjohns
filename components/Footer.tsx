@@ -1,104 +1,75 @@
-'use client';
+import Link from "next/link";
+import { Phone, Mail, MessageCircle } from "lucide-react";
+import { navLinks } from "@/lib/data";
 
-import Link from 'next/link';
-import { personalInfo } from '@/data/portfolio-data';
-import { Heart, Github, Linkedin, Twitter, ArrowUp } from 'lucide-react';
+const socials = [
+  { href: "mailto:raymonjohns@gmail.com", label: "Email", icon: Mail },
+
+  { href: "tel:+256751621506", label: "Call me", icon: Phone },
+  {
+    href: "https://wa.me/256751621506",
+    label: "WhatsApp",
+    icon: MessageCircle,
+  },
+];
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="relative border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Brand */}
-          <div>
-            <div className="text-2xl font-display font-bold gradient-text mb-4">
-              {personalInfo.name}
-            </div>
-            <p className="text-white/60 text-sm leading-relaxed">
-              {personalInfo.tagline}
+    <footer className="px-4 sm:px-6 pb-10 pt-6">
+      <div className="mx-auto max-w-6xl">
+        <div className="neu-raised flex flex-col gap-8 p-6 sm:p-10 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-sm">
+            <p className="font-display text-xl font-bold text-ink">
+              RaymonJohns<span className="text-accent-blue">.</span>
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+              Frontend developer building soft, tactile interfaces — and
+              tinkering with the hardware underneath them when the screen is
+              off.
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-white/60 hover:text-accent transition-colors text-sm">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-white/60 hover:text-accent transition-colors text-sm">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/projects" className="text-white/60 hover:text-accent transition-colors text-sm">
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-white/60 hover:text-accent transition-colors text-sm">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <div className="flex gap-8 sm:gap-12">
+            <div>
+              <p className="eyebrow mb-3">Pages</p>
+              <ul className="space-y-2">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="neu-focus rounded-neu-sm text-sm text-ink-muted hover:text-accent-blue"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Social */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Follow Me</h3>
-            <div className="flex gap-3">
-              <a
-                href={personalInfo.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-white/5 hover:bg-accent/20 border border-white/10 hover:border-accent rounded-xl transition-all duration-300"
-                aria-label="GitHub"
-              >
-                <Github className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href={personalInfo.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-white/5 hover:bg-accent/20 border border-white/10 hover:border-accent rounded-xl transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href={personalInfo.social.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-white/5 hover:bg-accent/20 border border-white/10 hover:border-accent rounded-xl transition-all duration-300"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5 text-white" />
-              </a>
+            <div>
+              <p className="eyebrow mb-3">Elsewhere</p>
+              <ul className="space-y-3">
+                {socials.map(({ href, label, icon: Icon }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      className="neu-focus rounded-neu-sm flex items-center gap-2 text-sm text-ink-muted hover:text-accent-blue"
+                      target={href.startsWith("http") ? "_blank" : undefined}
+                      rel={href.startsWith("http") ? "noreferrer" : undefined}
+                    >
+                      <Icon size={15} />
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/60 text-sm flex items-center gap-2">
-            © {new Date().getFullYear()} {personalInfo.name}. Made with{' '}
-            <Heart className="w-4 h-4 text-red-500 fill-red-500" /> and lots of coffee
-          </p>
-          <button
-            onClick={scrollToTop}
-            className="p-3 bg-white/5 hover:bg-accent/20 border border-white/10 hover:border-accent rounded-xl transition-all duration-300"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp className="w-5 h-5 text-white" />
-          </button>
-        </div>
+        <p className="mt-6 text-center font-mono text-xs uppercase tracking-wider text-ink-faint">
+          © {new Date().getFullYear()} RaymonJohns — Based in entebbe, Uganda
+        </p>
       </div>
     </footer>
   );

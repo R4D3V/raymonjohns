@@ -1,223 +1,143 @@
-'use client';
+import type { Metadata } from "next";
+import SectionHeading from "@/components/section-heading";
+import { ButtonLink } from "@/components/neu-button";
+import AboutIllustration from "@/components/about-illustration";
 
-import { useState } from 'react';
-import { aboutMe, personalInfo } from '@/data/portfolio-data';
-import { Briefcase, GraduationCap, Award, Code2, Download, Mail } from 'lucide-react';
-import Link from 'next/link';
+export const metadata: Metadata = {
+  title: "About — RaymonJohns",
+  description: "Frontend developer based in Entebbe, Uganda.",
+};
+
+const timeline = [
+  {
+    year: "2023",
+    title: "Started building for fun",
+    body: "this was my first foray into frontend development.",
+  },
+  {
+    year: "2024",
+    title: "Started building client sites full-time",
+    body: "Moved from one-off projects into a steady freelance practice — web design, brand identity, and graphic design under Freelance.",
+  },
+  {
+    year: "2025",
+    title: "Standardised on the App Router",
+    body: "Settled into a consistent stack: Next.js App Router, Tailwind CSS, Framer Motion, pnpm — and started treating migrations as their own service line.",
+  },
+  {
+    year: "2026",
+    title: "Tailwind v4 and the editorial rebuild era",
+    body: "Rebuilt the RaymonJohns portfolio from the ground up, took on Kings Key Tech's full site and certificate system, and pushed Mbuni Safaris through two major framework upgrades.",
+  },
+];
 
 export default function AboutPage() {
-  const [activeTab, setActiveTab] = useState<'skills' | 'experience' | 'education'>('skills');
-
   return (
-    <main className="page-container">
-      {/* Hero Section */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
-        <div className="blur-orb w-96 h-96 bg-accent/20 top-0 right-0" />
-        <div className="absolute inset-0 grid-background opacity-30" />
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 animate-slide-up">
-              About <span className="gradient-text">Me</span>
-            </h1>
-            <p className="text-xl text-white/70 animate-slide-up stagger-1">
-              Learn more about my background, skills, and what drives me
+    <div className="flex flex-col gap-20 py-12 sm:py-16">
+      <section className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
+        <div>
+          <p className="eyebrow">About</p>
+          <h1 className="mt-3 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">
+            I build the kind of interfaces I&apos;d want to use myself.
+          </h1>
+          <div className="mt-6 space-y-4 text-ink-muted leading-relaxed">
+            <p>
+              I&apos;m a frontend developer and designer based in Entebbe,
+              Uganda, running design and development for direct clients.
+            </p>
+            <p>
+              I care about interfaces that feel considered rather than assembled
+              — consistent type scales, motion that has a reason to exist, and
+              components that hold up once real content lands in them instead of
+              placeholder text.
+            </p>
+            <p>
+              Off-screen, I spend a fair amount of time flashing and repairing
+              Android and iOS devices. It scratches a different itch than the
+              browser: same patience for debugging, very different feedback
+              loop.
             </p>
           </div>
+        </div>
 
-          {/* Bio Section */}
-          <div className="max-w-4xl mx-auto mb-20">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12">
-              {aboutMe.description.map((paragraph, index) => (
-                <p key={index} className="text-white/70 text-lg mb-6 leading-relaxed last:mb-0">
-                  {paragraph}
-                </p>
-              ))}
-
-              <div className="flex flex-wrap gap-4 mt-8 pt-8 border-t border-white/10">
-                <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
-                  <Mail className="w-5 h-5" />
-                  Get In Touch
-                </Link>
-                {personalInfo.resumeUrl && (
-                  <a
-                    href={personalInfo.resumeUrl}
-                    download
-                    className="btn-secondary inline-flex items-center gap-2"
-                  >
-                    <Download className="w-5 h-5" />
-                    Download Resume
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Facts */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-              <div className="text-4xl font-bold gradient-text mb-2">5+</div>
-              <div className="text-white/60">Years of Experience</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-              <div className="text-4xl font-bold gradient-text mb-2">50+</div>
-              <div className="text-white/60">Projects Completed</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-              <div className="text-4xl font-bold gradient-text mb-2">30+</div>
-              <div className="text-white/60">Happy Clients</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-              <div className="text-4xl font-bold gradient-text mb-2">{aboutMe.certifications.length}</div>
-              <div className="text-white/60">Certifications</div>
-            </div>
-          </div>
-
-          {/* Tabs */}
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-white/5 backdrop-blur-sm rounded-full p-1 border border-white/10">
-              <button
-                onClick={() => setActiveTab('skills')}
-                className={`px-8 py-3 rounded-full transition-all duration-300 ${
-                  activeTab === 'skills'
-                    ? 'bg-accent text-white'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                <Code2 className="w-4 h-4 inline mr-2" />
-                Skills
-              </button>
-              <button
-                onClick={() => setActiveTab('experience')}
-                className={`px-8 py-3 rounded-full transition-all duration-300 ${
-                  activeTab === 'experience'
-                    ? 'bg-accent text-white'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                <Briefcase className="w-4 h-4 inline mr-2" />
-                Experience
-              </button>
-              <button
-                onClick={() => setActiveTab('education')}
-                className={`px-8 py-3 rounded-full transition-all duration-300 ${
-                  activeTab === 'education'
-                    ? 'bg-accent text-white'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                <GraduationCap className="w-4 h-4 inline mr-2" />
-                Education
-              </button>
-            </div>
-          </div>
-
-          {/* Tab Content */}
-          <div className="max-w-6xl mx-auto">
-            {/* Skills */}
-            {activeTab === 'skills' && (
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in">
-                {aboutMe.skills.map((skillGroup, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-accent/50 transition-all duration-300 card-hover"
-                  >
-                    <h3 className="text-xl font-display font-semibold mb-4 gradient-text">
-                      {skillGroup.category}
-                    </h3>
-                    <ul className="space-y-2">
-                      {skillGroup.items.map((skill, skillIndex) => (
-                        <li key={skillIndex} className="text-white/70 flex items-center">
-                          <span className="w-1.5 h-1.5 bg-accent rounded-full mr-3" />
-                          {skill}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* Experience */}
-            {activeTab === 'experience' && (
-              <div className="space-y-8 animate-fade-in">
-                {aboutMe.experience.map((job, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-accent/50 transition-all duration-300"
-                  >
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                      <div>
-                        <h3 className="text-2xl font-display font-semibold text-white mb-1">
-                          {job.position}
-                        </h3>
-                        <p className="text-accent font-medium">{job.company}</p>
-                      </div>
-                      <div className="text-white/60 mt-2 md:mt-0">{job.period}</div>
-                    </div>
-                    <p className="text-white/70 mb-4">{job.description}</p>
-                    <div className="space-y-2">
-                      <p className="text-white/50 text-sm font-semibold">Key Achievements:</p>
-                      <ul className="space-y-2">
-                        {job.achievements.map((achievement, achIndex) => (
-                          <li key={achIndex} className="text-white/70 flex items-start">
-                            <span className="w-1.5 h-1.5 bg-accent rounded-full mr-3 mt-2" />
-                            {achievement}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* Education */}
-            {activeTab === 'education' && (
-              <div className="animate-fade-in space-y-6">
-                {aboutMe.education.map((edu, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-accent/50 transition-all duration-300"
-                  >
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h3 className="text-2xl font-display font-semibold text-white mb-2">
-                          {edu.degree}
-                        </h3>
-                        <p className="text-accent font-medium">{edu.institution}</p>
-                      </div>
-                      <div className="text-white/60">{edu.period}</div>
-                    </div>
-                    <p className="text-white/70">{edu.highlights}</p>
-                  </div>
-                ))}
-
-                {/* Certifications */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                  <div className="flex items-center gap-2 mb-6">
-                    <Award className="w-6 h-6 text-accent" />
-                    <h3 className="text-2xl font-display font-semibold text-white">
-                      Certifications
-                    </h3>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {aboutMe.certifications.map((cert, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/5"
-                      >
-                        <div className="w-2 h-2 bg-accent rounded-full" />
-                        <span className="text-white/80">{cert}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
+        <div className="neu-raised p-6 sm:p-8">
+          <p className="eyebrow">Currently</p>
+          <ul className="mt-4 space-y-4">
+            <li className="flex items-start gap-3">
+              <span className="neu-inset-sm mt-0.5 h-2 w-2 shrink-0 rounded-full" />
+              <span className="text-sm text-ink-muted">
+                Freelance from{" "}
+                <span className="text-ink font-medium">RaymonJohns</span>
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="neu-inset-sm mt-0.5 h-2 w-2 shrink-0 rounded-full" />
+              <span className="text-sm text-ink-muted">
+                Building on{" "}
+                <span className="text-ink font-medium">
+                  Next.js 16 &amp; Tailwind CSS v4 + other technologies I enjoy
+                  using.
+                </span>
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="neu-inset-sm mt-0.5 h-2 w-2 shrink-0 rounded-full" />
+              <span className="text-sm text-ink-muted">
+                Open to{" "}
+                <span className="text-ink font-medium">
+                  new freelance projects
+                </span>
+              </span>
+            </li>
+          </ul>
+          <div className="mt-6">
+            <ButtonLink
+              href="/contact"
+              withArrow
+              className="w-full justify-center"
+            >
+              Say hello
+            </ButtonLink>
           </div>
         </div>
       </section>
-    </main>
+
+      <div className="neu-raised-lg overflow-hidden p-6 sm:p-10">
+        <AboutIllustration className="w-full" />
+      </div>
+
+      <section>
+        <SectionHeading
+          eyebrow="How I got here"
+          title="A short, honest timeline"
+          description="Not a highlight reel — the actual order things happened in."
+        />
+        <div className="mt-10 space-y-6">
+          {timeline.map((item, i) => (
+            <div
+              key={item.year}
+              className="neu-raised grid gap-4 p-6 sm:grid-cols-[auto_1fr] sm:items-start sm:p-8"
+            >
+              <div className="flex items-center gap-3 sm:flex-col sm:items-start sm:gap-1">
+                <span className="gradient-number text-2xl">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-mono text-xs uppercase tracking-wider text-ink-faint">
+                  {item.year}
+                </span>
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-bold text-ink">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                  {item.body}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }

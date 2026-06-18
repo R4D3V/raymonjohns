@@ -1,91 +1,54 @@
-<a href="https://app.daily.dev/r4d3v"><img src="https://api.daily.dev/devcards/v2/78hBt4g51mnyl6Rv5PviX.png?type=wide&r=jk2" width="652" alt="R4D3V's Dev Card"/></a>
+# RaymonJohns — Portfolio
 
-<a href="https://komarev.com/ghpvc/?username=raymonjohns">
-  <img align="right" src="https://komarev.com/ghpvc/?username=raymonjohns&label=Visitors&color=0e75b6&style=flat" alt="Profile visitor" />
-</a>
+A neumorphic developer portfolio built on Next.js 16.2.9 (App Router) and Tailwind CSS 4.3.1, with Framer Motion for the hero typewriter, floating tech chips, and reveal animations.
 
-[![wakatime](https://wakatime.com/badge/user/eebb3dd8-d9b2-40de-9b88-6fd6cac99dbc.svg)](https://wakatime.com/@eebb3dd8-d9b2-40de-9b88-6fd6cac99dbc)
+## Stack
 
-<!-- Intro  -->
-<h3 align="center">
-        <samp>&gt; Hey There!, I am
-                <b><a target="_blank" href="https://r4d3v.vercel.app/">R4D3V</a></b>
-        </samp>
-</h3>
+- **Next.js 16.2.9** — App Router, TypeScript, Turbopack
+- **Tailwind CSS 4.3.1** — CSS-first theming via `@theme` in `app/globals.css`
+- **Framer Motion** — typewriter cursor, device-panel chip float, gauge fill, mobile nav
+- **lucide-react** — icons
+- **Fonts** — Sora (display), Inter (body), JetBrains Mono (eyebrows/tags/labels) via `next/font/google`
 
-<p align="center"> 
-  <samp>
-    <a href="https://www.google.com/search?q=r4d3v">「 Google Me 」</a>
-    <br>
-    「 I am a frontend web application developer from <b>Uganda</b> 」
-    <br>
-    <br>
-  </samp>
-</p>
+## Getting started
 
-<p align="center">
- <a href="https://r4d3v.vercel.app/" target="blank">
-  <img src="https://img.shields.io/badge/Website-DC143C?style=for-the-badge&logo=medium&logoColor=white" alt="d" />
- </a>
- 
- <!-- <a href="https://dev.to/raymonjohns" target="_blank">
-  <img src="https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white" alt="raymonjohns" />
- </a> -->
- 
- <a href="https://instagram.com/r4d3v" target="_blank">
-  <img src="https://img.shields.io/badge/Instagram-fe4164?style=for-the-badge&logo=instagram&logoColor=white" alt="r4d3v" />
- </a> 
- 
-</p>
-<br />
+```bash
+npm install
+npm run dev
+```
 
-<!-- About Section -->
+Open http://localhost:3000. The dev/build process needs internet access once to fetch the Google Fonts used by `next/font/google` — this works automatically on Vercel or any normal machine with a connection.
 
-# About me
+## Structure
 
-<p>
- <img align="right" width="350" src="/assets/programmer.gif" alt="Coding gif" />
-  
- ✌️ &emsp; Enjoy to do programming and sharing knowledge <br/><br/>
- ❤️ &emsp; Love to writing code and learning new features<br/><br/>
- 📧 &emsp; Reach me anytime: raymonjohns@gmail.com<br/><br/>
- 💬 &emsp; Ask me about anything [here]
+```
+app/
+  page.tsx                    Home — hero, skills teaser, featured work, CTA
+  about/page.tsx
+  projects/page.tsx           Work index
+  projects/[slug]/page.tsx    Case study sub-pages (dumani-media, kings-key-tech, mbuni-safaris)
+  skills/page.tsx
+  services/page.tsx
+  contact/page.tsx
+  not-found.tsx
+components/
+  nav.tsx, footer.tsx, typewriter.tsx, device-panel.tsx,
+  radial-gauge.tsx, project-card.tsx, section-heading.tsx,
+  neu-button.tsx, contact-form.tsx
+lib/
+  data.ts      All editable content: nav links, projects, skills, services
+  accent.ts    Literal Tailwind class map for accent colors
+```
 
-</p>
+## What to edit before going live
 
-<br/>
-<br/>
-<br/>
+1. **`lib/data.ts`** — every bit of copy (project summaries, skill percentages, service descriptions) is a placeholder based on what's known about your real projects. Rewrite freely; it's all in one file.
+2. **Contact email & socials** — `components/footer.tsx` and `app/contact/page.tsx` use `hello@raymonjohns.dev` and placeholder GitHub/LinkedIn URLs. Swap in your real ones.
+3. **Contact form submission** — `components/contact-form.tsx` currently just logs to the console and shows a success state. Wire `handleSubmit` up to a real endpoint (an API route, Resend, Formspree, etc.) before launch.
+4. **Project links** — only the Dumani Media case study has a live `liveUrl` set. Add real URLs for the others in `lib/data.ts` once they're public.
 
-## Use To Code
+## Design notes
 
-![Javascript](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&labelColor=black&logo=javascript&logoColor=F0DB4F)
-![React](https://img.shields.io/badge/-React-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=61DBFB)
-
-<!-- ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white) -->
-
-![Nodejs](https://img.shields.io/badge/Nodejs-3C873A?style=for-the-badge&labelColor=black&logo=node.js&logoColor=3C873A)
-
-<!-- ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) -->
-
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-
-<!-- ![SASS Badge](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
-
-![Ant-Design](https://img.shields.io/badge/AntDesign-0170FE?style=for-the-badge&logo=antdesign&logoColor=white) -->
-
-![Tailwind](https://img.shields.io/badge/Tailwind_CSS-092749?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4&labelColor=000000)
-
-<!-- ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
-![Strapi](https://img.shields.io/badge/strapi-2E7EEA?style=for-the-badge&logo=strapi&logoColor=white) -->
-<!-- ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)
-![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
-![React Query](https://img.shields.io/badge/-React_Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white) -->
-
-![VSCode](https://img.shields.io/badge/Visual_Studio-0078d7?style=for-the-badge&logo=visual%20studio&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-
-<br/>
+- True neumorphism: cards share the page background color (`--bg`); depth comes only from the dual-tone box-shadow pairs defined in `app/globals.css` (`.neu-raised`, `.neu-inset`, etc.), not from a different surface color.
+- Numbered sequences (project index, timeline) are used only where the order is real information — not as decoration.
+- Respects `prefers-reduced-motion`: the typewriter types instantly and the floating chips stop animating.
