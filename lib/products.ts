@@ -14,13 +14,13 @@ export type Product = {
 };
 
 export const productCategories = [
+  "Laptops",
+  "Phones",
   "Charging & Power",
-  "Audio",
   "Protection",
   "Storage",
   "Repair Parts",
-  "Phones",
-  "Laptops",
+  "Audio",
 ] as const;
 
 export const products: Product[] = [
@@ -322,14 +322,14 @@ export const products: Product[] = [
     price: 620000,
     compareAtPrice: 720000,
     summary:
-      "A no-fuss daily-driver Android phone with a clean 6.5\" display and 128GB of storage — the one we point people to when they just want a reliable replacement, fast.",
+      'A no-fuss daily-driver Android phone with a clean 6.5" display and 128GB of storage — the one we point people to when they just want a reliable replacement, fast.',
     description: [
       "A 6.5-inch IPS panel keeps everyday use easy on the eyes, with slim bezels that make the phone feel newer than its price suggests.",
       "128GB of onboard storage is enough for photos, apps, and offline media without immediately reaching for a microSD card, though the slot is there if you need it.",
       "We set these up at the counter before handover — accounts signed in, screen protector fitted, case on — the same way we prep every device that leaves the shop.",
     ],
     specs: [
-      { label: "Display", value: "6.5\" IPS, 90Hz" },
+      { label: "Display", value: '6.5" IPS, 90Hz' },
       { label: "Storage", value: "128GB + microSD slot" },
       { label: "Battery", value: "5,000mAh" },
       { label: "Charging", value: "USB-C, 33W fast charge" },
@@ -356,7 +356,7 @@ export const products: Product[] = [
       "5G support future-proofs the phone in areas with coverage, while still stepping down gracefully to 4G everywhere else.",
     ],
     specs: [
-      { label: "Display", value: "6.7\" AMOLED, 120Hz" },
+      { label: "Display", value: '6.7" AMOLED, 120Hz' },
       { label: "Storage", value: "256GB" },
       { label: "Cameras", value: "Triple rear: wide, ultra-wide, macro" },
       { label: "Connectivity", value: "5G, dual SIM" },
@@ -385,7 +385,7 @@ export const products: Product[] = [
       { label: "Protection", value: "IP68 + MIL-STD-810H" },
       { label: "Storage", value: "128GB" },
       { label: "Battery", value: "6,000mAh" },
-      { label: "Display", value: "6.3\" Gorilla Glass" },
+      { label: "Display", value: '6.3" Gorilla Glass' },
     ],
     features: [
       "IP68 water and dust resistant",
@@ -409,7 +409,7 @@ export const products: Product[] = [
       "We set this one up the same as every phone that leaves the shop — accounts in, basics explained, ready to use on the walk home.",
     ],
     specs: [
-      { label: "Display", value: "6.1\" HD+" },
+      { label: "Display", value: '6.1" HD+' },
       { label: "Storage", value: "64GB + microSD slot" },
       { label: "Battery", value: "4,500mAh" },
       { label: "Charging", value: "USB-C, 18W" },
@@ -435,7 +435,7 @@ export const products: Product[] = [
       "The smaller battery is offset by efficient hardware, so real-world battery life holds up better than the capacity number alone suggests.",
     ],
     specs: [
-      { label: "Display", value: "6.1\" OLED, 120Hz" },
+      { label: "Display", value: '6.1" OLED, 120Hz' },
       { label: "Storage", value: "256GB" },
       { label: "Chipset", value: "Flagship-tier processor" },
       { label: "Battery", value: "4,300mAh" },
@@ -451,7 +451,7 @@ export const products: Product[] = [
   },
   {
     slug: "everyday-laptop-14-256gb",
-    name: "Everyday Laptop 14\" (256GB SSD)",
+    name: 'Everyday Laptop 14" (256GB SSD)',
     category: "Laptops",
     price: 2450000,
     compareAtPrice: 2750000,
@@ -463,14 +463,14 @@ export const products: Product[] = [
       "We set these up the same way as every device that leaves the counter — updates installed, accounts signed in, ready to open and use.",
     ],
     specs: [
-      { label: "Display", value: "14\" FHD" },
+      { label: "Display", value: '14" FHD' },
       { label: "Storage", value: "256GB SSD" },
       { label: "Memory", value: "8GB RAM" },
       { label: "Battery", value: "Up to 9 hrs" },
     ],
     features: [
       "Fast SSD storage, no spinning drive",
-      "Lightweight 14\" body for daily carry",
+      'Lightweight 14" body for daily carry',
       "Set up and ready before handover",
     ],
     stock: "in-stock",
@@ -479,7 +479,7 @@ export const products: Product[] = [
   },
   {
     slug: "creator-laptop-15-512gb",
-    name: "Creator Laptop 15\" (512GB SSD)",
+    name: 'Creator Laptop 15" (512GB SSD)',
     category: "Laptops",
     price: 4200000,
     summary:
@@ -490,7 +490,7 @@ export const products: Product[] = [
       "The 15-inch display gives enough screen real estate for timeline and panel-heavy software without needing a second monitor on the go.",
     ],
     specs: [
-      { label: "Display", value: "15.6\" FHD IPS" },
+      { label: "Display", value: '15.6" FHD IPS' },
       { label: "Storage", value: "512GB SSD" },
       { label: "Memory", value: "16GB RAM" },
       { label: "Graphics", value: "Dedicated graphics" },
@@ -505,7 +505,7 @@ export const products: Product[] = [
   },
   {
     slug: "ultraportable-laptop-13-512gb",
-    name: "Ultraportable Laptop 13\" (512GB SSD)",
+    name: 'Ultraportable Laptop 13" (512GB SSD)',
     category: "Laptops",
     price: 3650000,
     compareAtPrice: 3950000,
@@ -518,7 +518,7 @@ export const products: Product[] = [
     ],
     specs: [
       { label: "Weight", value: "1.25kg" },
-      { label: "Display", value: "13.3\" FHD" },
+      { label: "Display", value: '13.3" FHD' },
       { label: "Storage", value: "512GB SSD" },
       { label: "Battery", value: "Up to 14 hrs" },
     ],
@@ -532,7 +532,7 @@ export const products: Product[] = [
   },
   {
     slug: "budget-student-laptop-14-128gb",
-    name: "Budget Student Laptop 14\" (128GB)",
+    name: 'Budget Student Laptop 14" (128GB)',
     category: "Laptops",
     price: 1550000,
     summary:
@@ -543,7 +543,7 @@ export const products: Product[] = [
       "We've fitted these for students after laptop repairs often enough to know what actually breaks first — the hinge and the charging port — and this one holds up better than most at the price.",
     ],
     specs: [
-      { label: "Display", value: "14\" HD" },
+      { label: "Display", value: '14" HD' },
       { label: "Storage", value: "128GB SSD" },
       { label: "Memory", value: "4GB RAM" },
       { label: "Battery", value: "Up to 8 hrs" },
@@ -558,7 +558,7 @@ export const products: Product[] = [
   },
   {
     slug: "business-laptop-14-1tb",
-    name: "Business Laptop 14\" (1TB SSD)",
+    name: 'Business Laptop 14" (1TB SSD)',
     category: "Laptops",
     price: 5100000,
     summary:
@@ -569,7 +569,7 @@ export const products: Product[] = [
       "Build quality leans toward a reinforced chassis and hinge, the two points that fail first on lighter laptops under daily business use.",
     ],
     specs: [
-      { label: "Display", value: "14\" matte FHD" },
+      { label: "Display", value: '14" matte FHD' },
       { label: "Storage", value: "1TB SSD" },
       { label: "Memory", value: "16GB RAM" },
       { label: "Keyboard", value: "Backlit, spill-resistant" },
@@ -587,7 +587,8 @@ export const products: Product[] = [
     name: "30W USB-C PD Wall Charger",
     category: "Charging & Power",
     price: 42000,
-    summary: "30W USB-C PD Wall Charger — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "30W USB-C PD Wall Charger — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "30W USB-C PD Wall Charger is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "A single-port charger sized for a single phone or tablet, sized to actually fit a two-gang wall socket without blocking the second slot.",
@@ -612,7 +613,8 @@ export const products: Product[] = [
     name: "20W Dual-Port Wall Charger",
     category: "Charging & Power",
     price: 38000,
-    summary: "20W Dual-Port Wall Charger — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "20W Dual-Port Wall Charger — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "20W Dual-Port Wall Charger is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "Two ports means two devices off one socket — handy for a phone and a pair of earbuds charging side by side overnight.",
@@ -637,7 +639,8 @@ export const products: Product[] = [
     name: "100W 4-Port GaN Desktop Charger",
     category: "Charging & Power",
     price: 165000,
-    summary: "100W 4-Port GaN Desktop Charger — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "100W 4-Port GaN Desktop Charger — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "100W 4-Port GaN Desktop Charger is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "GaN switching keeps this cool enough to run all four ports at once on a desk, charging a laptop and three smaller devices simultaneously.",
@@ -662,7 +665,8 @@ export const products: Product[] = [
     name: "Wireless Charging Pad (15W)",
     category: "Charging & Power",
     price: 55000,
-    summary: "Wireless Charging Pad (15W) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "Wireless Charging Pad (15W) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "Wireless Charging Pad (15W) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "Drop a phone on flat or at an angle and it still finds the coil — no more nudging a phone back into the exact charging sweet spot.",
@@ -687,7 +691,8 @@ export const products: Product[] = [
     name: "3-in-1 Wireless Charging Stand",
     category: "Charging & Power",
     price: 135000,
-    summary: "3-in-1 Wireless Charging Stand — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "3-in-1 Wireless Charging Stand — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "3-in-1 Wireless Charging Stand is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "One stand charges phone, earbuds case, and a compatible watch at once, folding flat enough to slip into a laptop bag pocket.",
@@ -712,7 +717,8 @@ export const products: Product[] = [
     name: "Car Charger Dual USB-C (60W)",
     category: "Charging & Power",
     price: 48000,
-    summary: "Car Charger Dual USB-C (60W) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "Car Charger Dual USB-C (60W) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "Car Charger Dual USB-C (60W) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "Two PD ports mean a phone and a laptop can both charge on a drive, without one device starving the other of wattage.",
@@ -737,7 +743,8 @@ export const products: Product[] = [
     name: "Solar Power Bank 20,000mAh",
     category: "Charging & Power",
     price: 175000,
-    summary: "Solar Power Bank 20,000mAh — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "Solar Power Bank 20,000mAh — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "Solar Power Bank 20,000mAh is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "The solar panel is a slow top-up, not a primary charge method — it's there for the trip where the wall socket is a day away.",
@@ -762,7 +769,8 @@ export const products: Product[] = [
     name: "Slim Power Bank 5,000mAh",
     category: "Charging & Power",
     price: 58000,
-    summary: "Slim Power Bank 5,000mAh — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "Slim Power Bank 5,000mAh — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "Slim Power Bank 5,000mAh is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "Thin enough to sit flat in a back pocket alongside a phone, for the day a single top-up is all that's needed.",
@@ -787,7 +795,8 @@ export const products: Product[] = [
     name: "USB-C to Lightning Cable (1m)",
     category: "Charging & Power",
     price: 32000,
-    summary: "USB-C to Lightning Cable (1m) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "USB-C to Lightning Cable (1m) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "USB-C to Lightning Cable (1m) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "MFi-style fast charging speeds for older Lightning-port phones, paired with the same braided jacket we use on our other cables.",
@@ -812,7 +821,8 @@ export const products: Product[] = [
     name: "USB-A to USB-C Cable (1m)",
     category: "Charging & Power",
     price: 18000,
-    summary: "USB-A to USB-C Cable (1m) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "USB-A to USB-C Cable (1m) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "USB-A to USB-C Cable (1m) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "The cable to keep in a bag for older laptops and chargers that never made the jump to USB-C on both ends.",
@@ -837,7 +847,8 @@ export const products: Product[] = [
     name: "Braided USB-C to USB-C Cable (1m)",
     category: "Charging & Power",
     price: 22000,
-    summary: "Braided USB-C to USB-C Cable (1m) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "Braided USB-C to USB-C Cable (1m) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "Braided USB-C to USB-C Cable (1m) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "The shorter sibling of our 2-metre braided cable, for desks and nightstands where two metres is just excess coiled cable.",
@@ -862,7 +873,8 @@ export const products: Product[] = [
     name: "Retractable USB-C Cable",
     category: "Charging & Power",
     price: 26000,
-    summary: "Retractable USB-C Cable — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "Retractable USB-C Cable — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "Retractable USB-C Cable is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "Pulls out to full length and reels itself back in, so there's no tangle to untangle at the bottom of a bag.",
@@ -887,7 +899,8 @@ export const products: Product[] = [
     name: "Multi-Port Charging Station (6-Port)",
     category: "Charging & Power",
     price: 145000,
-    summary: "Multi-Port Charging Station (6-Port) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "Multi-Port Charging Station (6-Port) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "Multi-Port Charging Station (6-Port) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "Built for the desk with four or five devices on it at once — phone, earbuds, watch, and a tablet, off a single wall socket.",
@@ -912,7 +925,8 @@ export const products: Product[] = [
     name: "USB-C Power Strip with Surge Protection",
     category: "Charging & Power",
     price: 98000,
-    summary: "USB-C Power Strip with Surge Protection — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "USB-C Power Strip with Surge Protection — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "USB-C Power Strip with Surge Protection is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "Combines normal wall sockets with USB-C output, useful behind a desk or TV stand where both device types need power.",
@@ -937,7 +951,8 @@ export const products: Product[] = [
     name: "Magnetic Charging Cable",
     category: "Charging & Power",
     price: 24000,
-    summary: "Magnetic Charging Cable — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "Magnetic Charging Cable — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "Magnetic Charging Cable is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "The magnetic tip pulls free instead of yanking the port if someone trips over the cable — a small thing that saves a lot of port repairs.",
@@ -962,7 +977,8 @@ export const products: Product[] = [
     name: "Desktop Wireless Charging Dock",
     category: "Charging & Power",
     price: 112000,
-    summary: "Desktop Wireless Charging Dock — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "Desktop Wireless Charging Dock — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "Desktop Wireless Charging Dock is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "Sits at a readable angle on a desk so notifications stay visible while the phone charges, instead of lying flat and face-down.",
@@ -987,7 +1003,8 @@ export const products: Product[] = [
     name: "Mini GaN Charger (20W)",
     category: "Charging & Power",
     price: 35000,
-    summary: "Mini GaN Charger (20W) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
+    summary:
+      "Mini GaN Charger (20W) — a dependable addition to the charging and power lineup, fitted to real daily use rather than spec-sheet bragging rights.",
     description: [
       "Mini GaN Charger (20W) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the charging & power lineup we stand behind at the counter.",
       "Small enough to leave permanently plugged into a travel adapter or stay clipped to a keychain pouch for emergencies.",
@@ -1012,7 +1029,8 @@ export const products: Product[] = [
     name: "Over-Ear Wireless Headphones",
     category: "Audio",
     price: 195000,
-    summary: "Over-Ear Wireless Headphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Over-Ear Wireless Headphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Over-Ear Wireless Headphones is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "Padded cups built for long sessions, the kind people actually wear through a full workday rather than taking off after twenty minutes.",
@@ -1037,7 +1055,8 @@ export const products: Product[] = [
     name: "Wired In-Ear Earphones",
     category: "Audio",
     price: 22000,
-    summary: "Wired In-Ear Earphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Wired In-Ear Earphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Wired In-Ear Earphones is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "No battery to manage and no pairing required — the simplest option for phones and laptops that still carry a headphone jack.",
@@ -1062,7 +1081,8 @@ export const products: Product[] = [
     name: "Gaming Headset with Mic",
     category: "Audio",
     price: 110000,
-    summary: "Gaming Headset with Mic — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Gaming Headset with Mic — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Gaming Headset with Mic is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "A boom mic that detaches when it's not needed, and a driver tuned for footsteps and dialogue over flat music balance.",
@@ -1087,7 +1107,8 @@ export const products: Product[] = [
     name: "True Wireless Earbuds (Budget)",
     category: "Audio",
     price: 68000,
-    summary: "True Wireless Earbuds (Budget) — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "True Wireless Earbuds (Budget) — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "True Wireless Earbuds (Budget) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "Covers the basics — calls, music, podcasts — without the ANC premium for people who just want wireless freedom at a fair price.",
@@ -1112,7 +1133,8 @@ export const products: Product[] = [
     name: "Open-Ear Sports Earbuds",
     category: "Audio",
     price: 132000,
-    summary: "Open-Ear Sports Earbuds — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Open-Ear Sports Earbuds — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Open-Ear Sports Earbuds is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "Leaves the ear canal open so traffic and conversation stay audible — built for running and cycling, not for blocking out the world.",
@@ -1137,7 +1159,8 @@ export const products: Product[] = [
     name: "Portable Bluetooth Soundbar",
     category: "Audio",
     price: 215000,
-    summary: "Portable Bluetooth Soundbar — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Portable Bluetooth Soundbar — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Portable Bluetooth Soundbar is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "Sized for a bedroom TV or desk setup, loud enough to fill a small room without the footprint of a full home theatre system.",
@@ -1162,7 +1185,8 @@ export const products: Product[] = [
     name: "Outdoor Bluetooth Speaker (Rugged)",
     category: "Audio",
     price: 145000,
-    summary: "Outdoor Bluetooth Speaker (Rugged) — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Outdoor Bluetooth Speaker (Rugged) — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Outdoor Bluetooth Speaker (Rugged) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "Built to take a knock and a splash on a hike or a job site, where a regular speaker would be the wrong tool entirely.",
@@ -1187,7 +1211,8 @@ export const products: Product[] = [
     name: "USB Conference Microphone",
     category: "Audio",
     price: 165000,
-    summary: "USB Conference Microphone — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "USB Conference Microphone — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "USB Conference Microphone is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "Picks up a small meeting room clearly enough that remote calls stop sounding like everyone is talking from across the table.",
@@ -1212,7 +1237,8 @@ export const products: Product[] = [
     name: "Lavalier Clip Mic",
     category: "Audio",
     price: 48000,
-    summary: "Lavalier Clip Mic — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Lavalier Clip Mic — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Lavalier Clip Mic is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "The mic we recommend for phone-recorded video — clipped to a collar, it cuts down the room echo a phone mic alone can't avoid.",
@@ -1237,7 +1263,8 @@ export const products: Product[] = [
     name: "Wired Earphones with Mic",
     category: "Audio",
     price: 19000,
-    summary: "Wired Earphones with Mic — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Wired Earphones with Mic — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Wired Earphones with Mic is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "A straightforward backup pair for the bag — no charging, no pairing, just plug in and go.",
@@ -1262,7 +1289,8 @@ export const products: Product[] = [
     name: "Bone Conduction Headphones",
     category: "Audio",
     price: 175000,
-    summary: "Bone Conduction Headphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Bone Conduction Headphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Bone Conduction Headphones is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "Sits in front of the ear rather than inside it, leaving both ear canals fully open — built for runners who want full situational awareness.",
@@ -1287,7 +1315,8 @@ export const products: Product[] = [
     name: "Studio Reference Headphones",
     category: "Audio",
     price: 225000,
-    summary: "Studio Reference Headphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Studio Reference Headphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Studio Reference Headphones is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "A flatter, more neutral tuning than consumer headphones — built for mixing and editing rather than bass-heavy listening.",
@@ -1312,7 +1341,8 @@ export const products: Product[] = [
     name: "Karaoke Bluetooth Speaker",
     category: "Audio",
     price: 185000,
-    summary: "Karaoke Bluetooth Speaker — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Karaoke Bluetooth Speaker — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Karaoke Bluetooth Speaker is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "Comes with a wireless mic and built-in echo control, set up for living-room karaoke nights rather than background music.",
@@ -1337,7 +1367,8 @@ export const products: Product[] = [
     name: "Neckband Bluetooth Earphones",
     category: "Audio",
     price: 52000,
-    summary: "Neckband Bluetooth Earphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Neckband Bluetooth Earphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Neckband Bluetooth Earphones is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "The neckband holds charge far longer than true wireless buds, and the magnetic clasp keeps the buds from dangling when not in use.",
@@ -1362,7 +1393,8 @@ export const products: Product[] = [
     name: "Noise-Isolating Earbuds (Wired)",
     category: "Audio",
     price: 35000,
-    summary: "Noise-Isolating Earbuds (Wired) — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Noise-Isolating Earbuds (Wired) — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Noise-Isolating Earbuds (Wired) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "Silicone tips create a passive seal that blocks more outside noise than open-fit earphones, without needing a battery to do it.",
@@ -1387,7 +1419,8 @@ export const products: Product[] = [
     name: "Bluetooth Receiver/Transmitter",
     category: "Audio",
     price: 45000,
-    summary: "Bluetooth Receiver/Transmitter — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Bluetooth Receiver/Transmitter — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Bluetooth Receiver/Transmitter is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "Turns a wired-only speaker or TV into a Bluetooth one — the small fix for an otherwise perfectly good older sound system.",
@@ -1412,7 +1445,8 @@ export const products: Product[] = [
     name: "Foldable On-Ear Headphones",
     category: "Audio",
     price: 88000,
-    summary: "Foldable On-Ear Headphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Foldable On-Ear Headphones — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Foldable On-Ear Headphones is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "Folds down small enough for a jacket pocket, trading some bass depth for a build that actually survives daily commuting.",
@@ -1437,7 +1471,8 @@ export const products: Product[] = [
     name: "Mini Party Speaker with LED",
     category: "Audio",
     price: 72000,
-    summary: "Mini Party Speaker with LED — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
+    summary:
+      "Mini Party Speaker with LED — sound gear picked for how it actually gets used day to day, not just how it measures on a spec sheet.",
     description: [
       "Mini Party Speaker with LED is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the audio lineup we stand behind at the counter.",
       "The LED ring pulses with the bass, aimed squarely at small gatherings rather than serious listening sessions.",
@@ -1462,7 +1497,8 @@ export const products: Product[] = [
     name: "Privacy Screen Protector",
     category: "Protection",
     price: 22000,
-    summary: "Privacy Screen Protector — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Privacy Screen Protector — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Privacy Screen Protector is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Keeps the screen unreadable from the side, the protector we recommend for anyone working on sensitive material in public.",
@@ -1487,7 +1523,8 @@ export const products: Product[] = [
     name: "Camera Lens Protector (2-pack)",
     category: "Protection",
     price: 14000,
-    summary: "Camera Lens Protector (2-pack) — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Camera Lens Protector (2-pack) — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Camera Lens Protector (2-pack) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Cut to ring the camera bump exactly, so it absorbs the scratch a bag's loose change would otherwise leave on the lens glass.",
@@ -1512,7 +1549,8 @@ export const products: Product[] = [
     name: "Rugged Armor Case",
     category: "Protection",
     price: 48000,
-    summary: "Rugged Armor Case — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Rugged Armor Case — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Rugged Armor Case is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Built heavier than our standard clear case, for people who'd rather carry the extra bulk than risk another cracked screen.",
@@ -1537,7 +1575,8 @@ export const products: Product[] = [
     name: "Slim Leather-Look Case",
     category: "Protection",
     price: 38000,
-    summary: "Slim Leather-Look Case — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Slim Leather-Look Case — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Slim Leather-Look Case is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Trades some drop protection for a slimmer, more formal look — built for an office setting rather than a job site.",
@@ -1562,7 +1601,8 @@ export const products: Product[] = [
     name: "Wallet Case with Card Slot",
     category: "Protection",
     price: 42000,
-    summary: "Wallet Case with Card Slot — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Wallet Case with Card Slot — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Wallet Case with Card Slot is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Holds a card or two behind the phone, cutting down on what needs to come along for a quick errand out.",
@@ -1587,7 +1627,8 @@ export const products: Product[] = [
     name: "Waterproof Pouch",
     category: "Protection",
     price: 18000,
-    summary: "Waterproof Pouch — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Waterproof Pouch — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Waterproof Pouch is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Keeps a phone usable and dry at the pool or on a boat, with a touch-through window that still registers taps and swipes.",
@@ -1612,7 +1653,8 @@ export const products: Product[] = [
     name: "Kickstand Case",
     category: "Protection",
     price: 36000,
-    summary: "Kickstand Case — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Kickstand Case — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Kickstand Case is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "A built-in stand for video calls and watching shows on a desk or kitchen counter, without reaching for a separate phone stand.",
@@ -1637,7 +1679,8 @@ export const products: Product[] = [
     name: "Silicone Case (Soft-Touch)",
     category: "Protection",
     price: 26000,
-    summary: "Silicone Case (Soft-Touch) — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Silicone Case (Soft-Touch) — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Silicone Case (Soft-Touch) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "The grippy, soft-touch finish most people associate with premium cases, at a price that doesn't match the premium tag.",
@@ -1662,7 +1705,8 @@ export const products: Product[] = [
     name: "Anti-Glare Matte Screen Protector",
     category: "Protection",
     price: 20000,
-    summary: "Anti-Glare Matte Screen Protector — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Anti-Glare Matte Screen Protector — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Anti-Glare Matte Screen Protector is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Cuts glare under bright office lighting and outdoor sun, at the cost of a slightly softer touch feel than glass.",
@@ -1687,7 +1731,8 @@ export const products: Product[] = [
     name: "Full-Body Skin Wrap",
     category: "Protection",
     price: 28000,
-    summary: "Full-Body Skin Wrap — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Full-Body Skin Wrap — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Full-Body Skin Wrap is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Adds grip and a finish change without any added bulk, for people who'd rather not put a case over a phone they like the look of.",
@@ -1709,17 +1754,18 @@ export const products: Product[] = [
   },
   {
     slug: "laptop-sleeve-14",
-    name: "Laptop Sleeve 14\"",
+    name: 'Laptop Sleeve 14"',
     category: "Protection",
     price: 45000,
-    summary: "Laptop Sleeve 14\" — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      'Laptop Sleeve 14" — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.',
     description: [
       "Laptop Sleeve 14\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "A padded buffer for a bag carry, sized to slide a 14-inch laptop in and out without snagging the zipper.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Fit", value: "Up to 14\" laptops" },
+      { label: "Fit", value: 'Up to 14" laptops' },
       { label: "Material", value: "Padded neoprene" },
       { label: "Closure", value: "Zip" },
       { label: "Extra storage", value: "Front accessory pocket" },
@@ -1734,17 +1780,18 @@ export const products: Product[] = [
   },
   {
     slug: "laptop-sleeve-15",
-    name: "Laptop Sleeve 15\"",
+    name: 'Laptop Sleeve 15"',
     category: "Protection",
     price: 50000,
-    summary: "Laptop Sleeve 15\" — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      'Laptop Sleeve 15" — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.',
     description: [
       "Laptop Sleeve 15\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Same padded protection as our 14-inch sleeve, sized up for the larger laptops we fit and repair most often.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Fit", value: "Up to 15.6\" laptops" },
+      { label: "Fit", value: 'Up to 15.6" laptops' },
       { label: "Material", value: "Padded neoprene" },
       { label: "Closure", value: "Zip" },
       { label: "Extra storage", value: "Front accessory pocket" },
@@ -1762,7 +1809,8 @@ export const products: Product[] = [
     name: "Tablet Case with Stand",
     category: "Protection",
     price: 55000,
-    summary: "Tablet Case with Stand — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Tablet Case with Stand — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Tablet Case with Stand is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Folds into a stand at typing and viewing angles, the case we fit most often on tablets used for note-taking and reading.",
@@ -1772,7 +1820,7 @@ export const products: Product[] = [
       { label: "Material", value: "PU leather + TPU shell" },
       { label: "Stand", value: "Multi-angle fold" },
       { label: "Closure", value: "Magnetic, auto-sleep" },
-      { label: "Compatibility", value: "Most 10–11\" tablets" },
+      { label: "Compatibility", value: 'Most 10–11" tablets' },
     ],
     features: [
       "Folds into a stand at typing and viewing angles",
@@ -1787,7 +1835,8 @@ export const products: Product[] = [
     name: "Phone Ring Holder + Case",
     category: "Protection",
     price: 30000,
-    summary: "Phone Ring Holder + Case — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Phone Ring Holder + Case — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Phone Ring Holder + Case is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "The ring doubles as a one-finger grip and a stand, useful for anyone who's dropped a phone reaching for it one-handed before.",
@@ -1812,14 +1861,15 @@ export const products: Product[] = [
     name: "Tempered Glass Privacy Screen for Laptop",
     category: "Protection",
     price: 38000,
-    summary: "Tempered Glass Privacy Screen for Laptop — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Tempered Glass Privacy Screen for Laptop — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Tempered Glass Privacy Screen for Laptop is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "The same side-view privacy idea as our phone protector, sized for laptops used in shared offices and coffee shops.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Compatibility", value: "13–15.6\" laptops" },
+      { label: "Compatibility", value: '13–15.6" laptops' },
       { label: "Viewing angle", value: "Side view blocked" },
       { label: "Finish", value: "Anti-glare" },
       { label: "Install", value: "Adhesive strips, removable" },
@@ -1837,7 +1887,8 @@ export const products: Product[] = [
     name: "Drop-Proof Case for Kids",
     category: "Protection",
     price: 32000,
-    summary: "Drop-Proof Case for Kids — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Drop-Proof Case for Kids — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Drop-Proof Case for Kids is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "An oversized foam shell built for a phone or tablet handed to a child — drop protection comes first, slim design comes last.",
@@ -1862,7 +1913,8 @@ export const products: Product[] = [
     name: "Clear Case with MagSafe Ring",
     category: "Protection",
     price: 40000,
-    summary: "Clear Case with MagSafe Ring — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Clear Case with MagSafe Ring — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Clear Case with MagSafe Ring is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Keeps magnetic chargers and mounts snapping into place without giving up the clear back most people choose a clear case for.",
@@ -1887,7 +1939,8 @@ export const products: Product[] = [
     name: "Screen Protector 2-Pack (Standard Glass)",
     category: "Protection",
     price: 24000,
-    summary: "Screen Protector 2-Pack (Standard Glass) — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
+    summary:
+      "Screen Protector 2-Pack (Standard Glass) — practical protection picked from what actually holds up at the repair counter, not just what looks good on a shelf.",
     description: [
       "Screen Protector 2-Pack (Standard Glass) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the protection lineup we stand behind at the counter.",
       "Two in the box instead of one, since a first install rarely goes perfectly and a spare means no second trip to the shop.",
@@ -1912,7 +1965,8 @@ export const products: Product[] = [
     name: "128GB MicroSD Card (U1)",
     category: "Storage",
     price: 38000,
-    summary: "128GB MicroSD Card (U1) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "128GB MicroSD Card (U1) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "128GB MicroSD Card (U1) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "Covers everyday photo and music storage on phones and cameras that don't need the higher U3 rating our 256GB card carries.",
@@ -1937,7 +1991,8 @@ export const products: Product[] = [
     name: "512GB MicroSD Card (U3, A2)",
     category: "Storage",
     price: 175000,
-    summary: "512GB MicroSD Card (U3, A2) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "512GB MicroSD Card (U3, A2) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "512GB MicroSD Card (U3, A2) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "The same U3/A2 rating as our 256GB card, doubled in capacity for people recording a lot of 4K footage between offloads.",
@@ -1962,7 +2017,8 @@ export const products: Product[] = [
     name: "64GB USB-A Flash Drive",
     category: "Storage",
     price: 22000,
-    summary: "64GB USB-A Flash Drive — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "64GB USB-A Flash Drive — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "64GB USB-A Flash Drive is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "A straightforward backup drive for laptops and desktops that still run USB-A ports as the default.",
@@ -1987,7 +2043,8 @@ export const products: Product[] = [
     name: "1TB External Portable SSD",
     category: "Storage",
     price: 320000,
-    summary: "1TB External Portable SSD — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "1TB External Portable SSD — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "1TB External Portable SSD is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "Fast enough to edit video directly off the drive rather than copying files locally first, in a shell built to survive a bag carry.",
@@ -2012,7 +2069,8 @@ export const products: Product[] = [
     name: "500GB External Portable SSD",
     category: "Storage",
     price: 195000,
-    summary: "500GB External Portable SSD — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "500GB External Portable SSD — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "500GB External Portable SSD is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "The same fast SSD platform as our 1TB drive, sized down for people who mostly need speed over sheer capacity.",
@@ -2037,7 +2095,8 @@ export const products: Product[] = [
     name: "2TB External HDD",
     category: "Storage",
     price: 230000,
-    summary: "2TB External HDD — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "2TB External HDD — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "2TB External HDD is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "The cost-per-gigabyte choice for bulk backups and archives where raw speed matters less than total capacity.",
@@ -2047,7 +2106,7 @@ export const products: Product[] = [
       { label: "Capacity", value: "2TB" },
       { label: "Connector", value: "USB 3.0" },
       { label: "Read speed", value: "Up to 130 MB/s" },
-      { label: "Build", value: "2.5\" portable enclosure" },
+      { label: "Build", value: '2.5" portable enclosure' },
     ],
     features: [
       "The cost-per-gigabyte choice for bulk backups and archives where raw speed matters less than total capacity.",
@@ -2062,7 +2121,8 @@ export const products: Product[] = [
     name: "USB-C Hub (7-in-1)",
     category: "Storage",
     price: 85000,
-    summary: "USB-C Hub (7-in-1) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "USB-C Hub (7-in-1) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "USB-C Hub (7-in-1) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "Turns a single USB-C laptop port into a small desk's worth of connections, without needing a stack of separate dongles.",
@@ -2087,7 +2147,8 @@ export const products: Product[] = [
     name: "USB-C to SD/MicroSD Card Reader",
     category: "Storage",
     price: 32000,
-    summary: "USB-C to SD/MicroSD Card Reader — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "USB-C to SD/MicroSD Card Reader — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "USB-C to SD/MicroSD Card Reader is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "Reads both card formats at once, useful for pulling footage off a camera card and a phone's microSD in one sitting.",
@@ -2112,7 +2173,8 @@ export const products: Product[] = [
     name: "Wireless Backup Drive",
     category: "Storage",
     price: 245000,
-    summary: "Wireless Backup Drive — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "Wireless Backup Drive — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "Wireless Backup Drive is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "Backs up a phone's camera roll over Wi-Fi without a cable, useful on a trip when a laptop isn't part of the kit.",
@@ -2137,7 +2199,8 @@ export const products: Product[] = [
     name: "32GB USB-A Flash Drive",
     category: "Storage",
     price: 14000,
-    summary: "32GB USB-A Flash Drive — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "32GB USB-A Flash Drive — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "32GB USB-A Flash Drive is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "The cheapest way to move a handful of documents or a presentation between machines without relying on the cloud.",
@@ -2162,7 +2225,8 @@ export const products: Product[] = [
     name: "256GB USB-C Flash Drive",
     category: "Storage",
     price: 68000,
-    summary: "256GB USB-C Flash Drive — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "256GB USB-C Flash Drive — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "256GB USB-C Flash Drive is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "Built for newer USB-C-only laptops and phones, with enough capacity to carry a sizeable media or project library.",
@@ -2187,14 +2251,15 @@ export const products: Product[] = [
     name: "Dual-Bay SSD Docking Station",
     category: "Storage",
     price: 110000,
-    summary: "Dual-Bay SSD Docking Station — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "Dual-Bay SSD Docking Station — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "Dual-Bay SSD Docking Station is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "Lets a bare internal drive be read and cloned from a desk without opening a case — the tool we use for most drive recoveries.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Bays", value: "2x 2.5\"/3.5\" SATA" },
+      { label: "Bays", value: '2x 2.5"/3.5" SATA' },
       { label: "Connector", value: "USB 3.0" },
       { label: "Extra feature", value: "Drive-to-drive clone" },
       { label: "Build", value: "Desktop stand" },
@@ -2212,7 +2277,8 @@ export const products: Product[] = [
     name: "Portable NVMe Enclosure",
     category: "Storage",
     price: 58000,
-    summary: "Portable NVMe Enclosure — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "Portable NVMe Enclosure — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "Portable NVMe Enclosure is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "Turns a spare M.2 drive from an old laptop upgrade into a genuinely fast external drive instead of leaving it in a drawer.",
@@ -2237,7 +2303,8 @@ export const products: Product[] = [
     name: "Cloud Backup Subscription Card (1-Year)",
     category: "Storage",
     price: 65000,
-    summary: "Cloud Backup Subscription Card (1-Year) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "Cloud Backup Subscription Card (1-Year) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "Cloud Backup Subscription Card (1-Year) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "A redeemable code for a year of cloud backup, for anyone who'd rather not manage a physical backup drive at all.",
@@ -2262,7 +2329,8 @@ export const products: Product[] = [
     name: "1TB MicroSD Card (A2, V30)",
     category: "Storage",
     price: 340000,
-    summary: "1TB MicroSD Card (A2, V30) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "1TB MicroSD Card (A2, V30) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "1TB MicroSD Card (A2, V30) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "The largest microSD card we stock, aimed at drone footage, dash cams, and phones used as a primary camera.",
@@ -2287,7 +2355,8 @@ export const products: Product[] = [
     name: "USB-C Multiport Adapter (HDMI + USB + SD)",
     category: "Storage",
     price: 62000,
-    summary: "USB-C Multiport Adapter (HDMI + USB + SD) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "USB-C Multiport Adapter (HDMI + USB + SD) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "USB-C Multiport Adapter (HDMI + USB + SD) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "A lighter, travel-sized alternative to our full 7-in-1 hub, for when fewer ports means less to carry.",
@@ -2312,7 +2381,8 @@ export const products: Product[] = [
     name: "External DVD/CD Drive",
     category: "Storage",
     price: 75000,
-    summary: "External DVD/CD Drive — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "External DVD/CD Drive — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "External DVD/CD Drive is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "For the laptops we sell that dropped the optical drive years ago, but the customer still has a stack of discs to read.",
@@ -2337,7 +2407,8 @@ export const products: Product[] = [
     name: "Portable SSD 2TB (Rugged)",
     category: "Storage",
     price: 480000,
-    summary: "Portable SSD 2TB (Rugged) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
+    summary:
+      "Portable SSD 2TB (Rugged) — storage picked for real transfer speeds and real durability, the kind we'd trust with our own backups.",
     description: [
       "Portable SSD 2TB (Rugged) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the storage lineup we stand behind at the counter.",
       "The drive we recommend for fieldwork — full SSD speed in a shell built to survive a drop onto concrete.",
@@ -2362,7 +2433,8 @@ export const products: Product[] = [
     name: "Replacement Charging Port (Fitted)",
     category: "Repair Parts",
     price: 95000,
-    summary: "Replacement Charging Port (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Replacement Charging Port (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Replacement Charging Port (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "The fix for a port that's gone loose or stopped charging reliably — the single most common repair booking we take.",
@@ -2387,7 +2459,8 @@ export const products: Product[] = [
     name: "Replacement Back Glass (Fitted)",
     category: "Repair Parts",
     price: 130000,
-    summary: "Replacement Back Glass (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Replacement Back Glass (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Replacement Back Glass (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For the crack on the back nobody notices until they go to sell the phone — fitted with the original adhesive seal redone.",
@@ -2412,7 +2485,8 @@ export const products: Product[] = [
     name: "Replacement Camera Module (Fitted)",
     category: "Repair Parts",
     price: 180000,
-    summary: "Replacement Camera Module (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Replacement Camera Module (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Replacement Camera Module (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For blurry, foggy, or completely dead camera modules — tested against the working lens before the phone leaves the counter.",
@@ -2437,7 +2511,8 @@ export const products: Product[] = [
     name: "Replacement Speaker/Earpiece (Fitted)",
     category: "Repair Parts",
     price: 65000,
-    summary: "Replacement Speaker/Earpiece (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Replacement Speaker/Earpiece (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Replacement Speaker/Earpiece (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For the crackle or muffled sound that usually means a blown speaker, not a software setting buried in the audio menu.",
@@ -2462,7 +2537,8 @@ export const products: Product[] = [
     name: "Replacement Power Button Flex (Fitted)",
     category: "Repair Parts",
     price: 58000,
-    summary: "Replacement Power Button Flex (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Replacement Power Button Flex (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Replacement Power Button Flex (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For a power button that's gone unresponsive or stuck — a flex cable replacement rather than a full board swap.",
@@ -2487,7 +2563,8 @@ export const products: Product[] = [
     name: "Replacement Volume Button Flex (Fitted)",
     category: "Repair Parts",
     price: 52000,
-    summary: "Replacement Volume Button Flex (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Replacement Volume Button Flex (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Replacement Volume Button Flex (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "The same fix as our power button service, for volume buttons that have stopped registering presses reliably.",
@@ -2512,7 +2589,8 @@ export const products: Product[] = [
     name: "Laptop Battery Replacement (Fitted)",
     category: "Repair Parts",
     price: 145000,
-    summary: "Laptop Battery Replacement (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Laptop Battery Replacement (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Laptop Battery Replacement (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For laptops that have dropped to an hour or two of runtime — the usual sign a battery's cycle count has run out, not the charger.",
@@ -2537,7 +2615,8 @@ export const products: Product[] = [
     name: "Laptop Keyboard Replacement (Fitted)",
     category: "Repair Parts",
     price: 165000,
-    summary: "Laptop Keyboard Replacement (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Laptop Keyboard Replacement (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Laptop Keyboard Replacement (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For sticky, unresponsive, or spill-damaged keys — a full keyboard swap rather than patching individual keycaps.",
@@ -2562,7 +2641,8 @@ export const products: Product[] = [
     name: "Laptop Screen Replacement (Fitted)",
     category: "Repair Parts",
     price: 285000,
-    summary: "Laptop Screen Replacement (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Laptop Screen Replacement (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Laptop Screen Replacement (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For cracked or dead laptop displays — the same panel-swap service that's the most requested laptop repair we do.",
@@ -2587,7 +2667,8 @@ export const products: Product[] = [
     name: "Laptop Charging Port Repair",
     category: "Repair Parts",
     price: 110000,
-    summary: "Laptop Charging Port Repair — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Laptop Charging Port Repair — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Laptop Charging Port Repair is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For the loose DC jack or USB-C port that's behind most 'won't charge' laptop bookings we take in.",
@@ -2612,7 +2693,8 @@ export const products: Product[] = [
     name: "Phone Motherboard Diagnostic & Repair",
     category: "Repair Parts",
     price: 60000,
-    summary: "Phone Motherboard Diagnostic & Repair — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Phone Motherboard Diagnostic & Repair — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Phone Motherboard Diagnostic & Repair is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For phones that won't power on at all — a board-level diagnostic before we quote, rather than guessing at the fault.",
@@ -2637,7 +2719,8 @@ export const products: Product[] = [
     name: "Water Damage Treatment Service",
     category: "Repair Parts",
     price: 60000,
-    summary: "Water Damage Treatment Service — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Water Damage Treatment Service — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Water Damage Treatment Service is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "The first 48 hours after a water spill matter more than anything else — this service is about stopping corrosion before it spreads.",
@@ -2662,7 +2745,8 @@ export const products: Product[] = [
     name: "SIM Tray Replacement",
     category: "Repair Parts",
     price: 18000,
-    summary: "SIM Tray Replacement — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "SIM Tray Replacement — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "SIM Tray Replacement is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For a lost or bent SIM tray — a small, fast fix that's usually done while the customer waits at the counter.",
@@ -2687,7 +2771,8 @@ export const products: Product[] = [
     name: "Replacement Vibration Motor (Fitted)",
     category: "Repair Parts",
     price: 45000,
-    summary: "Replacement Vibration Motor (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Replacement Vibration Motor (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Replacement Vibration Motor (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For a phone that's stopped buzzing on calls and notifications — a motor swap rather than a settings issue.",
@@ -2712,7 +2797,8 @@ export const products: Product[] = [
     name: "Replacement Front Camera (Fitted)",
     category: "Repair Parts",
     price: 70000,
-    summary: "Replacement Front Camera (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Replacement Front Camera (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Replacement Front Camera (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For selfie and video-call cameras gone blurry or unresponsive, tested before the phone leaves the counter.",
@@ -2737,7 +2823,8 @@ export const products: Product[] = [
     name: "Phone Microphone Replacement (Fitted)",
     category: "Repair Parts",
     price: 50000,
-    summary: "Phone Microphone Replacement (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Phone Microphone Replacement (Fitted) — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Phone Microphone Replacement (Fitted) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For calls where the other side can't hear clearly — usually a microphone issue rather than a network problem.",
@@ -2762,7 +2849,8 @@ export const products: Product[] = [
     name: "Laptop Fan & Cooling Repair",
     category: "Repair Parts",
     price: 85000,
-    summary: "Laptop Fan & Cooling Repair — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Laptop Fan & Cooling Repair — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Laptop Fan & Cooling Repair is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For laptops running hot or loud — a fan swap and a fresh layer of thermal paste, the most common cause of sudden shutdowns under load.",
@@ -2787,7 +2875,8 @@ export const products: Product[] = [
     name: "Laptop Hinge Repair",
     category: "Repair Parts",
     price: 120000,
-    summary: "Laptop Hinge Repair — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
+    summary:
+      "Laptop Hinge Repair — the same fitted repair we do at the counter every week, booked here so the part's ready when you arrive.",
     description: [
       "Laptop Hinge Repair is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the repair parts lineup we stand behind at the counter.",
       "For a loose, stiff, or cracked hinge — the part that takes the most physical wear on any laptop opened and closed daily.",
@@ -2812,14 +2901,15 @@ export const products: Product[] = [
     name: "Large-Screen Phablet (256GB)",
     category: "Phones",
     price: 1050000,
-    summary: "Large-Screen Phablet (256GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Large-Screen Phablet (256GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Large-Screen Phablet (256GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "A bigger canvas for reading, note-taking, and video, with a bundled stylus rather than one sold as a separate accessory.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "6.8\" AMOLED" },
+      { label: "Display", value: '6.8" AMOLED' },
       { label: "Storage", value: "256GB" },
       { label: "Battery", value: "5,200mAh" },
       { label: "Stylus", value: "Included" },
@@ -2837,14 +2927,15 @@ export const products: Product[] = [
     name: "Foldable Phone (256GB)",
     category: "Phones",
     price: 2950000,
-    summary: "Foldable Phone (256GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Foldable Phone (256GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Foldable Phone (256GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "Folds out to tablet-sized screen real estate and back down to pocket size, for people who want both in one device.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "Folding 7.6\" / 6.2\" cover" },
+      { label: "Display", value: 'Folding 7.6" / 6.2" cover' },
       { label: "Storage", value: "256GB" },
       { label: "Hinge rating", value: "200,000+ fold cycles" },
       { label: "Battery", value: "4,400mAh" },
@@ -2862,14 +2953,15 @@ export const products: Product[] = [
     name: "Gaming Phone (256GB)",
     category: "Phones",
     price: 1650000,
-    summary: "Gaming Phone (256GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Gaming Phone (256GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Gaming Phone (256GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "A 144Hz display and active cooling built around sustained gaming sessions rather than short bursts of use.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "6.7\" 144Hz AMOLED" },
+      { label: "Display", value: '6.7" 144Hz AMOLED' },
       { label: "Storage", value: "256GB" },
       { label: "Cooling", value: "Vapor chamber" },
       { label: "Extras", value: "Shoulder trigger buttons" },
@@ -2887,7 +2979,8 @@ export const products: Product[] = [
     name: "Camera-Focused Phone (128GB)",
     category: "Phones",
     price: 1180000,
-    summary: "Camera-Focused Phone (128GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Camera-Focused Phone (128GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Camera-Focused Phone (128GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "Built around a telephoto lens and stabilization most mid-range phones skip, for people who shoot more than they scroll.",
@@ -2896,7 +2989,7 @@ export const products: Product[] = [
     specs: [
       { label: "Cameras", value: "Triple rear with telephoto" },
       { label: "Storage", value: "128GB" },
-      { label: "Display", value: "6.5\" OLED" },
+      { label: "Display", value: '6.5" OLED' },
       { label: "Stabilization", value: "Optical (OIS)" },
     ],
     features: [
@@ -2912,14 +3005,15 @@ export const products: Product[] = [
     name: "Senior-Friendly Easy Phone",
     category: "Phones",
     price: 290000,
-    summary: "Senior-Friendly Easy Phone — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Senior-Friendly Easy Phone — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Senior-Friendly Easy Phone is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "A simplified launcher with larger icons and an SOS button, set up for a first-time or low-confidence smartphone user.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "6.0\", large icons" },
+      { label: "Display", value: '6.0", large icons' },
       { label: "Storage", value: "64GB" },
       { label: "Battery", value: "4,000mAh" },
       { label: "Extras", value: "SOS button, simplified UI" },
@@ -2937,14 +3031,15 @@ export const products: Product[] = [
     name: "Basic Feature Phone (Dual SIM)",
     category: "Phones",
     price: 95000,
-    summary: "Basic Feature Phone (Dual SIM) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Basic Feature Phone (Dual SIM) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Basic Feature Phone (Dual SIM) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "A classic button phone for calls and texts only — the backup phone we sell most to people heading somewhere remote.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "2.4\" keypad screen" },
+      { label: "Display", value: '2.4" keypad screen' },
       { label: "Battery", value: "2,000mAh, up to 10 days standby" },
       { label: "SIM", value: "Dual SIM" },
       { label: "Extras", value: "FM radio, flashlight" },
@@ -2962,14 +3057,15 @@ export const products: Product[] = [
     name: "Mid-Range Phone (128GB)",
     category: "Phones",
     price: 560000,
-    summary: "Mid-Range Phone (128GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Mid-Range Phone (128GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Mid-Range Phone (128GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "Sits a notch below our 256GB mid-ranger on storage and camera count, for buyers who don't need either at full spec.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "6.4\" IPS, 90Hz" },
+      { label: "Display", value: '6.4" IPS, 90Hz' },
       { label: "Storage", value: "128GB" },
       { label: "Battery", value: "4,800mAh" },
       { label: "Cameras", value: "Dual rear" },
@@ -2987,14 +3083,15 @@ export const products: Product[] = [
     name: "5G Budget Phone (128GB)",
     category: "Phones",
     price: 480000,
-    summary: "5G Budget Phone (128GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "5G Budget Phone (128GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "5G Budget Phone (128GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "Brings 5G down to budget pricing, for people who want the connectivity headroom without paying flagship prices for it.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "6.5\" IPS" },
+      { label: "Display", value: '6.5" IPS' },
       { label: "Storage", value: "128GB" },
       { label: "Connectivity", value: "5G, dual SIM" },
       { label: "Battery", value: "5,000mAh" },
@@ -3012,7 +3109,8 @@ export const products: Product[] = [
     name: "Long-Battery Phone (6,500mAh)",
     category: "Phones",
     price: 540000,
-    summary: "Long-Battery Phone (6,500mAh) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Long-Battery Phone (6,500mAh) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Long-Battery Phone (6,500mAh) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "Built around a battery that comfortably stretches past a full day even under heavy use, for people who lose chargers more than phones.",
@@ -3020,7 +3118,7 @@ export const products: Product[] = [
     ],
     specs: [
       { label: "Battery", value: "6,500mAh" },
-      { label: "Display", value: "6.6\" IPS, 90Hz" },
+      { label: "Display", value: '6.6" IPS, 90Hz' },
       { label: "Storage", value: "128GB" },
       { label: "Charging", value: "33W fast charge" },
     ],
@@ -3037,7 +3135,8 @@ export const products: Product[] = [
     name: "Slim Premium Phone (256GB)",
     category: "Phones",
     price: 1320000,
-    summary: "Slim Premium Phone (256GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Slim Premium Phone (256GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Slim Premium Phone (256GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "Trades some battery capacity for a noticeably slimmer, lighter feel in hand than most phones at this price.",
@@ -3045,7 +3144,7 @@ export const products: Product[] = [
     ],
     specs: [
       { label: "Thickness", value: "7.4mm" },
-      { label: "Display", value: "6.4\" AMOLED, 120Hz" },
+      { label: "Display", value: '6.4" AMOLED, 120Hz' },
       { label: "Storage", value: "256GB" },
       { label: "Build", value: "Glass and aluminium frame" },
     ],
@@ -3062,7 +3161,8 @@ export const products: Product[] = [
     name: "Stock Android Phone (128GB)",
     category: "Phones",
     price: 690000,
-    summary: "Stock Android Phone (128GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Stock Android Phone (128GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Stock Android Phone (128GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "Runs close to stock Android with minimal preinstalled apps, for people who'd rather set the phone up their own way.",
@@ -3071,7 +3171,7 @@ export const products: Product[] = [
     specs: [
       { label: "Software", value: "Near-stock Android, minimal bloat" },
       { label: "Storage", value: "128GB" },
-      { label: "Display", value: "6.4\" OLED, 90Hz" },
+      { label: "Display", value: '6.4" OLED, 90Hz' },
       { label: "Updates", value: "Extended OS update window" },
     ],
     features: [
@@ -3087,7 +3187,8 @@ export const products: Product[] = [
     name: "Dual-SIM Travel Phone (64GB)",
     category: "Phones",
     price: 310000,
-    summary: "Dual-SIM Travel Phone (64GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Dual-SIM Travel Phone (64GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Dual-SIM Travel Phone (64GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "Built around carrying two numbers at once — a local SIM and a travel SIM — without juggling two physical phones.",
@@ -3112,7 +3213,8 @@ export const products: Product[] = [
     name: "Kids' First Phone (32GB)",
     category: "Phones",
     price: 220000,
-    summary: "Kids' First Phone (32GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Kids' First Phone (32GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Kids' First Phone (32GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "Comes with parental controls already configured and a tougher shell, built as a first phone rather than a hand-me-down.",
@@ -3138,7 +3240,8 @@ export const products: Product[] = [
     category: "Phones",
     price: 980000,
     compareAtPrice: 1400000,
-    summary: "Refurbished Flagship Phone (256GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Refurbished Flagship Phone (256GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Refurbished Flagship Phone (256GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "A previous flagship, tested and certified before resale, for buyers who want top-tier hardware without the launch-day price.",
@@ -3163,7 +3266,8 @@ export const products: Product[] = [
     name: "Large-Battery Budget Phone (128GB)",
     category: "Phones",
     price: 410000,
-    summary: "Large-Battery Budget Phone (128GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
+    summary:
+      "Large-Battery Budget Phone (128GB) — set up and checked in-store before handover, the same way every phone leaving our counter is prepped.",
     description: [
       "Large-Battery Budget Phone (128GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the phones lineup we stand behind at the counter.",
       "Pairs a large battery with budget pricing, aimed at buyers who'd rather charge once every two days than chase a thin profile.",
@@ -3172,7 +3276,7 @@ export const products: Product[] = [
     specs: [
       { label: "Battery", value: "6,000mAh" },
       { label: "Storage", value: "128GB" },
-      { label: "Display", value: "6.6\" IPS" },
+      { label: "Display", value: '6.6" IPS' },
       { label: "Charging", value: "18W" },
     ],
     features: [
@@ -3185,17 +3289,18 @@ export const products: Product[] = [
   },
   {
     slug: "gaming-laptop-15-512gb-ssd",
-    name: "Gaming Laptop 15\" (512GB SSD)",
+    name: 'Gaming Laptop 15" (512GB SSD)',
     category: "Laptops",
     price: 4850000,
-    summary: "Gaming Laptop 15\" (512GB SSD) — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Gaming Laptop 15" (512GB SSD) — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Gaming Laptop 15\" (512GB SSD) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "A dedicated GPU and high-refresh display built for gaming first, with enough general performance to handle everyday use easily.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "15.6\" 144Hz" },
+      { label: "Display", value: '15.6" 144Hz' },
       { label: "Storage", value: "512GB SSD" },
       { label: "Graphics", value: "Dedicated GPU" },
       { label: "Memory", value: "16GB RAM" },
@@ -3210,17 +3315,18 @@ export const products: Product[] = [
   },
   {
     slug: "2-in-1-convertible-laptop-13",
-    name: "2-in-1 Convertible Laptop 13\"",
+    name: '2-in-1 Convertible Laptop 13"',
     category: "Laptops",
     price: 3150000,
-    summary: "2-in-1 Convertible Laptop 13\" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      '2-in-1 Convertible Laptop 13" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "2-in-1 Convertible Laptop 13\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "Folds flat into tablet mode for note-taking and sketching, then back into a normal laptop for typing-heavy work.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "13.3\" Touch FHD" },
+      { label: "Display", value: '13.3" Touch FHD' },
       { label: "Storage", value: "256GB SSD" },
       { label: "Hinge", value: "360° fold to tablet mode" },
       { label: "Pen support", value: "Yes" },
@@ -3235,17 +3341,18 @@ export const products: Product[] = [
   },
   {
     slug: "chromebook-14",
-    name: "Chromebook 14\"",
+    name: 'Chromebook 14"',
     category: "Laptops",
     price: 1250000,
-    summary: "Chromebook 14\" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Chromebook 14" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Chromebook 14\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "Built around browser-based work and ChromeOS's lighter footprint, for buyers who live mostly in web apps and documents.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "14\" FHD" },
+      { label: "Display", value: '14" FHD' },
       { label: "Storage", value: "64GB eMMC + cloud" },
       { label: "OS", value: "ChromeOS" },
       { label: "Battery", value: "Up to 12 hrs" },
@@ -3260,17 +3367,18 @@ export const products: Product[] = [
   },
   {
     slug: "mini-laptop-11",
-    name: "Mini Laptop 11\"",
+    name: 'Mini Laptop 11"',
     category: "Laptops",
     price: 1650000,
-    summary: "Mini Laptop 11\" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Mini Laptop 11" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Mini Laptop 11\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "The smallest and lightest laptop we stock, sized for a bag that already has too much in it.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "11.6\" HD" },
+      { label: "Display", value: '11.6" HD' },
       { label: "Weight", value: "0.95kg" },
       { label: "Storage", value: "128GB SSD" },
       { label: "Battery", value: "Up to 10 hrs" },
@@ -3285,17 +3393,18 @@ export const products: Product[] = [
   },
   {
     slug: "workstation-laptop-16-1tb-ssd",
-    name: "Workstation Laptop 16\" (1TB SSD)",
+    name: 'Workstation Laptop 16" (1TB SSD)',
     category: "Laptops",
     price: 6800000,
-    summary: "Workstation Laptop 16\" (1TB SSD) — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Workstation Laptop 16" (1TB SSD) — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Workstation Laptop 16\" (1TB SSD) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "Built for CAD, 3D rendering, and heavy multitasking, with the memory and graphics headroom those workloads actually need.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "16\" QHD" },
+      { label: "Display", value: '16" QHD' },
       { label: "Storage", value: "1TB SSD" },
       { label: "Memory", value: "32GB RAM" },
       { label: "Graphics", value: "Professional-grade GPU" },
@@ -3310,11 +3419,12 @@ export const products: Product[] = [
   },
   {
     slug: "refurbished-business-laptop-14",
-    name: "Refurbished Business Laptop 14\"",
+    name: 'Refurbished Business Laptop 14"',
     category: "Laptops",
     price: 1450000,
     compareAtPrice: 1900000,
-    summary: "Refurbished Business Laptop 14\" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Refurbished Business Laptop 14" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Refurbished Business Laptop 14\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "A previous-generation business laptop, tested and certified, for buyers who want a known-reliable brand without the new-unit price.",
@@ -3322,7 +3432,7 @@ export const products: Product[] = [
     ],
     specs: [
       { label: "Condition", value: "Certified refurbished, grade A" },
-      { label: "Display", value: "14\" FHD" },
+      { label: "Display", value: '14" FHD' },
       { label: "Storage", value: "256GB SSD" },
       { label: "Warranty", value: "6 months" },
     ],
@@ -3336,17 +3446,18 @@ export const products: Product[] = [
   },
   {
     slug: "touchscreen-laptop-14",
-    name: "Touchscreen Laptop 14\"",
+    name: 'Touchscreen Laptop 14"',
     category: "Laptops",
     price: 2950000,
-    summary: "Touchscreen Laptop 14\" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Touchscreen Laptop 14" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Touchscreen Laptop 14\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "Touch input layered onto a standard laptop body, useful for anyone who's used to tapping a phone or tablet screen out of habit.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "14\" FHD touchscreen" },
+      { label: "Display", value: '14" FHD touchscreen' },
       { label: "Storage", value: "256GB SSD" },
       { label: "Memory", value: "8GB RAM" },
       { label: "Battery", value: "Up to 9 hrs" },
@@ -3361,10 +3472,11 @@ export const products: Product[] = [
   },
   {
     slug: "lightweight-laptop-13-256gb",
-    name: "Lightweight Laptop 13\" (256GB)",
+    name: 'Lightweight Laptop 13" (256GB)',
     category: "Laptops",
     price: 2750000,
-    summary: "Lightweight Laptop 13\" (256GB) — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Lightweight Laptop 13" (256GB) — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Lightweight Laptop 13\" (256GB) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "Sits between our 13-inch ultraportable and a budget machine — light enough to carry, priced for everyday buyers.",
@@ -3372,7 +3484,7 @@ export const products: Product[] = [
     ],
     specs: [
       { label: "Weight", value: "1.1kg" },
-      { label: "Display", value: "13.3\" FHD" },
+      { label: "Display", value: '13.3" FHD' },
       { label: "Storage", value: "256GB SSD" },
       { label: "Battery", value: "Up to 12 hrs" },
     ],
@@ -3386,17 +3498,18 @@ export const products: Product[] = [
   },
   {
     slug: "large-screen-laptop-17",
-    name: "Large-Screen Laptop 17\"",
+    name: 'Large-Screen Laptop 17"',
     category: "Laptops",
     price: 3450000,
-    summary: "Large-Screen Laptop 17\" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Large-Screen Laptop 17" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Large-Screen Laptop 17\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "Built to mostly stay on a desk — the screen size that makes spreadsheets and split-window work genuinely comfortable.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "17.3\" FHD" },
+      { label: "Display", value: '17.3" FHD' },
       { label: "Storage", value: "512GB SSD" },
       { label: "Memory", value: "16GB RAM" },
       { label: "Build", value: "Desktop-replacement chassis" },
@@ -3411,17 +3524,18 @@ export const products: Product[] = [
   },
   {
     slug: "developer-laptop-14-1tb-ssd-32gb-ram",
-    name: "Developer Laptop 14\" (1TB SSD, 32GB RAM)",
+    name: 'Developer Laptop 14" (1TB SSD, 32GB RAM)',
     category: "Laptops",
     price: 6200000,
-    summary: "Developer Laptop 14\" (1TB SSD, 32GB RAM) — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Developer Laptop 14" (1TB SSD, 32GB RAM) — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Developer Laptop 14\" (1TB SSD, 32GB RAM) is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "Specced for running local environments, containers, and multiple IDEs open at once without the fan spinning up constantly.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "14\" QHD" },
+      { label: "Display", value: '14" QHD' },
       { label: "Storage", value: "1TB SSD" },
       { label: "Memory", value: "32GB RAM" },
       { label: "Build", value: "Aluminium chassis" },
@@ -3436,17 +3550,18 @@ export const products: Product[] = [
   },
   {
     slug: "budget-chromebook-11",
-    name: "Budget Chromebook 11\"",
+    name: 'Budget Chromebook 11"',
     category: "Laptops",
     price: 850000,
-    summary: "Budget Chromebook 11\" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Budget Chromebook 11" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Budget Chromebook 11\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "The lowest-cost laptop we stock, aimed squarely at students who need a browser, documents, and not much else.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "11.6\" HD" },
+      { label: "Display", value: '11.6" HD' },
       { label: "Storage", value: "32GB eMMC + cloud" },
       { label: "OS", value: "ChromeOS" },
       { label: "Battery", value: "Up to 10 hrs" },
@@ -3461,17 +3576,18 @@ export const products: Product[] = [
   },
   {
     slug: "laptop-with-numpad-15",
-    name: "Laptop with Numpad 15\"",
+    name: 'Laptop with Numpad 15"',
     category: "Laptops",
     price: 2350000,
-    summary: "Laptop with Numpad 15\" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Laptop with Numpad 15" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Laptop with Numpad 15\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "Keeps the dedicated number pad most 14-inch laptops drop, built for anyone doing regular spreadsheet or data entry work.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "15.6\" FHD" },
+      { label: "Display", value: '15.6" FHD' },
       { label: "Keyboard", value: "Full-size with numpad" },
       { label: "Storage", value: "256GB SSD" },
       { label: "Memory", value: "8GB RAM" },
@@ -3486,10 +3602,11 @@ export const products: Product[] = [
   },
   {
     slug: "silent-fanless-laptop-13",
-    name: "Silent Fanless Laptop 13\"",
+    name: 'Silent Fanless Laptop 13"',
     category: "Laptops",
     price: 3050000,
-    summary: "Silent Fanless Laptop 13\" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Silent Fanless Laptop 13" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Silent Fanless Laptop 13\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "No fan means no fan noise — built for quiet offices and meeting rooms where a spinning-up laptop fan is the only thing audible.",
@@ -3497,7 +3614,7 @@ export const products: Product[] = [
     ],
     specs: [
       { label: "Cooling", value: "Fanless, passive" },
-      { label: "Display", value: "13.3\" FHD" },
+      { label: "Display", value: '13.3" FHD' },
       { label: "Storage", value: "256GB SSD" },
       { label: "Battery", value: "Up to 13 hrs" },
     ],
@@ -3511,17 +3628,18 @@ export const products: Product[] = [
   },
   {
     slug: "laptop-for-video-editing-16",
-    name: "Laptop for Video Editing 16\"",
+    name: 'Laptop for Video Editing 16"',
     category: "Laptops",
     price: 5600000,
-    summary: "Laptop for Video Editing 16\" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Laptop for Video Editing 16" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Laptop for Video Editing 16\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "Colour-accurate display and a dedicated GPU built around timeline scrubbing and export speed, not just general use.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "16\" QHD, colour-accurate" },
+      { label: "Display", value: '16" QHD, colour-accurate' },
       { label: "Storage", value: "1TB SSD" },
       { label: "Memory", value: "32GB RAM" },
       { label: "Graphics", value: "Dedicated GPU" },
@@ -3536,17 +3654,18 @@ export const products: Product[] = [
   },
   {
     slug: "entry-level-office-laptop-14",
-    name: "Entry-Level Office Laptop 14\"",
+    name: 'Entry-Level Office Laptop 14"',
     category: "Laptops",
     price: 1850000,
-    summary: "Entry-Level Office Laptop 14\" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.",
+    summary:
+      'Entry-Level Office Laptop 14" — set up and tested in-store before handover, the same prep every laptop leaving our counter gets.',
     description: [
       "Entry-Level Office Laptop 14\" is built for everyday reliability — straightforward to set up and dependable once it's in regular use, in the laptops lineup we stand behind at the counter.",
       "Built for documents, spreadsheets, and browser tabs — the laptop we point small offices toward when budget is the deciding factor.",
       "As with everything we stock, this is something we'd actually hand to a customer who asked us directly what to buy — not just a line filling out the shelf.",
     ],
     specs: [
-      { label: "Display", value: "14\" HD" },
+      { label: "Display", value: '14" HD' },
       { label: "Storage", value: "256GB SSD" },
       { label: "Memory", value: "8GB RAM" },
       { label: "Battery", value: "Up to 8 hrs" },
@@ -3567,10 +3686,10 @@ export function getProductBySlug(slug: string): Product | undefined {
 
 export function getRelatedProducts(product: Product, count = 3): Product[] {
   const sameCategory = products.filter(
-    (p) => p.category === product.category && p.slug !== product.slug
+    (p) => p.category === product.category && p.slug !== product.slug,
   );
   const rest = products.filter(
-    (p) => p.category !== product.category && p.slug !== product.slug
+    (p) => p.category !== product.category && p.slug !== product.slug,
   );
   return [...sameCategory, ...rest].slice(0, count);
 }
