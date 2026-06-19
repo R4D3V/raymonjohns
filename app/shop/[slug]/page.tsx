@@ -110,14 +110,14 @@ export default async function ProductPage({
             </ButtonLink>
             <a
               href={`https://wa.me/256751621506?text=${encodeURIComponent(
-                `Hi! I'd like to ask about: ${product.name}`
+                `Hi! I'd like to ask about: ${product.name} https://raymonjohns.vercel.app/shop/${product.slug}`,
               )}`}
               target="_blank"
               rel="noreferrer"
               className="neu-pressable neu-focus neu-inset inline-flex items-center gap-2 rounded-neu-pill px-6 py-3 font-mono text-xs uppercase tracking-wider text-accent-green"
             >
               <MessageCircle size={14} />
-              WhatsApp
+              Buy Now
             </a>
           </div>
         </div>
@@ -167,7 +167,10 @@ export default async function ProductPage({
 
       {related.length > 0 && (
         <section>
-          <SectionHeading eyebrow="You might also need" title="Related products" />
+          <SectionHeading
+            eyebrow="You might also need"
+            title="Related products"
+          />
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((p) => (
               <ProductCard key={p.slug} product={p} />
