@@ -1,13 +1,20 @@
+import Link from "next/link";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { ButtonLink } from "@/components/neu-button";
 import Typewriter from "@/components/typewriter";
 import DevicePanel from "@/components/device-panel";
 import ProjectCard from "@/components/project-card";
 import SectionHeading from "@/components/section-heading";
 import RadialGauge from "@/components/radial-gauge";
-import { skillGroups, projects } from "@/lib/data";
+import ServiceIcon from "@/components/service-icon";
+import SoftwareThumbnail from "@/components/software-thumbnail";
+import PlatformIcon from "@/components/platform-icon";
+import { skillGroups, projects, services, softwarePlatforms } from "@/lib/data";
+import { accentText } from "@/lib/accent";
 
 export default function Home() {
   const featured = projects.slice(0, 3);
+  const featuredServices = services.slice(0, 3);
 
   return (
     <div className="flex flex-col gap-24 pb-24 pt-10 sm:pt-16">
@@ -83,6 +90,105 @@ export default function Home() {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((project, i) => (
             <ProjectCard key={project.slug} project={project} index={i + 1} />
+          ))}
+        </div>
+      </section>
+
+      {/* Featured services */}
+      <section>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <SectionHeading
+            eyebrow="What I offer"
+            title="Ways to work together"
+            description="Design, build, and device work — most projects end up touching more than one of these."
+          />
+          <ButtonLink href="/services" variant="inset" withArrow>
+            All services
+          </ButtonLink>
+        </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          {featuredServices.map((service) => (
+            <div
+              key={service.title}
+              className="neu-raised flex flex-col gap-4 p-6"
+            >
+              <div
+                className={`neu-inset-sm flex h-14 w-14 items-center justify-center ${accentText[service.accent]}`}
+              >
+                <ServiceIcon title={service.title} />
+              </div>
+              <h3 className="font-display text-lg font-bold text-ink">
+                {service.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-ink-muted">
+                {service.description}
+              </p>
+              <ul className="mt-1 space-y-2">
+                {service.deliverables.slice(0, 2).map((d) => (
+                  <li
+                    key={d}
+                    className="flex items-start gap-2 text-sm text-ink-muted"
+                  >
+                    <CheckCircle2
+                      size={16}
+                      className={`mt-0.5 shrink-0 ${accentText[service.accent]}`}
+                    />
+                    {d}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Software platforms teaser */}
+      <section>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <SectionHeading
+            eyebrow="Software"
+            title="Tools worth keeping on every machine"
+            description="Curated picks across Windows, macOS, and Android — everything I actually use."
+          />
+          <ButtonLink href="/software" variant="inset" withArrow>
+            All software
+          </ButtonLink>
+        </div>
+        <div className="mt-10 grid gap-8 sm:grid-cols-3">
+          {softwarePlatforms.map((platform) => (
+            <Link
+              key={platform.slug}
+              href={`/software/${platform.slug}`}
+              className="neu-raised neu-pressable neu-focus group flex flex-col gap-0 overflow-hidden"
+            >
+              <div className="h-32 w-full overflow-hidden">
+                <SoftwareThumbnail
+                  slug={platform.slug}
+                  className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-col gap-3 p-5">
+                <div className="flex items-center justify-between">
+                  <div
+                    className={`neu-inset-sm flex h-10 w-10 items-center justify-center ${accentText[platform.accent]}`}
+                  >
+                    <PlatformIcon slug={platform.slug} className="h-5 w-5" />
+                  </div>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-ink-faint transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent-blue"
+                  />
+                </div>
+                <div>
+                  <p className={`eyebrow ${accentText[platform.accent]}`}>
+                    {platform.items.length} picks
+                  </p>
+                  <h3 className="mt-1 font-display text-xl font-bold text-ink">
+                    {platform.label}
+                  </h3>
+                </div>
+              </div>
+            </Link>
           ))}
         </div>
       </section>

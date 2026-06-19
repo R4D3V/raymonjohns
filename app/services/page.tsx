@@ -12,6 +12,12 @@ const serviceSlug: Record<string, string> = {
   "Brand Identity": "/services/brand-identity",
   "Graphic Design": "/services/graphic-design",
   "Site Migration & Performance": "/services/migration",
+  "Phone Repair": "/services/phone-repair",
+  "Phone Flashing": "/services/phone-flashing",
+  "Windows Installation": "/services/windows-installation",
+  "macOS Installation": "/services/macos-installation",
+  "App Installation": "/services/app-installation",
+  "Software Reselling": "/services/software-reselling",
 };
 
 export const metadata: Metadata = {

@@ -2,7 +2,6 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Work" },
-  { href: "/skills", label: "Skills" },
   { href: "/services", label: "Services" },
   { href: "/software", label: "Software" },
   { href: "/contact", label: "Contact" },
@@ -242,6 +241,77 @@ export const services: Service[] = [
       "Performance audits",
     ],
     accent: "green",
+  },
+  {
+    title: "Phone Repair",
+    description:
+      "Screen replacements, battery swaps, charging port fixes, camera repairs, and everything in between — diagnosed properly before anything is touched.",
+    deliverables: [
+      "Free diagnostic before any repair",
+      "Screen & display replacement",
+      "Battery & charging port repair",
+      "Camera, speaker & mic fixes",
+    ],
+    accent: "blue",
+  },
+  {
+    title: "Phone Flashing",
+    description:
+      "Stock firmware restoration, custom ROM installation, IMEI repair, and bootloader unlocking — handled with the right tools for your exact device model.",
+    deliverables: [
+      "Stock firmware flashing (MTK & Qualcomm)",
+      "Custom ROM & recovery installation",
+      "IMEI & baseband repair",
+      "Bootloader unlock & FRP bypass",
+    ],
+    accent: "coral",
+  },
+  {
+    title: "Windows Installation",
+    description:
+      "Clean Windows installs, driver setup, activation, and optimisation — leaving you with a fast, bloat-free system ready to use from day one.",
+    deliverables: [
+      "Clean Windows 10 / 11 installation",
+      "Driver installation & hardware setup",
+      "Windows activation",
+      "Post-install optimisation & updates",
+    ],
+    accent: "violet",
+  },
+  {
+    title: "macOS Installation",
+    description:
+      "Fresh macOS installs, reinstalls, and system recovery — including Hackintosh setups and migration from an old Mac to a new one.",
+    deliverables: [
+      "macOS clean install & recovery",
+      "Hackintosh EFI setup",
+      "Mac-to-Mac data migration",
+      "System preferences & iCloud setup",
+    ],
+    accent: "green",
+  },
+  {
+    title: "App Installation",
+    description:
+      "Getting the right software onto your Windows or macOS machine — including licensed tools, productivity suites, creative apps, and developer toolchains.",
+    deliverables: [
+      "Productivity & office suite setup",
+      "Creative & design app installation",
+      "Developer toolchain configuration",
+      "Software activation & licensing help",
+    ],
+    accent: "coral",
+  },
+  {
+    title: "Software Reselling",
+    description:
+      "Licensed access to the GSM repair tools technicians rely on daily — UnlockTool, Pandora, BorneoSchematics, Chimera Tool, and GiveMeROM — activated and ready to use.",
+    deliverables: [
+      "UnlockTool, Pandora & Chimera activations",
+      "BorneoSchematics & GiveMeROM access",
+      "Setup, login & first-use support",
+    ],
+    accent: "blue",
   },
 ];
 
@@ -495,5 +565,133 @@ export const softwarePlatforms: SoftwarePlatform[] = [
         free: true,
       },
     ],
+  },
+];
+
+// ─── Software Reselling Tools ──────────────────────────────────────────────
+
+export type ResellTool = {
+  slug: string;
+  name: string;
+  tagline: string;
+  image: string;
+  summary: string;
+  body: string[];
+  features: string[];
+  bestFor: string;
+};
+
+export const resellTools: ResellTool[] = [
+  {
+    slug: "unlocktool",
+    name: "UnlockTool",
+    tagline: "Best value multi-brand unlocking",
+    image:
+      "https://static.dhrufusion.net/257c64eb-d0d3-4c38-91fe-fdf46654c863/2025/03/27/2IMlNaPk_logo.png",
+    summary:
+      "A fast-moving, budget-friendly unlock and flashing tool with strong coverage for Chinese brands and one of the few multi-brand tools that also handles iPhone workflows.",
+    body: [
+      "UnlockTool is a professional GSM servicing tool used for Android account service, flashing, factory reset, and bootloader operations — with particularly strong support for Xiaomi, Redmi, POCO, OPPO, vivo, and Realme.",
+      "It runs on a time-based digital license (3, 6, or 12 months) rather than a physical dongle, and updates land frequently — new chipset support and bug fixes typically ship every few weeks.",
+      "It's widely considered the best price-to-value option in this category, and is one of the few multi-brand tools that also covers some iPhone workflows alongside Android.",
+    ],
+    features: [
+      "Account service & factory reset",
+      "MTK and Qualcomm flashing",
+      "Bootloader unlock operations",
+      "Strong Xiaomi / OPPO / vivo / Realme coverage",
+      "Frequent updates and new model support",
+    ],
+    bestFor:
+      "Technicians who want the most affordable entry point into multi-brand servicing, especially for Chinese-brand devices.",
+  },
+  {
+    slug: "pandora-tool",
+    name: "Pandora Tool",
+    tagline: "Advanced MTK unlocking & flashing",
+    image: "https://z3x-team.com/wp-content/uploads/2020/12/logo.png",
+    summary:
+      "A technician-favourite for MediaTek (MTK) and Unisoc chipset work — unlocking, flashing, and FRP removal with a straightforward interface.",
+    body: [
+      "Pandora Tool (by Z3X Team) is built specifically for phones and tablets on MediaTek and Unisoc chipsets, with direct access to bootloaders, preloaders, and memory regions for deeper repair work than most flashing tools allow.",
+      "It can read device service info, unlock network locks, repair bootlooped devices, erase FRP, format flash memory, and make or restore full device backups.",
+      "Available either as the original aluminium-boxed hardware unit or as an online activation that skips the box entirely — the same supported model list either way.",
+    ],
+    features: [
+      "MTK & Unisoc chipset specialist",
+      "FRP erase & network unlocking",
+      "Bootloop & preloader repair",
+      "Device backup & restore",
+      "Online activation, no box required",
+    ],
+    bestFor:
+      "Shops doing high volumes of MediaTek-based repairs who want a tool built specifically for that chipset family.",
+  },
+  {
+    slug: "borneoschematics",
+    name: "BorneoSchematics",
+    tagline: "Schematics & hardware repair data",
+    image:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmta3mUW6MmaepUCydPiIkJfJYp8rTdwzfynlP-AwEBmm76DGK0R20ZB3hDeEDLtPqcCUrTh5jMFYGylw4TCB8iPLI4RhAwj_xI-14GJkQMQw5HCfgvB5xtW9p1O9ypVStjhhbIUtGtjI/s1600/logo.png",
+    summary:
+      "A daily-updated library of circuit diagrams, PCB bitmaps, and component-level hardware solutions for phones, tablets, and laptops.",
+    body: [
+      "BorneoSchematics isn't a flashing tool — it's a hardware reference library. It provides circuit diagrams, board layouts, bitmap motherboard images, and component datasheets for a constantly growing list of phone and laptop models.",
+      "Technicians use it to trace the exact circuit responsible for a fault — charging failure, no power, bootloop, dead board — instead of testing components one by one with a multimeter and guesswork.",
+      "The database is refreshed daily with new models, and access works through a desktop app for Windows and macOS plus a companion website.",
+    ],
+    features: [
+      "Daily-updated schematic database",
+      "PCB bitmaps & board layouts",
+      "Component datasheets & voltage points",
+      "Covers phones, tablets & laptops",
+      "Windows & macOS app access",
+    ],
+    bestFor:
+      "Anyone doing board-level hardware diagnosis who needs to know exactly where to test, not just which tool to flash with.",
+  },
+  {
+    slug: "chimera-tool",
+    name: "Chimera Tool",
+    tagline: "All-in-one Android repair suite",
+    image: "https://chimeratool.com/images/og.png",
+    summary:
+      "A professional-grade, all-in-one tool covering bootloader unlock/relock, FRP removal, IMEI repair, and firmware work across 10,000+ models.",
+    body: [
+      "ChimeraTool is an all-in-one mobile repair suite supporting over 10,000 phone models from 30+ manufacturers, with no hardware dongle required to get started.",
+      "Core functions include IMEI repair, MAC repair, certificate patching, FRP/account lock removal, network factory reset, online code reading, firmware updates, and one-click bootloader unlock or relock.",
+      "Licensing is tiered (Basic, Professional, Premium) so individual technicians and full repair shops can pick a plan that matches their monthly repair volume, with the option to upgrade later.",
+    ],
+    features: [
+      "IMEI & MAC repair",
+      "FRP / account lock removal",
+      "Bootloader unlock & relock",
+      "Firmware update across 30+ brands",
+      "No hardware box required",
+    ],
+    bestFor:
+      "Shops that want one broad tool covering unlocking, FRP, IMEI, and firmware work across the widest range of brands.",
+  },
+  {
+    slug: "givemerom",
+    name: "GiveMeROM",
+    tagline: "Firmware & stock ROM access",
+    image: "https://www.givemerom.com/media/site/1-01778059525.png",
+    summary:
+      "A firmware access service for sourcing stock ROMs, dump files, and official firmware packages by exact device model and region.",
+    body: [
+      "GiveMeROM is a firmware download service rather than a flashing tool — it hosts official stock ROMs, EMMC/UFS dump files, NV/QCN files, schematic diagrams, and flashing tool downloads for a huge range of devices.",
+      "New files are added daily across brands like Samsung, Xiaomi, vivo, OPPO, Realme, and Tecno, so the right regional firmware build is usually just a search away instead of a forum hunt.",
+      "Access works on a package/credit system — pay for a plan, then download the specific firmware files needed for the job at hand.",
+    ],
+    features: [
+      "Official stock ROMs by exact model & region",
+      "EMMC/UFS dump & QCN files",
+      "Daily-updated file library",
+      "Schematic & test-point downloads included",
+      "Package-based access, pay for what you use",
+    ],
+    bestFor:
+      "Technicians who already have a flashing tool but keep losing time hunting for the correct firmware file.",
   },
 ];

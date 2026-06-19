@@ -1,8 +1,12 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Download, ExternalLink } from "lucide-react";
 import SoftwareThumbnail from "@/components/software-thumbnail";
 import PlatformIcon from "@/components/platform-icon";
 import SectionHeading from "@/components/section-heading";
+import SearchInput from "@/components/search-input";
 import type { SoftwarePlatform } from "@/lib/data";
 import { accentText } from "@/lib/accent";
 
@@ -11,9 +15,27 @@ type Props = { platform: SoftwarePlatform };
 const categoryOrder = ["Development", "Design", "Device Tools", "Productivity", "Utilities"];
 
 export default function SoftwarePlatformPage({ platform }: Props) {
+  const [query, setQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
   const categories = categoryOrder.filter((cat) =>
     platform.items.some((item) => item.category === cat)
   );
+
+  const filteredItems = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return platform.items.filter((item) => {
+      const matchesCategory = activeCategory ? item.category === activeCategory : true;
+      const matchesQuery = q
+        ? item.name.toLowerCase().includes(q) ||
+          item.description.toLowerCase().includes(q) ||
+          item.category.toLowerCase().includes(q)
+        : true;
+      return matchesCategory && matchesQuery;
+    });
+  }, [platform.items, query, activeCategory]);
+
+  const categoriesToShow = activeCategory ? [activeCategory] : categories;
 
   return (
     <div className="flex flex-col gap-14 py-12 sm:py-16">
@@ -60,12 +82,18 @@ export default function SoftwarePlatformPage({ platform }: Props) {
               <dt className="font-mono text-[11px] uppercase tracking-wider text-ink-faint">Categories</dt>
               <dd className="mt-2 flex flex-wrap gap-2">
                 {categories.map((cat) => (
-                  <span
+                  <button
+                    type="button"
                     key={cat}
-                    className="neu-inset-sm px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-ink-muted"
+                    onClick={() => setActiveCategory(cat === activeCategory ? null : cat)}
+                    className={`neu-pressable neu-focus px-3 py-1 font-mono text-[10px] uppercase tracking-wide transition-colors ${
+                      activeCategory === cat
+                        ? `neu-inset ${accentText[platform.accent]}`
+                        : "neu-inset-sm text-ink-muted hover:text-accent-blue"
+                    }`}
                   >
                     {cat}
-                  </span>
+                  </button>
                 ))}
               </dd>
             </div>
@@ -81,9 +109,27 @@ export default function SoftwarePlatformPage({ platform }: Props) {
         </div>
       </section>
 
+      {/* search */}
+      <SearchInput
+        value={query}
+        onChange={setQuery}
+        placeholder={`Search ${platform.label} tools...`}
+        className="max-w-lg"
+      />
+
+      {/* no results */}
+      {filteredItems.length === 0 && (
+        <div className="neu-inset flex flex-col items-center gap-2 rounded-neu-lg p-10 text-center">
+          <p className="text-ink">No tools match &quot;{query}&quot;.</p>
+          <p className="text-sm text-ink-muted">Try a different word, or clear the search.</p>
+        </div>
+      )}
+
       {/* product list, grouped by category */}
-      {categories.map((cat) => {
-        const catItems = platform.items.filter((item) => item.category === cat);
+      {filteredItems.length > 0 &&
+        categoriesToShow.map((cat) => {
+        const catItems = filteredItems.filter((item) => item.category === cat);
+        if (catItems.length === 0) return null;
         return (
           <section key={cat}>
             <SectionHeading eyebrow={cat} title={cat} />

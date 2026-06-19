@@ -1,6 +1,26 @@
 import Link from "next/link";
-import { Phone, Mail, MessageCircle } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MessageCircle,
+  Home,
+  User,
+  Briefcase,
+  Wrench,
+  Terminal,
+  Send,
+  type LucideIcon,
+} from "lucide-react";
 import { navLinks } from "@/lib/data";
+
+const pageIcons: Record<string, LucideIcon> = {
+  "/": Home,
+  "/about": User,
+  "/projects": Briefcase,
+  "/services": Wrench,
+  "/software": Terminal,
+  "/contact": Send,
+};
 
 const socials = [
   { href: "mailto:raymonjohns@gmail.com", label: "Email", icon: Mail },
@@ -33,16 +53,20 @@ export default function Footer() {
             <div>
               <p className="eyebrow mb-3">Pages</p>
               <ul className="space-y-2">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="neu-focus rounded-neu-sm text-sm text-ink-muted hover:text-accent-blue"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+                {navLinks.map((link) => {
+                  const Icon = pageIcons[link.href] ?? Home;
+                  return (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="neu-focus rounded-neu-sm flex items-center gap-2 text-sm text-ink-muted hover:text-accent-blue"
+                      >
+                        <Icon size={15} />
+                        {link.label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
