@@ -112,6 +112,23 @@ export async function deleteProduct(slug: string) {
   await writeProductsFile(next, currentCategories);
 }
 
+export async function deleteProducts(slugs: string[]) {
+  assertLocalWriteAllowed();
+  const slugSet = new Set(slugs);
+  if (slugSet.size === 0) {
+    throw new Error("No products selected.");
+  }
+
+  const next = currentProducts.filter((p) => !slugSet.has(p.slug));
+  const removedCount = currentProducts.length - next.length;
+  if (removedCount === 0) {
+    throw new Error("None of the selected products were found.");
+  }
+
+  await writeProductsFile(next, currentCategories);
+  return { removedCount };
+}
+
 export async function saveCategories(categories: string[]) {
   assertLocalWriteAllowed();
   const cleaned = Array.from(
@@ -132,4 +149,31 @@ export async function saveCategories(categories: string[]) {
   }
 
   await writeProductsFile(currentProducts, cleaned);
+}
+
+export async function deleteCategories(categoriesToDelete: string[]) {
+  assertLocalWriteAllowed();
+  const toDelete = new Set(categoriesToDelete);
+  if (toDelete.size === 0) {
+    throw new Error("No categories selected.");
+  }
+
+  const inUse = [...toDelete].filter((c) =>
+    currentProducts.some((p) => p.category === c)
+  );
+  if (inUse.length > 0) {
+    throw new Error(
+      `Cannot remove ${inUse.join(", ")} — products still use ${
+        inUse.length > 1 ? "these categories" : "this category"
+      }. Reassign or delete those products first.`
+    );
+  }
+
+  const next = currentCategories.filter((c) => !toDelete.has(c));
+  if (next.length === 0) {
+    throw new Error("At least one category is required.");
+  }
+
+  await writeProductsFile(currentProducts, next);
+  return { removedCount: currentCategories.length - next.length };
 }

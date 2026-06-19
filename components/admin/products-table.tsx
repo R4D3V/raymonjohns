@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Pencil, Trash2, Plus, Loader2 } from "lucide-react";
 import type { Product } from "@/lib/products";
 import { formatPrice } from "@/lib/products";
-import { deleteProduct } from "@/lib/admin/actions";
+import { deleteProduct, deleteProducts } from "@/lib/admin/actions";
 import { accentText } from "@/lib/accent";
 import SearchInput from "@/components/search-input";
 
@@ -28,6 +28,8 @@ export default function ProductsTable({ products, categories }: Props) {
   const [pendingSlug, setPendingSlug] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
+  const [isBulkPending, startBulkTransition] = useTransition();
+  const [selected, setSelected] = useState<Set<string>>(new Set());
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -40,6 +42,37 @@ export default function ProductsTable({ products, categories }: Props) {
     });
   }, [products, query, activeCategory]);
 
+  // After any delete succeeds, products/selected naturally stay in sync
+  // because we explicitly remove deleted slugs from selection below —
+  // no effect needed to "catch up" stale selection state.
+
+  const allFilteredSelected =
+    filtered.length > 0 && filtered.every((p) => selected.has(p.slug));
+  const someFilteredSelected = filtered.some((p) => selected.has(p.slug));
+
+  const toggleOne = (slug: string) => {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(slug)) next.delete(slug);
+      else next.add(slug);
+      return next;
+    });
+  };
+
+  const toggleAllFiltered = () => {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (allFilteredSelected) {
+        filtered.forEach((p) => next.delete(p.slug));
+      } else {
+        filtered.forEach((p) => next.add(p.slug));
+      }
+      return next;
+    });
+  };
+
+  const clearSelection = () => setSelected(new Set());
+
   const handleDelete = (slug: string) => {
     if (!window.confirm(`Delete "${slug}"? This can't be undone.`)) return;
     setError(null);
@@ -47,11 +80,38 @@ export default function ProductsTable({ products, categories }: Props) {
     startTransition(async () => {
       try {
         await deleteProduct(slug);
+        setSelected((prev) => {
+          if (!prev.has(slug)) return prev;
+          const next = new Set(prev);
+          next.delete(slug);
+          return next;
+        });
         router.refresh();
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to delete product.");
       } finally {
         setPendingSlug(null);
+      }
+    });
+  };
+
+  const handleBulkDelete = () => {
+    const slugs = [...selected];
+    if (slugs.length === 0) return;
+    const confirmMsg =
+      slugs.length === 1
+        ? `Delete "${slugs[0]}"? This can't be undone.`
+        : `Delete ${slugs.length} selected products? This can't be undone.`;
+    if (!window.confirm(confirmMsg)) return;
+
+    setError(null);
+    startBulkTransition(async () => {
+      try {
+        await deleteProducts(slugs);
+        clearSelection();
+        router.refresh();
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to delete selected products.");
       }
     });
   };
@@ -96,18 +156,73 @@ export default function ProductsTable({ products, categories }: Props) {
         ))}
       </div>
 
+      {/* bulk action bar — only shown once something is selected */}
+      {selected.size > 0 && (
+        <div className="neu-inset flex flex-wrap items-center justify-between gap-3 rounded-neu-md p-4">
+          <p className="font-mono text-xs uppercase tracking-wider text-ink-muted">
+            {selected.size} selected
+          </p>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={clearSelection}
+              className="neu-focus font-mono text-xs uppercase tracking-wider text-ink-muted hover:text-accent-blue"
+            >
+              Clear
+            </button>
+            <button
+              type="button"
+              onClick={handleBulkDelete}
+              disabled={isBulkPending}
+              className="neu-pressable neu-focus flex items-center gap-2 rounded-neu-pill px-4 py-2 font-mono text-xs uppercase tracking-wider text-accent-coral disabled:opacity-50"
+            >
+              {isBulkPending ? (
+                <Loader2 size={14} className="animate-spin" />
+              ) : (
+                <Trash2 size={14} />
+              )}
+              {isBulkPending ? "Deleting..." : `Delete ${selected.size}`}
+            </button>
+          </div>
+        </div>
+      )}
+
       {filtered.length === 0 ? (
         <div className="neu-inset flex flex-col items-center gap-2 rounded-neu-lg p-10 text-center">
           <p className="text-ink">No products match.</p>
         </div>
       ) : (
         <div className="neu-raised flex flex-col divide-y divide-[var(--shadow-dark)]/20 overflow-hidden p-2">
+          {/* select-all row */}
+          <div className="flex items-center gap-3 px-4 py-2">
+            <input
+              type="checkbox"
+              checked={allFilteredSelected}
+              ref={(el) => {
+                if (el) el.indeterminate = !allFilteredSelected && someFilteredSelected;
+              }}
+              onChange={toggleAllFiltered}
+              aria-label="Select all visible products"
+              className="neu-focus h-4 w-4 accent-[var(--accent-blue)]"
+            />
+            <span className="font-mono text-[11px] uppercase tracking-wider text-ink-faint">
+              Select all ({filtered.length})
+            </span>
+          </div>
+
           {filtered.map((p) => (
             <div
               key={p.slug}
               className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between"
             >
               <div className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  checked={selected.has(p.slug)}
+                  onChange={() => toggleOne(p.slug)}
+                  aria-label={`Select ${p.name}`}
+                  className="neu-focus h-4 w-4 shrink-0 accent-[var(--accent-blue)]"
+                />
                 <div
                   className={`neu-inset-sm flex h-10 w-10 shrink-0 items-center justify-center font-display text-sm font-bold ${accentText[p.accent]}`}
                 >

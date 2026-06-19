@@ -14,13 +14,13 @@ export type Product = {
 };
 
 export const productCategories = [
-  "Laptops",
-  "Phones",
-  "Storage",
-  "Protection",
-  "Repair Parts",
-  "Audio",
   "Charging & Power",
+  "Audio",
+  "Protection",
+  "Storage",
+  "Repair Parts",
+  "Phones",
+  "Laptops",
 ] as const;
 
 export const products: Product[] = [
@@ -30,7 +30,8 @@ export const products: Product[] = [
     category: "Charging & Power",
     price: 89000,
     compareAtPrice: 120000,
-    summary: "A compact GaN charger that pushes 65W through a single USB-C port — enough to fast-charge a phone and laptop at the same time with the right cable.",
+    summary:
+      "A compact GaN charger that pushes 65W through a single USB-C port — enough to fast-charge a phone and laptop at the same time with the right cable.",
     description: [
       "Built around gallium-nitride switching instead of old-style silicon, so the whole brick stays small enough to actually fit in a jacket pocket without the usual brick-shaped bulge.",
       "Power delivery 3.0 negotiates the right wattage automatically — drop it on a phone and it backs off to a safe 20–30W, plug in a laptop and it climbs to the full 65W.",
@@ -56,7 +57,8 @@ export const products: Product[] = [
     name: "Braided USB-C to USB-C Cable (2m)",
     category: "Charging & Power",
     price: 28000,
-    summary: "A 2-metre braided cable rated for 100W and full-speed data — the one we hand out at the counter when a customer's stock cable has finally given up.",
+    summary:
+      "A 2-metre braided cable rated for 100W and full-speed data — the one we hand out at the counter when a customer's stock cable has finally given up.",
     description: [
       "Nylon braiding instead of bare rubber, which is the actual reason most cables fail at the strain-relief point near the connector — this one resists that kink-and-snap pattern.",
       "Rated for 100W charging and 480Mbps data, so it works equally well behind a desk or doing a quick file transfer between phone and laptop.",
@@ -81,7 +83,8 @@ export const products: Product[] = [
     name: "MagSafe-Compatible Power Bank 10,000mAh",
     category: "Charging & Power",
     price: 145000,
-    summary: "A magnetic wireless power bank that snaps onto the back of compatible phones — no cable, no fumbling in a bag for the right end of a cord.",
+    summary:
+      "A magnetic wireless power bank that snaps onto the back of compatible phones — no cable, no fumbling in a bag for the right end of a cord.",
     description: [
       "The magnetic ring aligns itself the moment it gets close, so it works as a one-handed top-up while a phone is still in your hand.",
       "10,000mAh is enough for roughly two full phone charges, with a built-in stand that folds out for watching something while it charges.",
@@ -107,7 +110,8 @@ export const products: Product[] = [
     category: "Audio",
     price: 165000,
     compareAtPrice: 195000,
-    summary: "Active noise cancelling earbuds with a fit that survives an actual workday — not just a five-minute store demo.",
+    summary:
+      "Active noise cancelling earbuds with a fit that survives an actual workday — not just a five-minute store demo.",
     description: [
       "The ANC mode does the heavy lifting on engine drone and aircon hum, while a dedicated transparency mode lets traffic and voices back in with one tap when you need to hear them.",
       "Each earbud is rated IPX5, so sweat and light rain are a non-issue, with a case that adds roughly three extra full charges on top of the buds themselves.",
@@ -133,7 +137,8 @@ export const products: Product[] = [
     name: "Bluetooth Mini Speaker",
     category: "Audio",
     price: 78000,
-    summary: "A palm-sized speaker that's louder than its size suggests, built for a desk, a kitchen counter, or a backpack side pocket.",
+    summary:
+      "A palm-sized speaker that's louder than its size suggests, built for a desk, a kitchen counter, or a backpack side pocket.",
     description: [
       "A single full-range driver paired with a passive bass radiator gets more low-end out of a small enclosure than you'd expect from the dimensions alone.",
       "Twelve hours of playback at moderate volume covers a full workday without a midday charge, and the body is rated IPX6 for splashes around a sink or in light rain.",
@@ -158,7 +163,8 @@ export const products: Product[] = [
     name: "Tempered Glass Screen Protector",
     category: "Protection",
     price: 15000,
-    summary: "9H tempered glass cut for an exact model fit, including the install tray we use in-store so air bubbles aren't a problem.",
+    summary:
+      "9H tempered glass cut for an exact model fit, including the install tray we use in-store so air bubbles aren't a problem.",
     description: [
       "Cut from 0.3mm tempered glass with rounded edges, so it sits flush against curved-edge displays instead of catching at the corners.",
       "An oleophobic coating cuts down on fingerprint smudge and makes the surface noticeably easier to wipe clean than the bare display underneath.",
@@ -183,7 +189,8 @@ export const products: Product[] = [
     name: "Shockproof Clear Case",
     category: "Protection",
     price: 32000,
-    summary: "A clear case with reinforced corners that's survived enough counter-top drop tests in our shop to earn a permanent spot on the shelf.",
+    summary:
+      "A clear case with reinforced corners that's survived enough counter-top drop tests in our shop to earn a permanent spot on the shelf.",
     description: [
       "Reinforced air-cushion corners absorb the impact that actually cracks screens — most drops land corner-first, not flat.",
       "The clear back is treated to resist the yellowing that cheaper clear cases pick up after a few months of regular use.",
@@ -208,7 +215,8 @@ export const products: Product[] = [
     name: "256GB MicroSD Card (U3, A2)",
     category: "Storage",
     price: 95000,
-    summary: "A U3/A2-rated card fast enough for 4K recording and app installs, not just photo storage — the rating most budget cards skip.",
+    summary:
+      "A U3/A2-rated card fast enough for 4K recording and app installs, not just photo storage — the rating most budget cards skip.",
     description: [
       "U3 and A2 ratings matter more than raw capacity for most people — they're what determine whether 4K footage drops frames or apps installed to the card actually run smoothly.",
       "256GB covers a phone's full camera roll, offline music and shows, and the handful of apps people install straight to expandable storage.",
@@ -233,7 +241,8 @@ export const products: Product[] = [
     name: "128GB Dual USB-C / USB-A Flash Drive",
     category: "Storage",
     price: 58000,
-    summary: "A flash drive with connectors on both ends — one USB-C, one USB-A — so it works on a phone, a laptop, or whatever's in the room.",
+    summary:
+      "A flash drive with connectors on both ends — one USB-C, one USB-A — so it works on a phone, a laptop, or whatever's in the room.",
     description: [
       "The swivel design hides whichever connector isn't in use, so there's no loose cap to lose and no exposed pins rattling around in a bag.",
       "128GB is enough headroom to shuttle a full photo shoot or a backed-up project folder between devices without juggling multiple drives.",
@@ -258,7 +267,8 @@ export const products: Product[] = [
     name: "Replacement Phone Battery (Fitted)",
     category: "Repair Parts",
     price: 75000,
-    summary: "A genuine-capacity replacement battery, fitted in-store — the same part we use for the battery swaps booked through our repair service.",
+    summary:
+      "A genuine-capacity replacement battery, fitted in-store — the same part we use for the battery swaps booked through our repair service.",
     description: [
       "Battery health below 80% is the usual trigger for this — sudden shutdowns, fast drain, or a phone that won't survive a half-day away from a charger.",
       "Capacity is verified before fitting, not just printed on the wrapper, since mismatched or underfilled cells are the most common complaint with cheap replacements.",
@@ -283,7 +293,8 @@ export const products: Product[] = [
     name: "Replacement Phone Screen (Fitted)",
     category: "Repair Parts",
     price: 220000,
-    summary: "A full screen assembly — glass, display, and digitiser — fitted by us, for the cracked or unresponsive screens that come through the repair counter daily.",
+    summary:
+      "A full screen assembly — glass, display, and digitiser — fitted by us, for the cracked or unresponsive screens that come through the repair counter daily.",
     description: [
       "This is the same assembly used for walk-in screen repairs: glass, LCD or OLED panel, and touch digitiser as one fitted unit, not a bare glass-only patch.",
       "Colour and touch accuracy are checked against the original panel before the phone leaves the counter, since a cheap panel swap is the single most common source of repeat repair complaints.",
@@ -310,7 +321,8 @@ export const products: Product[] = [
     category: "Phones",
     price: 620000,
     compareAtPrice: 720000,
-    summary: "A no-fuss daily-driver Android phone with a clean 6.5\" display and 128GB of storage — the one we point people to when they just want a reliable replacement, fast.",
+    summary:
+      "A no-fuss daily-driver Android phone with a clean 6.5\" display and 128GB of storage — the one we point people to when they just want a reliable replacement, fast.",
     description: [
       "A 6.5-inch IPS panel keeps everyday use easy on the eyes, with slim bezels that make the phone feel newer than its price suggests.",
       "128GB of onboard storage is enough for photos, apps, and offline media without immediately reaching for a microSD card, though the slot is there if you need it.",
@@ -336,7 +348,8 @@ export const products: Product[] = [
     name: "Mid-Range 5G Phone (256GB)",
     category: "Phones",
     price: 980000,
-    summary: "A step-up 5G phone with 256GB of storage and a triple camera setup — the one we recommend when someone's upgrading rather than just replacing.",
+    summary:
+      "A step-up 5G phone with 256GB of storage and a triple camera setup — the one we recommend when someone's upgrading rather than just replacing.",
     description: [
       "The triple-lens rear camera covers wide, ultra-wide, and macro shots without needing a separate lens attachment for close-up work.",
       "256GB of storage gives real headroom for 4K video and a few years of photos before anyone needs to think about cleanup.",
@@ -361,7 +374,8 @@ export const products: Product[] = [
     name: "Rugged Outdoor Phone (128GB)",
     category: "Phones",
     price: 750000,
-    summary: "An IP68-rated rugged phone built for sites, workshops, and outdoor work — the one we sell to customers tired of cracking screens on the job.",
+    summary:
+      "An IP68-rated rugged phone built for sites, workshops, and outdoor work — the one we sell to customers tired of cracking screens on the job.",
     description: [
       "IP68 water and dust resistance plus a MIL-STD-810H drop rating means this is built to survive the exact conditions that send most phones to our repair counter.",
       "A reinforced corner bumper and thick glass keep it usable straight out of the box, with no separate case needed for normal site use.",
@@ -387,7 +401,8 @@ export const products: Product[] = [
     category: "Phones",
     price: 340000,
     compareAtPrice: 390000,
-    summary: "An honest entry-level phone for calls, WhatsApp, and the basics — the one we hand a first-time smartphone buyer without overselling them.",
+    summary:
+      "An honest entry-level phone for calls, WhatsApp, and the basics — the one we hand a first-time smartphone buyer without overselling them.",
     description: [
       "Built around the essentials rather than a spec sheet — calls, messaging, and everyday apps run smoothly without needing top-tier hardware underneath.",
       "64GB of storage covers a normal app list and a year or two of photos, with a microSD slot available once it fills up.",
@@ -412,7 +427,8 @@ export const products: Product[] = [
     name: "Compact Flagship Phone (256GB)",
     category: "Phones",
     price: 1450000,
-    summary: "A smaller flagship for people who want top-tier performance without a phone that barely fits a pocket — the one-handed option we keep getting asked for.",
+    summary:
+      "A smaller flagship for people who want top-tier performance without a phone that barely fits a pocket — the one-handed option we keep getting asked for.",
     description: [
       "A 6.1-inch display keeps the body genuinely one-handed, while the internals match the larger flagships in the lineup rather than a scaled-down chip.",
       "256GB of fast storage handles 4K video and large apps without the slowdown that shows up on lower-tier phones after a year of use.",
@@ -439,7 +455,8 @@ export const products: Product[] = [
     category: "Laptops",
     price: 2450000,
     compareAtPrice: 2750000,
-    summary: "A 14-inch laptop built for browsing, documents, and video calls — the one we recommend when someone just needs a computer that starts fast and stays fast.",
+    summary:
+      "A 14-inch laptop built for browsing, documents, and video calls — the one we recommend when someone just needs a computer that starts fast and stays fast.",
     description: [
       "An SSD instead of a spinning hard drive is the single biggest reason this stays fast a year in — most of the 'slow laptop' repairs we see are still on mechanical drives.",
       "14 inches keeps it light enough for a daily bag carry, with a battery that comfortably covers a school or office day on one charge.",
@@ -465,7 +482,8 @@ export const products: Product[] = [
     name: "Creator Laptop 15\" (512GB SSD)",
     category: "Laptops",
     price: 4200000,
-    summary: "A 15-inch laptop with the memory and storage headroom for photo editing, light video work, and the multiple-tabs-open reality of most creative work.",
+    summary:
+      "A 15-inch laptop with the memory and storage headroom for photo editing, light video work, and the multiple-tabs-open reality of most creative work.",
     description: [
       "16GB of RAM is the real reason this stays smooth with an editing app, a browser, and a file manager all open at once — the usual bottleneck on lighter machines.",
       "512GB of SSD storage holds a working project library without immediately offloading to an external drive after every shoot.",
@@ -491,7 +509,8 @@ export const products: Product[] = [
     category: "Laptops",
     price: 3650000,
     compareAtPrice: 3950000,
-    summary: "A 13-inch laptop built around being carried, not left on a desk — under 1.3kg, with battery life that survives a full day out of the bag.",
+    summary:
+      "A 13-inch laptop built around being carried, not left on a desk — under 1.3kg, with battery life that survives a full day out of the bag.",
     description: [
       "Under 1.3kg is the number that actually matters here — light enough to carry all day without the bag-strap fatigue heavier 15-inch machines cause.",
       "A full day's battery life means it can leave the charger at home for ordinary use, with fast-charging available for the days that run long.",
@@ -516,7 +535,8 @@ export const products: Product[] = [
     name: "Budget Student Laptop 14\" (128GB)",
     category: "Laptops",
     price: 1550000,
-    summary: "An affordable 14-inch laptop for school and homework — documents, browser tabs, and video calls handled without the price tag of a creator machine.",
+    summary:
+      "An affordable 14-inch laptop for school and homework — documents, browser tabs, and video calls handled without the price tag of a creator machine.",
     description: [
       "Built for the basics rather than heavy software — research, assignments, and video calls run without the lag that shows up on the cheapest machines on the market.",
       "128GB of SSD storage is enough for school files and a handful of apps, with cloud storage handling the overflow most students already use anyway.",
@@ -541,7 +561,8 @@ export const products: Product[] = [
     name: "Business Laptop 14\" (1TB SSD)",
     category: "Laptops",
     price: 5100000,
-    summary: "A 14-inch business laptop with 1TB of storage and a backlit keyboard for late starts — the one we recommend for people running their work off a single machine.",
+    summary:
+      "A 14-inch business laptop with 1TB of storage and a backlit keyboard for late starts — the one we recommend for people running their work off a single machine.",
     description: [
       "1TB of SSD storage means local files, spreadsheets, and backups don't force a constant cloud-storage juggling act for anyone running a small business off this one machine.",
       "A backlit keyboard and a matte anti-glare display make this comfortable in poorly-lit offices and bright ones alike, not just under perfect desk lighting.",
