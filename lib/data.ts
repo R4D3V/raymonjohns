@@ -188,6 +188,50 @@ export const skillGroups: SkillGroup[] = [
     items: ["pnpm", "Git", "Vercel deployments", "Performance audits"],
     accent: "green",
   },
+  {
+    label: "Device Repair & Flashing",
+    value: 88,
+    items: [
+      "Phone & laptop repair",
+      "Stock firmware flashing",
+      "IMEI & bootloader unlock",
+      "Board-level diagnostics",
+    ],
+    accent: "coral",
+  },
+  {
+    label: "OS & Software Installation",
+    value: 84,
+    items: [
+      "Windows install & activation",
+      "macOS install & Hackintosh",
+      "App installation & licensing",
+      "System migration",
+    ],
+    accent: "violet",
+  },
+  {
+    label: "Training & Computer Lessons",
+    value: 82,
+    items: [
+      "Beginner to advanced curriculum",
+      "MS Office & productivity tools",
+      "Cybersecurity & networking basics",
+      "Touch typing & web research",
+    ],
+    accent: "green",
+  },
+  {
+    label: "Software Reselling & Tool Access",
+    value: 80,
+    items: [
+      "UnlockTool & Pandora activations",
+      "ChimeraTool licensing",
+      "BorneoSchematics & GiveMeROM access",
+      "Setup & first-use support",
+    ],
+    accent: "blue",
+  },
 ];
 
 export type Service = {
@@ -423,6 +467,61 @@ export const softwarePlatforms: SoftwarePlatform[] = [
         downloadUrl: "https://spflashtool.com/download/",
         free: true,
       },
+      {
+        id: "7zip",
+        name: "7-Zip",
+        description:
+          "The only archiver you actually need. Opens and creates ZIP, 7z, RAR, and a dozen other formats — and the right-click context menu integration alone is worth the install.",
+        version: "26.01",
+        size: "1.7 MB",
+        category: "Utilities",
+        downloadUrl: "https://www.7-zip.org/download.html",
+        free: true,
+      },
+      {
+        id: "chrome-windows",
+        name: "Google Chrome",
+        description:
+          "The default browser for most client work — DevTools, broad extension support, and the rendering engine most sites are actually tested against.",
+        version: "126",
+        size: "90 MB",
+        category: "Productivity",
+        downloadUrl: "https://www.google.com/chrome/",
+        free: true,
+      },
+      {
+        id: "vlc-windows",
+        name: "VLC Media Player",
+        description:
+          "Plays literally anything you throw at it — no codec packs, no fuss. The first thing installed on a fresh machine before any video work happens.",
+        version: "3.0.21",
+        size: "44 MB",
+        category: "Utilities",
+        downloadUrl: "https://www.videolan.org/vlc/",
+        free: true,
+      },
+      {
+        id: "adobe-reader-windows",
+        name: "Adobe Acrobat Reader",
+        description:
+          "Still the most reliable PDF reader for forms, annotations, and digital signatures — the apps clients actually expect to open shared documents in.",
+        version: "2024",
+        size: "180 MB",
+        category: "Productivity",
+        downloadUrl: "https://get.adobe.com/reader/",
+        free: true,
+      },
+      {
+        id: "malwarebytes-windows",
+        name: "Malwarebytes",
+        description:
+          "A second-opinion scanner that catches adware and PUPs Windows Defender often misses. Run after any repair job involving a previously-infected machine.",
+        version: "5.1",
+        size: "85 MB",
+        category: "Utilities",
+        downloadUrl: "https://www.malwarebytes.com/mwb-download",
+        free: true,
+      },
     ],
   },
   {
@@ -496,6 +595,50 @@ export const softwarePlatforms: SoftwarePlatform[] = [
         size: "214 MB",
         category: "Productivity",
         downloadUrl: "https://arc.net/download",
+        free: true,
+      },
+      {
+        id: "the-unarchiver",
+        name: "The Unarchiver",
+        description:
+          "Opens RAR, 7z, ZIP, and the dozen other formats macOS's built-in Archive Utility refuses to touch. Free on the Mac App Store, no fuss.",
+        version: "4.3.9",
+        size: "8 MB",
+        category: "Utilities",
+        downloadUrl: "https://theunarchiver.com/",
+        free: true,
+      },
+      {
+        id: "vlc-mac",
+        name: "VLC Media Player",
+        description:
+          "Native Apple Silicon build that plays anything — no missing codecs, no fiddly settings. Still the most reliable media player on macOS.",
+        version: "3.0.21",
+        size: "55 MB",
+        category: "Utilities",
+        downloadUrl: "https://www.videolan.org/vlc/download-macosx.html",
+        free: true,
+      },
+      {
+        id: "rectangle",
+        name: "Rectangle",
+        description:
+          "Free, open-source window snapping for macOS — keyboard shortcuts for the half-screen and quarter-screen tiling Windows users take for granted.",
+        version: "0.79",
+        size: "4 MB",
+        category: "Productivity",
+        downloadUrl: "https://rectangleapp.com/",
+        free: true,
+      },
+      {
+        id: "adobe-reader-mac",
+        name: "Adobe Acrobat Reader",
+        description:
+          "For the PDF forms and signatures that Preview handles inconsistently — still the safest default when a client needs to fill and return a document.",
+        version: "2024",
+        size: "330 MB",
+        category: "Productivity",
+        downloadUrl: "https://get.adobe.com/reader/",
         free: true,
       },
     ],
