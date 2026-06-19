@@ -18,6 +18,7 @@ const serviceSlug: Record<string, string> = {
   "macOS Installation": "/services/macos-installation",
   "App Installation": "/services/app-installation",
   "Software Reselling": "/services/software-reselling",
+  "Computer Lessons": "/services/computer-lessons",
 };
 
 export const metadata: Metadata = {

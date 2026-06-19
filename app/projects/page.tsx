@@ -13,7 +13,7 @@ export default function ProjectsPage() {
     <div className="flex flex-col gap-12 py-12 sm:py-16">
       <SectionHeading
         eyebrow="Selected work"
-        title="Projects, in the order they happened"
+        title="Projects that showcase my skills and expertise."
         description="Three recent builds — an agency rebuild, a training business, and a migration that's still in motion."
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

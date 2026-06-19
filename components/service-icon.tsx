@@ -256,6 +256,31 @@ function SoftwareResellingIcon({ className }: IconProps) {
   );
 }
 
+function ComputerLessonsIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 64 64" className={className}>
+      <rect x="8" y="12" width="48" height="32" rx="3" fill="none" stroke="currentColor" strokeWidth="2.5" />
+      <rect x="13" y="17" width="38" height="22" rx="1.5" fill="currentColor" opacity="0.12" />
+      <line x1="24" y1="50" x2="40" y2="50" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="32" y1="44" x2="32" y2="50" stroke="currentColor" strokeWidth="2" />
+      <path
+        d="M32 21 L48 26 L32 31 L16 26 Z"
+        fill="currentColor"
+        opacity="0.8"
+      />
+      <path
+        d="M22 28.5 V34 C22 35.5 26.5 37 32 37 C37.5 37 42 35.5 42 34 V28.5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.6"
+      />
+    </svg>
+  );
+}
+
 const map: Record<string, (p: IconProps) => React.ReactElement> = {
   "Web Design & Development": WebDesignIcon,
   "Brand Identity": BrandIdentityIcon,
@@ -267,6 +292,7 @@ const map: Record<string, (p: IconProps) => React.ReactElement> = {
   "macOS Installation": MacOSInstallIcon,
   "App Installation": AppInstallIcon,
   "Software Reselling": SoftwareResellingIcon,
+  "Computer Lessons": ComputerLessonsIcon,
 };
 
 export default function ServiceIcon({

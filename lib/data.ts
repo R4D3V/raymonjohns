@@ -210,6 +210,41 @@ export const services: Service[] = [
     accent: "blue",
   },
   {
+    title: "Phone Flashing",
+    description:
+      "Stock firmware restoration, custom ROM installation, IMEI repair, and bootloader unlocking — handled with the right tools for your exact device model.",
+    deliverables: [
+      "Stock firmware flashing (MTK & Qualcomm)",
+      "Custom ROM & recovery installation",
+      "IMEI & baseband repair",
+      "Bootloader unlock & FRP bypass",
+    ],
+    accent: "coral",
+  },
+  {
+    title: "Software Reselling",
+    description:
+      "Licensed access to the GSM repair tools technicians rely on daily — UnlockTool, Pandora, BorneoSchematics, Chimera Tool, and GiveMeROM — activated and ready to use.",
+    deliverables: [
+      "UnlockTool, Pandora & Chimera activations",
+      "BorneoSchematics & GiveMeROM access",
+      "Setup, login & first-use support",
+    ],
+    accent: "blue",
+  },
+  {
+    title: "Computer Lessons",
+    description:
+      "Structured computer training covering theory and hands-on practice, from absolute beginner to advanced — one-on-one or in groups, with a certificate on completion.",
+    deliverables: [
+      "Beginner, Intermediate & Advanced training levels",
+      "MS Office, internet skills & productivity tools",
+      "Cybersecurity, networking & cloud computing basics",
+      "Touch typing, web research & basic HTML",
+    ],
+    accent: "green",
+  },
+  {
     title: "Brand Identity",
     description:
       "Logo systems, color and type direction, and the kind of brand guidelines that actually get followed.",
@@ -254,18 +289,7 @@ export const services: Service[] = [
     ],
     accent: "blue",
   },
-  {
-    title: "Phone Flashing",
-    description:
-      "Stock firmware restoration, custom ROM installation, IMEI repair, and bootloader unlocking — handled with the right tools for your exact device model.",
-    deliverables: [
-      "Stock firmware flashing (MTK & Qualcomm)",
-      "Custom ROM & recovery installation",
-      "IMEI & baseband repair",
-      "Bootloader unlock & FRP bypass",
-    ],
-    accent: "coral",
-  },
+
   {
     title: "Windows Installation",
     description:
@@ -301,17 +325,6 @@ export const services: Service[] = [
       "Software activation & licensing help",
     ],
     accent: "coral",
-  },
-  {
-    title: "Software Reselling",
-    description:
-      "Licensed access to the GSM repair tools technicians rely on daily — UnlockTool, Pandora, BorneoSchematics, Chimera Tool, and GiveMeROM — activated and ready to use.",
-    deliverables: [
-      "UnlockTool, Pandora & Chimera activations",
-      "BorneoSchematics & GiveMeROM access",
-      "Setup, login & first-use support",
-    ],
-    accent: "blue",
   },
 ];
 

@@ -7,11 +7,15 @@ const PHONE = "256751621506";
 
 const inquiryOptions = [
   "Web Design & Development",
+  "Computer Lessons & Tutoring",
+  "Windows Installation & Support",
+  "macOS Installation & Support",
+  "Software Reselling",
   "Brand Identity",
   "Graphic Design",
+  "phone Repair",
+  "phone flashing",
   "Site Migration & Performance",
-  "Windows Software",
-  "macOS Software",
   "Android Apps",
   "Other Inquiries",
 ];
