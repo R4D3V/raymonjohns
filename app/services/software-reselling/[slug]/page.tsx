@@ -31,7 +31,7 @@ export default async function ToolPage({ params }: Props) {
   if (!tool) notFound();
 
   const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    `Hi! I'm interested in purchasing a ${tool.name} license — could you tell me more about pricing and activation?`
+    `Hi! I'm interested in purchasing a ${tool.name} license — could you tell me more about pricing and activation?`,
   )}`;
 
   return (
@@ -80,16 +80,24 @@ export default async function ToolPage({ params }: Props) {
         {/* At a glance */}
         <div className="neu-raised h-fit p-6 sm:p-8">
           <p className="eyebrow">Best for</p>
-          <p className="mt-2 text-sm leading-relaxed text-ink-muted">{tool.bestFor}</p>
+          <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+            {tool.bestFor}
+          </p>
         </div>
       </div>
 
       {/* About */}
       <section className="flex flex-col gap-6">
-        <SectionHeading eyebrow="About this tool" title={`What ${tool.name} does`} />
+        <SectionHeading
+          eyebrow="About this tool"
+          title={`What ${tool.name} does`}
+        />
         <div className="grid gap-4">
           {tool.body.map((paragraph) => (
-            <p key={paragraph} className="text-sm leading-relaxed text-ink-muted">
+            <p
+              key={paragraph}
+              className="text-sm leading-relaxed text-ink-muted"
+            >
               {paragraph}
             </p>
           ))}
@@ -102,8 +110,13 @@ export default async function ToolPage({ params }: Props) {
         <ul className="grid gap-3 sm:grid-cols-2">
           {tool.features.map((f) => (
             <li key={f} className="neu-raised flex items-start gap-3 p-5">
-              <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-accent-blue" />
-              <span className="text-sm leading-relaxed text-ink-muted">{f}</span>
+              <CheckCircle2
+                size={16}
+                className="mt-0.5 shrink-0 text-accent-blue"
+              />
+              <span className="text-sm leading-relaxed text-ink-muted">
+                {f}
+              </span>
             </li>
           ))}
         </ul>
@@ -111,7 +124,10 @@ export default async function ToolPage({ params }: Props) {
 
       {/* Other tools */}
       <section className="flex flex-col gap-6">
-        <SectionHeading eyebrow="Looking for something else" title="Other tools I resell" />
+        <SectionHeading
+          eyebrow="Looking for something else"
+          title="Other tools I resell"
+        />
         <div className="flex flex-wrap gap-3">
           {resellTools
             .filter((t) => t.slug !== tool.slug)
@@ -123,7 +139,11 @@ export default async function ToolPage({ params }: Props) {
               >
                 <span className="neu-inset-sm flex h-6 w-6 items-center justify-center overflow-hidden bg-white p-1">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={t.image} alt="" className="h-full w-full object-contain" />
+                  <img
+                    src={t.image}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
                 </span>
                 {t.name}
               </Link>
@@ -135,7 +155,8 @@ export default async function ToolPage({ params }: Props) {
       <div className="neu-raised-lg flex flex-col items-center gap-4 p-10 text-center sm:p-14">
         <p className="eyebrow">Ready to get {tool.name} activated?</p>
         <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
-          Tell me your device range and I&apos;ll set you up with the right license.
+          Tell me your device range and I&apos;ll set you up with the right
+          license.
         </h2>
         <a
           href={whatsappHref}
