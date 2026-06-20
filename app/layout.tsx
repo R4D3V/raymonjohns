@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import RegisterSW from "@/components/register-sw";
@@ -64,6 +65,7 @@ export default function RootLayout({
           <div className="mx-auto max-w-6xl">{children}</div>
         </main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
