@@ -20,6 +20,7 @@ const PRECACHE_URLS = [
   "/icons/icon-192x192.png",
   "/icons/icon-384x384.png",
   "/icons/icon-512x512.png",
+  "/icons/icon-maskable-192x192.png",
   "/icons/icon-maskable-512x512.png",
   "/icons/apple-touch-icon.png",
 ];
@@ -36,10 +37,10 @@ self.addEventListener("install", (event) => {
           } catch (err) {
             // ignore individual failures (e.g. asset not built yet in dev)
           }
-        })
+        }),
       );
       await self.skipWaiting();
-    })()
+    })(),
   );
 });
 
@@ -50,10 +51,10 @@ self.addEventListener("activate", (event) => {
       await Promise.all(
         keys
           .filter((key) => key.startsWith("raymonjohns-") && key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
+          .map((key) => caches.delete(key)),
       );
       await self.clients.claim();
-    })()
+    })(),
   );
 });
 
@@ -88,7 +89,7 @@ self.addEventListener("fetch", (event) => {
           const offlineResponse = await cache.match(OFFLINE_URL);
           return offlineResponse || Response.error();
         }
-      })()
+      })(),
     );
     return;
   }
@@ -107,7 +108,7 @@ self.addEventListener("fetch", (event) => {
         } catch (err) {
           return cachedResponse || Response.error();
         }
-      })()
+      })(),
     );
     return;
   }
@@ -125,6 +126,6 @@ self.addEventListener("fetch", (event) => {
         const cachedResponse = await cache.match(request);
         return cachedResponse || Response.error();
       }
-    })()
+    })(),
   );
 });
