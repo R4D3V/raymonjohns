@@ -23,6 +23,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "aliciarides",
+    name: "AliciaRides",
+    category: "Transport & Logistics",
+    year: "2026",
+    summary:
+      "A booking-focused site for a Uganda-based ride service — covering airport transfers, upcountry trips, and event transport, with WhatsApp booking built in throughout.",
+    stack: ["Next.js", "Tailwind CSS", "Vercel"],
+    role: "Design & Development",
+    accent: "green",
+    liveUrl: "https://aliciarides.vercel.app",
+    description: [
+      "AliciaRides needed a site that felt as safe and dependable as the service itself — warm and approachable rather than corporate, with the brand's green identity carried through every section.",
+      "Three core service lines anchor the build, each with its own page: airport transfers, upcountry trips, and kukyala & special events, with wedding and corporate rides folded into the events line.",
+      "Booking friction was the priority — a persistent call line, a stats strip covering client volume and availability, and a WhatsApp deep link that opens with a pre-filled booking message rather than a generic contact form.",
+    ],
+    highlights: [
+      "Three dedicated service pages: airport, upcountry, and special events",
+      "Stats strip surfacing client volume, availability, and trust signals",
+      "One-tap WhatsApp booking with a pre-filled message link",
+    ],
+  },
+  {
     slug: "skills-tech",
     name: "Skills & Tech Service Center",
     category: "Device Repair & Retail",

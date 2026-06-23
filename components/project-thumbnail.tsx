@@ -838,6 +838,99 @@ function IceAgeGamingThumb() {
   );
 }
 
+function AliciaRidesThumb() {
+  return (
+    <svg
+      viewBox="0 0 400 300"
+      className="h-full w-full"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <rect width="400" height="300" fill="#0b1410" />
+      {/* soft green glow */}
+      <circle cx="40" cy="260" r="120" fill="#22c55e" opacity="0.08" />
+
+      {/* monogram */}
+      <text
+        x="28"
+        y="48"
+        fontFamily="sans-serif"
+        fontWeight="800"
+        fontSize="20"
+        letterSpacing="1"
+        fill="#f0f5f2"
+      >
+        AliciaRides
+      </text>
+      <line x1="28" y1="60" x2="78" y2="60" stroke="#22c55e" strokeWidth="2" />
+
+      {/* headline bars */}
+      <rect x="28" y="92" width="220" height="18" rx="3" fill="#f0f5f2" />
+      <rect
+        x="28"
+        y="118"
+        width="150"
+        height="18"
+        rx="3"
+        fill="#f0f5f2"
+        opacity="0.7"
+      />
+
+      {/* dashed route line */}
+      <path
+        d="M28 200 Q140 170 200 195 T340 175"
+        stroke="#22c55e"
+        strokeWidth="2.5"
+        strokeDasharray="6 7"
+        fill="none"
+        opacity="0.6"
+      />
+      <circle cx="28" cy="200" r="5" fill="#22c55e" />
+      <circle cx="340" cy="175" r="5" fill="#22c55e" />
+
+      {/* stylised car silhouette */}
+      <g opacity="0.85" fill="#22c55e">
+        <path d="M70 235 Q95 210 150 207 Q195 205 230 215 Q255 219 268 232 L272 244 L62 244 Z" />
+        <circle cx="100" cy="244" r="15" fill="#0b1410" stroke="#22c55e" strokeWidth="3" />
+        <circle cx="232" cy="244" r="15" fill="#0b1410" stroke="#22c55e" strokeWidth="3" />
+      </g>
+
+      {/* WhatsApp-style CTA pill */}
+      <rect
+        x="248"
+        y="80"
+        width="124"
+        height="34"
+        rx="17"
+        fill="#22c55e"
+        opacity="0.15"
+      />
+      <text
+        x="260"
+        y="102"
+        fontFamily="sans-serif"
+        fontWeight="700"
+        fontSize="12"
+        fill="#22c55e"
+      >
+        💬 Book a Ride
+      </text>
+
+      {/* tag line */}
+      <text
+        x="28"
+        y="270"
+        fontFamily="monospace"
+        fontSize="10"
+        letterSpacing="2.5"
+        fill="#22c55e"
+        opacity="0.6"
+      >
+        24/7 · KAMPALA · UG
+      </text>
+    </svg>
+  );
+}
+
 const map: Record<string, () => React.ReactElement> = {
   "dumani-media": DumaniThumb,
   "kings-key-tech": KingsKeyThumb,
@@ -846,6 +939,7 @@ const map: Record<string, () => React.ReactElement> = {
   "matta-motors": MattaMotorsThumb,
   "mashtech-solutions": MashtechThumb,
   "ice-age-gaming": IceAgeGamingThumb,
+  "aliciarides": AliciaRidesThumb,
 };
 
 export default function ProjectThumbnail({ slug, className = "" }: Props) {
