@@ -12,15 +12,21 @@ import { accentText } from "@/lib/accent";
 
 type Props = { platform: SoftwarePlatform };
 
-const categoryOrder = ["Development", "Design", "Device Tools", "Productivity", "Utilities"];
-
 export default function SoftwarePlatformPage({ platform }: Props) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
-  const categories = categoryOrder.filter((cat) =>
-    platform.items.some((item) => item.category === cat)
-  );
+  const categories = useMemo(() => {
+    const seen = new Set<string>();
+    const order: string[] = [];
+    for (const item of platform.items) {
+      if (!seen.has(item.category)) {
+        seen.add(item.category);
+        order.push(item.category);
+      }
+    }
+    return order;
+  }, [platform.items]);
 
   const filteredItems = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -201,7 +207,7 @@ export default function SoftwarePlatformPage({ platform }: Props) {
           <p className="mt-1 text-sm text-ink-muted">Browse picks for the other two.</p>
         </div>
         <div className="flex gap-3">
-          {(["windows", "macos", "android"] as const)
+          {(["windows", "macos", "android", "linux"] as const)
             .filter((s) => s !== platform.slug)
             .map((s) => (
               <Link
@@ -209,7 +215,7 @@ export default function SoftwarePlatformPage({ platform }: Props) {
                 href={`/software/${s}`}
                 className="neu-raised-sm neu-pressable neu-focus px-4 py-2 font-mono text-xs uppercase tracking-wider text-ink-muted hover:text-accent-blue capitalize"
               >
-                {s === "macos" ? "macOS" : s}
+                {s === "macos" ? "macOS" : s === "linux" ? "Linux" : s}
               </Link>
             ))}
         </div>

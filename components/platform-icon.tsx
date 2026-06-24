@@ -41,10 +41,29 @@ function AndroidIcon({ className }: IconProps) {
   );
 }
 
+function LinuxIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 64 64" className={className} fill="currentColor">
+      {/* Tux-inspired penguin silhouette */}
+      <ellipse cx="32" cy="20" rx="12" ry="14" opacity="0.9" />
+      <ellipse cx="32" cy="38" rx="16" ry="18" opacity="0.85" />
+      <ellipse cx="32" cy="40" rx="9" ry="11" fill="white" opacity="0.25" />
+      <circle cx="27" cy="16" r="2" fill="white" />
+      <circle cx="37" cy="16" r="2" fill="white" />
+      <path d="M28 22 Q32 25 36 22" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <ellipse cx="20" cy="36" rx="6" ry="4" transform="rotate(-20 20 36)" opacity="0.7" />
+      <ellipse cx="44" cy="36" rx="6" ry="4" transform="rotate(20 44 36)" opacity="0.7" />
+      <ellipse cx="26" cy="54" rx="5" ry="3" opacity="0.75" />
+      <ellipse cx="38" cy="54" rx="5" ry="3" opacity="0.75" />
+    </svg>
+  );
+}
+
 const map: Record<string, (p: IconProps) => React.ReactElement> = {
   windows: WindowsIcon,
   macos: MacOSIcon,
   android: AndroidIcon,
+  linux: LinuxIcon,
 };
 
 export default function PlatformIcon({

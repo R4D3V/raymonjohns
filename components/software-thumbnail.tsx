@@ -128,10 +128,67 @@ function AndroidThumb() {
   );
 }
 
+function LinuxThumb() {
+  return (
+    <svg viewBox="0 0 400 220" className="h-full w-full" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="linux-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#0b1f10" />
+          <stop offset="100%" stopColor="#061209" />
+        </linearGradient>
+        <radialGradient id="linux-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#6fb37f" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="#6fb37f" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <rect width="400" height="220" fill="url(#linux-grad)" />
+      <rect width="400" height="220" fill="url(#linux-glow)" />
+      {/* terminal window */}
+      <rect x="30" y="20" width="220" height="160" rx="8" fill="#0f2016" stroke="#6fb37f" strokeWidth="1" strokeOpacity="0.45" />
+      <rect x="30" y="20" width="220" height="28" rx="8" fill="#172b1e" />
+      <rect x="30" y="38" width="220" height="10" fill="#172b1e" />
+      <circle cx="48" cy="34" r="4" fill="#e2766c" opacity="0.8" />
+      <circle cx="62" cy="34" r="4" fill="#f4a33c" opacity="0.8" />
+      <circle cx="76" cy="34" r="4" fill="#6fb37f" opacity="0.8" />
+      {/* terminal text lines */}
+      <rect x="46" y="58" width="12" height="7" rx="1" fill="#6fb37f" opacity="0.9" />
+      <rect x="62" y="58" width="80" height="7" rx="3" fill="#8d93a6" opacity="0.35" />
+      <rect x="46" y="72" width="12" height="7" rx="1" fill="#6fb37f" opacity="0.9" />
+      <rect x="62" y="72" width="110" height="7" rx="3" fill="#6fb37f" opacity="0.45" />
+      <rect x="46" y="86" width="12" height="7" rx="1" fill="#6fb37f" opacity="0.9" />
+      <rect x="62" y="86" width="65" height="7" rx="3" fill="#8d93a6" opacity="0.3" />
+      <rect x="46" y="100" width="12" height="7" rx="1" fill="#6fb37f" opacity="0.9" />
+      <rect x="62" y="100" width="140" height="7" rx="3" fill="#6fb37f" opacity="0.35" />
+      <rect x="46" y="114" width="12" height="7" rx="1" fill="#6fb37f" opacity="0.9" />
+      <rect x="62" y="114" width="90" height="7" rx="3" fill="#8d93a6" opacity="0.25" />
+      {/* blinking cursor */}
+      <rect x="46" y="130" width="8" height="12" rx="1" fill="#6fb37f" opacity="0.85" />
+      {/* floating info card */}
+      <rect x="265" y="30" width="115" height="80" rx="10" fill="#0f2016" stroke="#6fb37f" strokeWidth="1" strokeOpacity="0.3" />
+      <rect x="279" y="46" width="50" height="7" rx="3" fill="#6fb37f" opacity="0.65" />
+      <rect x="279" y="60" width="85" height="6" rx="3" fill="#8d93a6" opacity="0.25" />
+      <rect x="279" y="72" width="70" height="6" rx="3" fill="#8d93a6" opacity="0.2" />
+      <rect x="279" y="84" width="40" height="14" rx="7" fill="#6fb37f" opacity="0.6" />
+      {/* second card */}
+      <rect x="265" y="122" width="115" height="60" rx="10" fill="#0f2016" stroke="#6fb37f" strokeWidth="1" strokeOpacity="0.2" />
+      <rect x="279" y="136" width="60" height="6" rx="3" fill="#6fb37f" opacity="0.5" />
+      <rect x="279" y="150" width="85" height="6" rx="3" fill="#8d93a6" opacity="0.2" />
+      <rect x="279" y="162" width="50" height="6" rx="3" fill="#8d93a6" opacity="0.15" />
+      {/* bottom bar */}
+      <rect x="0" y="196" width="400" height="24" fill="#0d1a0f" opacity="0.8" />
+      <circle cx="14" cy="208" r="4" fill="#6fb37f" opacity="0.6" />
+      <rect x="24" y="204" width="40" height="8" rx="4" fill="#6fb37f" opacity="0.2" />
+      <rect x="70" y="204" width="30" height="8" rx="4" fill="#8d93a6" opacity="0.15" />
+      <rect x="340" y="204" width="50" height="8" rx="4" fill="#8d93a6" opacity="0.12" />
+    </svg>
+  );
+}
+
 const map: Record<string, () => React.ReactElement> = {
   windows: WindowsThumb,
   macos: MacOSThumb,
   android: AndroidThumb,
+  linux: LinuxThumb,
 };
 
 export default function SoftwareThumbnail({ slug, className = "" }: { slug: string; className?: string }) {

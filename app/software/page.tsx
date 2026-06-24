@@ -19,7 +19,7 @@ export default function SoftwarePage() {
       <SectionHeading
         eyebrow="Software"
         title="Tools worth keeping on every machine"
-        description="Three platform lists — Windows, macOS, and Android — covering development, design, productivity, and the device-repair utilities I reach for regularly. Every pick is something I actually use."
+        description="Four platform lists — Windows, macOS, Android, and Linux — covering development, design, productivity, and the device-repair utilities I reach for regularly. Every pick is something I actually use."
       />
 
       <div className="grid gap-8 sm:grid-cols-3">
