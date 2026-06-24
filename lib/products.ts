@@ -3680,6 +3680,35 @@ export const products: Product[] = [
   },
 ];
 
+/**
+ * Mulberry32 seeded PRNG — fast, deterministic, no dependencies.
+ * Returns a function that produces floats in [0, 1).
+ */
+function mulberry32(seed: number) {
+  return function () {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/**
+ * Returns a new array with the products shuffled using a numeric seed.
+ * Pass `Date.now()` (or a truncated version) as the seed so the order
+ * changes on every page load but stays stable during a single session.
+ */
+export function shuffleProducts(arr: Product[], seed: number): Product[] {
+  const rand = mulberry32(seed);
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
 }

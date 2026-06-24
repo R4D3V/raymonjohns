@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Shuffle } from "lucide-react";
 import SectionHeading from "@/components/section-heading";
 import ProductCard from "@/components/product-card";
 import SearchInput from "@/components/search-input";
 import { ButtonLink } from "@/components/neu-button";
-import { products, productCategories } from "@/lib/products";
+import { products, productCategories, shuffleProducts } from "@/lib/products";
 
 const PAGE_SIZE = 10;
 
@@ -14,12 +14,21 @@ export default function ShopBrowser() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [page, setPage] = useState(1);
+  const [displayProducts, setDisplayProducts] = useState(products);
+  const [shuffleSeed, setShuffleSeed] = useState<number | null>(null);
   const topRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
 
+  // Shuffle on first mount (client-only to avoid SSR mismatch)
+  useEffect(() => {
+    const seed = Date.now();
+    setShuffleSeed(seed);
+    setDisplayProducts(shuffleProducts(products, seed));
+  }, []);
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return products.filter((p) => {
+    return displayProducts.filter((p) => {
       const matchesCategory = activeCategory ? p.category === activeCategory : true;
       const matchesQuery = q
         ? p.name.toLowerCase().includes(q) ||
@@ -28,14 +37,14 @@ export default function ShopBrowser() {
         : true;
       return matchesCategory && matchesQuery;
     });
-  }, [query, activeCategory]);
+  }, [query, activeCategory, displayProducts]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
 
   // reset to page 1 whenever the filters change
   useEffect(() => {
     setPage(1);
-  }, [query, activeCategory]);
+  }, [query, activeCategory, displayProducts]);
 
   // keep page in range if filtering shrinks the result set
   useEffect(() => {
@@ -61,13 +70,34 @@ export default function ShopBrowser() {
     <>
       <div ref={topRef} />
 
-      {/* search */}
-      <SearchInput
-        value={query}
-        onChange={setQuery}
-        placeholder="Search for a product..."
-        className="max-w-lg"
-      />
+      {/* search + reshuffle row */}
+      <div className="flex flex-wrap items-center gap-3">
+        <SearchInput
+          value={query}
+          onChange={setQuery}
+          placeholder="Search for a product..."
+          className="max-w-lg flex-1"
+        />
+        <button
+          type="button"
+          title="Reshuffle products"
+          onClick={() => {
+            const seed = Date.now();
+            setShuffleSeed(seed);
+            setDisplayProducts(shuffleProducts(products, seed));
+            setPage(1);
+          }}
+          className="neu-raised neu-pressable neu-focus flex shrink-0 items-center gap-2 px-4 py-3 font-mono text-xs uppercase tracking-wider text-ink-muted transition-colors hover:text-accent-blue"
+        >
+          <Shuffle size={13} />
+          Shuffle
+        </button>
+      </div>
+      {shuffleSeed !== null && (
+        <p className="font-mono text-[10px] uppercase tracking-wider text-ink-faint">
+          Arrangement #{(shuffleSeed % 100000).toString().padStart(5, "0")} — changes every visit
+        </p>
+      )}
 
       {/* category chips — clickable filters */}
       <div className="flex flex-wrap gap-2">
