@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SectionHeading from "@/components/section-heading";
 import ShopBrowser from "@/components/shop-browser";
+import { getAllProducts, getAllCategories } from "@/lib/db/queries";
 
 export const metadata: Metadata = {
   title: "Shop — RaymonJohns",
@@ -8,7 +9,16 @@ export const metadata: Metadata = {
     "Accessories, audio, protection, storage, and repair parts — picked the same way the software and tools are: things actually worth using.",
 };
 
-export default function ShopPage() {
+// Revalidate this page every 60 seconds so new products appear quickly
+// without needing a full redeploy.
+export const revalidate = 60;
+
+export default async function ShopPage() {
+  const [products, categories] = await Promise.all([
+    getAllProducts(),
+    getAllCategories(),
+  ]);
+
   return (
     <div className="flex flex-col gap-16 py-12 sm:py-16">
       <SectionHeading
@@ -16,7 +26,7 @@ export default function ShopPage() {
         title="Accessories and parts, picked deliberately"
         description="A small catalog of chargers, audio, protection, storage, and repair parts — the same things that come up across phone and laptop repair work."
       />
-      <ShopBrowser />
+      <ShopBrowser initialProducts={products} initialCategories={categories} />
     </div>
   );
 }

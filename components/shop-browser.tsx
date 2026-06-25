@@ -6,15 +6,20 @@ import SectionHeading from "@/components/section-heading";
 import ProductCard from "@/components/product-card";
 import SearchInput from "@/components/search-input";
 import { ButtonLink } from "@/components/neu-button";
-import { products, productCategories, shuffleProducts } from "@/lib/products";
+import { shuffleProducts, type Product } from "@/lib/products";
 
 const PAGE_SIZE = 10;
 
-export default function ShopBrowser() {
+type Props = {
+  initialProducts: Product[];
+  initialCategories: string[];
+};
+
+export default function ShopBrowser({ initialProducts, initialCategories }: Props) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [page, setPage] = useState(1);
-  const [displayProducts, setDisplayProducts] = useState(products);
+  const [displayProducts, setDisplayProducts] = useState(initialProducts);
   const [shuffleSeed, setShuffleSeed] = useState<number | null>(null);
   const topRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
@@ -23,7 +28,7 @@ export default function ShopBrowser() {
   useEffect(() => {
     const seed = Date.now();
     setShuffleSeed(seed);
-    setDisplayProducts(shuffleProducts(products, seed));
+    setDisplayProducts(shuffleProducts(initialProducts, seed));
   }, []);
 
   const filtered = useMemo(() => {
@@ -84,7 +89,7 @@ export default function ShopBrowser() {
           onClick={() => {
             const seed = Date.now();
             setShuffleSeed(seed);
-            setDisplayProducts(shuffleProducts(products, seed));
+            setDisplayProducts(shuffleProducts(initialProducts, seed));
             setPage(1);
           }}
           className="neu-raised neu-pressable neu-focus flex shrink-0 items-center gap-2 px-4 py-3 font-mono text-xs uppercase tracking-wider text-ink-muted transition-colors hover:text-accent-blue"
@@ -112,7 +117,7 @@ export default function ShopBrowser() {
         >
           All
         </button>
-        {productCategories.map((cat) => (
+        {initialCategories.map((cat) => (
           <button
             type="button"
             key={cat}

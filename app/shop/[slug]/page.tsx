@@ -2,12 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle2, MessageCircle, Package } from "lucide-react";
-import {
-  products,
-  getProductBySlug,
-  getRelatedProducts,
-  formatPrice,
-} from "@/lib/products";
+import { getAllProducts, getProductBySlug, getRelatedProducts } from "@/lib/db/queries";
+import { formatPrice } from "@/lib/products";
 import { accentText } from "@/lib/accent";
 import { ButtonLink } from "@/components/neu-button";
 import ProductThumbnail from "@/components/product-thumbnail";
@@ -22,7 +18,12 @@ const stockLabel: Record<string, string> = {
   preorder: "Order-in — confirmed on enquiry",
 };
 
-export function generateStaticParams() {
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  // Uses the static product list at build time — no DB needed during build.
+  // At runtime, the DB is the source of truth.
+  const { products } = await import("@/lib/products");
   return products.map((product) => ({ slug: product.slug }));
 }
 
@@ -32,7 +33,7 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
   if (!product) return { title: "Product not found — RaymonJohns" };
   return {
     title: `${product.name} — Shop — RaymonJohns`,
@@ -46,131 +47,139 @@ export default async function ProductPage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  const related = getRelatedProducts(product, 3);
+  const related = await getRelatedProducts(product);
 
   return (
-    <div className="flex flex-col gap-16 py-12 sm:py-16">
+    <div className="flex flex-col gap-14 py-12 sm:py-16">
+      {/* back */}
       <Link
         href="/shop"
         className="neu-focus inline-flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-muted hover:text-accent-blue"
       >
-        <ArrowLeft size={14} /> All products
+        <ArrowLeft size={14} /> Back to shop
       </Link>
 
-      <section className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-start">
-        <div className="neu-raised-lg aspect-[4/3] w-full overflow-hidden rounded-neu-lg">
+      {/* main grid */}
+      <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+        {/* thumbnail */}
+        <div className="neu-raised-lg aspect-square w-full overflow-hidden rounded-neu-lg">
           <ProductThumbnail
             slug={product.slug}
             className="h-full w-full rounded-neu-lg"
           />
         </div>
 
-        <div>
-          <div className="flex items-center gap-3">
-            <span className={`eyebrow ${accentText[product.accent]}`}>
+        {/* details */}
+        <div className="flex flex-col gap-6">
+          <div>
+            <p className={`eyebrow ${accentText[product.accent]}`}>
               {product.category}
-            </span>
+            </p>
             {product.badge && (
-              <span className="neu-inset-sm px-2.5 py-1 font-mono text-[10px] uppercase tracking-wide text-ink-muted">
+              <span
+                className={`neu-inset-sm mt-2 inline-block px-2.5 py-1 font-mono text-[10px] uppercase tracking-wide ${accentText[product.accent]}`}
+              >
                 {product.badge}
               </span>
             )}
+            <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-ink sm:text-4xl">
+              {product.name}
+            </h1>
+            <p className="mt-4 text-base leading-relaxed text-ink-muted">
+              {product.summary}
+            </p>
           </div>
 
-          <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-ink sm:text-4xl">
-            {product.name}
-          </h1>
-
-          <p className="mt-4 max-w-lg leading-relaxed text-ink-muted">
-            {product.summary}
-          </p>
-
-          <div className="mt-6 flex items-baseline gap-3">
+          {/* price */}
+          <div className="flex items-baseline gap-3">
             <span className="font-display text-3xl font-bold text-ink">
               {formatPrice(product.price)}
             </span>
             {product.compareAtPrice && (
-              <span className="text-base text-ink-faint line-through">
+              <span className="text-sm text-ink-faint line-through">
                 {formatPrice(product.compareAtPrice)}
               </span>
             )}
           </div>
 
-          <div className="mt-3 flex items-center gap-2 text-sm text-ink-muted">
-            <Package size={15} className={accentText[product.accent]} />
-            {stockLabel[product.stock]}
+          {/* stock */}
+          <div className="flex items-center gap-2">
+            <Package
+              size={14}
+              className={
+                product.stock === "in-stock"
+                  ? "text-accent-green"
+                  : product.stock === "low-stock"
+                    ? "text-accent-coral"
+                    : "text-ink-faint"
+              }
+            />
+            <span className="font-mono text-xs uppercase tracking-wider text-ink-muted">
+              {stockLabel[product.stock]}
+            </span>
           </div>
 
-          <div className="mt-7 flex flex-wrap gap-4">
-            <ButtonLink href="/contact" withArrow>
-              Enquire about this
-            </ButtonLink>
-            <a
-              href={`https://wa.me/256751621506?text=${encodeURIComponent(
-                `Hi! I'd like to ask about: ${product.name} https://raymonjohns.vercel.app/shop/${product.slug}`,
-              )}`}
-              target="_blank"
-              rel="noreferrer"
-              className="neu-pressable neu-focus neu-inset inline-flex items-center gap-2 rounded-neu-pill px-6 py-3 font-mono text-xs uppercase tracking-wider text-accent-green"
-            >
-              <MessageCircle size={14} />
-              Buy Now
-            </a>
-          </div>
-        </div>
-      </section>
+          {/* CTA */}
+          <ButtonLink href="/contact" withArrow>
+            <MessageCircle size={14} />
+            Enquire to order
+          </ButtonLink>
 
-      <section className="grid gap-10 md:grid-cols-[1.4fr_0.6fr]">
-        <div className="space-y-5">
-          {product.description.map((paragraph, i) => (
-            <p key={i} className="leading-relaxed text-ink-muted">
-              {paragraph}
-            </p>
-          ))}
+          {/* specs */}
+          {product.specs.length > 0 && (
+            <div className="neu-inset p-5">
+              <p className="eyebrow mb-4">Specs</p>
+              <dl className="grid grid-cols-2 gap-x-6 gap-y-3">
+                {product.specs.map((s) => (
+                  <div key={s.label}>
+                    <dt className="font-mono text-[10px] uppercase tracking-wider text-ink-faint">
+                      {s.label}
+                    </dt>
+                    <dd className="mt-0.5 text-sm text-ink">{s.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )}
 
-          <div className="neu-raised mt-2 p-6 sm:p-8">
-            <p className="eyebrow">Why it&apos;s worth it</p>
-            <ul className="mt-4 space-y-3">
+          {/* features */}
+          {product.features.length > 0 && (
+            <ul className="flex flex-col gap-2">
               {product.features.map((f) => (
-                <li
-                  key={f}
-                  className="flex items-start gap-2 text-sm text-ink-muted"
-                >
+                <li key={f} className="flex items-start gap-2 text-sm text-ink-muted">
                   <CheckCircle2
-                    size={16}
+                    size={14}
                     className={`mt-0.5 shrink-0 ${accentText[product.accent]}`}
                   />
                   {f}
                 </li>
               ))}
             </ul>
-          </div>
+          )}
         </div>
+      </div>
 
-        <div className="neu-raised h-fit p-6">
-          <p className="eyebrow">Specs</p>
-          <dl className="mt-4 space-y-4">
-            {product.specs.map((spec) => (
-              <div key={spec.label}>
-                <dt className="font-mono text-[11px] uppercase tracking-wider text-ink-faint">
-                  {spec.label}
-                </dt>
-                <dd className="mt-1 text-sm text-ink">{spec.value}</dd>
-              </div>
+      {/* description */}
+      {product.description.length > 0 && (
+        <section className="max-w-2xl">
+          <SectionHeading eyebrow="Details" title="About this product" />
+          <div className="mt-6 flex flex-col gap-4">
+            {product.description.map((para, i) => (
+              <p key={i} className="leading-relaxed text-ink-muted">
+                {para}
+              </p>
             ))}
-          </dl>
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
+      {/* related */}
       {related.length > 0 && (
         <section>
-          <SectionHeading
-            eyebrow="You might also need"
-            title="Related products"
-          />
+          <SectionHeading eyebrow="More picks" title="Related products" />
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((p) => (
               <ProductCard key={p.slug} product={p} />
@@ -178,18 +187,6 @@ export default async function ProductPage({
           </div>
         </section>
       )}
-
-      <section className="neu-raised flex flex-wrap items-center justify-between gap-4 p-6 sm:p-8">
-        <div>
-          <p className="eyebrow">Not sure if this fits your device?</p>
-          <p className="mt-1 font-display text-lg font-bold text-ink">
-            Ask before you buy — happy to confirm compatibility.
-          </p>
-        </div>
-        <ButtonLink href="/contact" withArrow>
-          Get in touch
-        </ButtonLink>
-      </section>
     </div>
   );
 }

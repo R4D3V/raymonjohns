@@ -1,4 +1,4 @@
-import { getProductBySlug } from "@/lib/products";
+import { getProductBySlugStatic } from "@/lib/products";
 
 type Props = {
   slug: string;
@@ -495,7 +495,7 @@ export default function ProductThumbnail({ slug, className = "" }: Props) {
   // Fallback: products without a dedicated photo or hand-drawn icon get a
   // generic illustrated thumbnail, coloured by the product's accent and
   // labelled with its category initials.
-  const product = getProductBySlug(slug);
+  const product = getProductBySlugStatic(slug);
   if (!product) return null;
 
   const namedAccentHex: Record<string, string> = {

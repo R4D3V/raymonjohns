@@ -3709,18 +3709,13 @@ export function shuffleProducts(arr: Product[], seed: number): Product[] {
   return copy;
 }
 
-export function getProductBySlug(slug: string): Product | undefined {
+/**
+ * Sync lookup — used only during static param generation at build time,
+ * where the DB isn't available yet. All runtime lookups go through
+ * lib/db/queries.ts instead.
+ */
+export function getProductBySlugStatic(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
-}
-
-export function getRelatedProducts(product: Product, count = 3): Product[] {
-  const sameCategory = products.filter(
-    (p) => p.category === product.category && p.slug !== product.slug,
-  );
-  const rest = products.filter(
-    (p) => p.category !== product.category && p.slug !== product.slug,
-  );
-  return [...sameCategory, ...rest].slice(0, count);
 }
 
 export function formatPrice(amount: number): string {
