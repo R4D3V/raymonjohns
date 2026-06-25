@@ -113,14 +113,13 @@ export async function insertProduct(
   const supabase = createAdminClient();
 
   // get current max sort_order so new product goes to the end
-  const { data: maxRow } = await supabase
+  const { data: maxRows } = await supabase
     .from("products")
     .select("sort_order")
     .order("sort_order", { ascending: false })
-    .limit(1)
-    .single();
+    .limit(1);
 
-  const sort_order = (maxRow?.sort_order ?? 0) + 1;
+  const sort_order = ((maxRows as Array<{ sort_order: number }> | null)?.[0]?.sort_order ?? 0) + 1;
 
   const { error } = await supabase.from("products").insert({
     slug: product.slug,
