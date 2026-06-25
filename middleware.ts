@@ -2,12 +2,12 @@ import { type NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/middleware";
 
 /**
- * Runs on every matched request (Next.js 16 proxy convention).
+ * Runs on every matched request.
  * - Refreshes the Supabase session cookie so Server Components see fresh auth.
  * - Protects all /admin/* routes: unauthenticated users are redirected to /admin/login.
  * - Redirects already-authenticated users away from /admin/login to /admin/products.
  */
-export async function proxy(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { supabaseResponse, user } = await createClient(request);
   const { pathname } = request.nextUrl;
 

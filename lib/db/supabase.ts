@@ -6,7 +6,7 @@
  * so this is the only place that needs to change if the client setup ever evolves.
  */
 
-import { createServerClient } from "@supabase/ssr";
+import { createClient } from "@supabase/supabase-js";
 import type { Database } from "./types";
 
 export { createClient as createServerClient } from "@/utils/supabase/server";
@@ -14,10 +14,7 @@ export { createClient as createBrowserClient } from "@/utils/supabase/client";
 
 /**
  * Admin client that uses the SERVICE ROLE KEY — bypasses RLS entirely.
- * Uses createServerClient from @supabase/ssr (same as the rest of the project)
- * so TypeScript infers table/column types correctly.
- * Cookie handlers are no-ops since this client is never used for auth sessions.
- *
+ * Use this for all write operations (insert / update / delete) in server actions.
  * NEVER import or call this in client components or browser code.
  */
 export function createAdminClient() {
@@ -33,10 +30,10 @@ export function createAdminClient() {
     );
   }
 
-  return createServerClient<Database>(url, key, {
-    cookies: {
-      getAll: () => [],
-      setAll: () => {},
+  return createClient<Database>(url, key, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
     },
   });
 }
