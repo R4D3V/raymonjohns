@@ -79,5 +79,31 @@ create policy "Service role write categories"
   using (auth.role() = 'service_role')
   with check (auth.role() = 'service_role');
 
+-- ── product_images ──────────────────────────────────────────────
+-- Stores up to 4 base64 images per product (position 0-3).
+-- Run this block in Supabase SQL Editor if upgrading an existing project.
+create table if not exists public.product_images (
+  id           uuid primary key default gen_random_uuid(),
+  product_slug text not null references public.products(slug) on delete cascade,
+  position     smallint not null check (position between 0 and 3),
+  data         text not null,   -- base64 data URI: "data:image/jpeg;base64,..."
+  created_at   timestamptz not null default now(),
+  unique (product_slug, position)
+);
+
+alter table public.product_images enable row level security;
+
+drop policy if exists "Public read images"          on public.product_images;
+drop policy if exists "Service role write images"   on public.product_images;
+
+create policy "Public read images"
+  on public.product_images for select using (true);
+
+create policy "Service role write images"
+  on public.product_images
+  for all
+  using (auth.role() = 'service_role')
+  with check (auth.role() = 'service_role');
+
 -- ── Seed categories ───────────────────────────────────────────
 -- Run the seed script (supabase/seed.sql) separately after this.

@@ -11,6 +11,8 @@ import {
   deleteProductsBySlugs,
   setCategories,
   deleteCategoriesByName,
+  getProductImages,
+  saveProductImages as dbSaveProductImages,
 } from "@/lib/db/queries";
 
 export type ProductFormInput = {
@@ -128,4 +130,26 @@ export async function deleteCategories(categoriesToDelete: string[]) {
   revalidatePath("/admin/products");
   revalidatePath("/admin/categories");
   return { removedCount };
+}
+
+/**
+ * Load current images for a product (for pre-filling the admin form).
+ * Returns up to 4 base64 data URIs ordered by position.
+ */
+export async function loadProductImages(slug: string): Promise<string[]> {
+  return getProductImages(slug);
+}
+
+/**
+ * Persist images for a product from the admin form.
+ * `images` is an array of up to 4 entries; null/undefined slots are deleted.
+ */
+export async function saveProductImagesAction(
+  slug: string,
+  images: (string | null | undefined)[]
+): Promise<void> {
+  await dbSaveProductImages(slug, images);
+  revalidatePath("/shop");
+  revalidatePath(`/shop/${slug}`);
+  revalidatePath("/admin/products");
 }

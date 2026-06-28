@@ -7,7 +7,7 @@
  */
 
 import { createServerClient, createAdminClient } from "./supabase";
-import type { ProductRow, CategoryRow } from "./types";
+import type { ProductRow, CategoryRow, ProductImageRow } from "./types";
 import type { Product } from "@/lib/products";
 
 // ─── Type converters ────────────────────────────────────────────────────────
@@ -274,4 +274,85 @@ export async function deleteCategoriesByName(names: string[]): Promise<number> {
 
   if (error) throw new Error(`Failed to delete categories: ${error.message}`);
   return data?.length ?? 0;
+}
+
+// ─── Product image queries ─────────────────────────────────────────────
+
+/**
+ * Returns an array of up to 4 base64 data-URI strings for a product,
+ * ordered by position (0 = primary image).
+ * Returns empty array if the product has no images.
+ */
+export async function getProductImages(slug: string): Promise<string[]> {
+  const supabase = await createServerClient();
+  const { data, error } = await supabase
+    .from("product_images")
+    .select("position, data")
+    .eq("product_slug", slug)
+    .order("position", { ascending: true });
+
+  if (error) throw new Error(`Failed to fetch images: ${error.message}`);
+  return (data as Pick<ProductImageRow, "position" | "data">[]).map((r) => r.data);
+}
+
+/**
+ * Returns a map of slug -> primary image (position 0) for a list of slugs.
+ * Used by the shop page to display product card thumbnails efficiently.
+ */
+export async function getPrimaryImages(
+  slugs: string[]
+): Promise<Record<string, string>> {
+  if (slugs.length === 0) return {};
+  const supabase = await createServerClient();
+  const { data, error } = await supabase
+    .from("product_images")
+    .select("product_slug, data")
+    .in("product_slug", slugs)
+    .eq("position", 0);
+
+  if (error) throw new Error(`Failed to fetch primary images: ${error.message}`);
+  const map: Record<string, string> = {};
+  for (const row of (data as Pick<ProductImageRow, "product_slug" | "data">[]) ?? []) {
+    map[row.product_slug] = row.data;
+  }
+  return map;
+}
+
+/**
+ * Saves images for a product. `images` is an array of up to 4 entries:
+ * - a base64 data URI string → upsert at that position
+ * - null / undefined → delete that position
+ */
+export async function saveProductImages(
+  slug: string,
+  images: (string | null | undefined)[]
+): Promise<void> {
+  const supabase = createAdminClient();
+
+  // Build upsert rows and positions to delete
+  const upsertRows: { product_slug: string; position: number; data: string }[] = [];
+  const deletePositions: number[] = [];
+
+  for (let i = 0; i < 4; i++) {
+    const img = images[i];
+    if (img) {
+      upsertRows.push({ product_slug: slug, position: i, data: img });
+    } else {
+      deletePositions.push(i);
+    }
+  }
+
+  if (deletePositions.length > 0) {
+    const { error } = await (supabase.from("product_images") as any)
+      .delete()
+      .eq("product_slug", slug)
+      .in("position", deletePositions) as unknown as { error: { message: string } | null };
+    if (error) throw new Error(`Failed to delete images: ${error.message}`);
+  }
+
+  if (upsertRows.length > 0) {
+    const { error } = await (supabase.from("product_images") as any)
+      .upsert(upsertRows, { onConflict: "product_slug,position" }) as unknown as { error: { message: string } | null };
+    if (error) throw new Error(`Failed to save images: ${error.message}`);
+  }
 }

@@ -55,6 +55,21 @@ export type Database = {
         Update: Partial<Database["public"]["Tables"]["categories"]["Insert"]>;
         Relationships: [];
       };
+      product_images: {
+        Row: {
+          id: string;
+          product_slug: string;
+          position: number;          // 0–3
+          data: string;              // base64 data URI
+          created_at: string;
+        };
+        Insert: Omit<
+          Database["public"]["Tables"]["product_images"]["Row"],
+          "id" | "created_at"
+        >;
+        Update: Partial<Database["public"]["Tables"]["product_images"]["Insert"]>;
+        Relationships: [];
+      };
     };
   };
 };
@@ -62,3 +77,4 @@ export type Database = {
 // Convenience aliases
 export type ProductRow = Database["public"]["Tables"]["products"]["Row"];
 export type CategoryRow = Database["public"]["Tables"]["categories"]["Row"];
+export type ProductImageRow = Database["public"]["Tables"]["product_images"]["Row"];

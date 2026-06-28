@@ -7,6 +7,7 @@ import ProductThumbnail from "@/components/product-thumbnail";
 
 type Props = {
   product: Product;
+  primaryImage?: string; // base64 data URI — if present, shown instead of the SVG
 };
 
 const stockLabel: Record<Product["stock"], string> = {
@@ -15,7 +16,7 @@ const stockLabel: Record<Product["stock"], string> = {
   preorder: "Order-in",
 };
 
-export default function ProductCard({ product }: Props) {
+export default function ProductCard({ product, primaryImage }: Props) {
   return (
     <Link
       href={`/shop/${product.slug}`}
@@ -32,10 +33,19 @@ export default function ProductCard({ product }: Props) {
       </div>
 
       <div className="neu-inset h-36 overflow-hidden rounded-neu-md">
-        <ProductThumbnail
-          slug={product.slug}
-          className="h-full w-full rounded-neu-md"
-        />
+        {primaryImage ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={primaryImage}
+            alt={product.name}
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <ProductThumbnail
+            slug={product.slug}
+            className="h-full w-full rounded-neu-md"
+          />
+        )}
       </div>
 
       <div>
@@ -72,3 +82,4 @@ export default function ProductCard({ product }: Props) {
     </Link>
   );
 }
+

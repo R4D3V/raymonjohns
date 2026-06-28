@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle2, MessageCircle, Package } from "lucide-react";
-import { getAllProducts, getProductBySlug, getRelatedProducts } from "@/lib/db/queries";
+import { getAllProducts, getProductBySlug, getRelatedProducts, getProductImages } from "@/lib/db/queries";
 import { formatPrice } from "@/lib/products";
 import { accentText } from "@/lib/accent";
 import { ButtonLink } from "@/components/neu-button";
-import ProductThumbnail from "@/components/product-thumbnail";
+import ProductGallery from "@/components/product-gallery";
 import ProductCard from "@/components/product-card";
 import SectionHeading from "@/components/section-heading";
 
@@ -50,7 +50,10 @@ export default async function ProductPage({
   const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  const related = await getRelatedProducts(product);
+  const [related, productImages] = await Promise.all([
+    getRelatedProducts(product),
+    getProductImages(slug),
+  ]);
 
   return (
     <div className="flex flex-col gap-14 py-12 sm:py-16">
@@ -64,13 +67,8 @@ export default async function ProductPage({
 
       {/* main grid */}
       <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-        {/* thumbnail */}
-        <div className="neu-raised-lg aspect-square w-full overflow-hidden rounded-neu-lg">
-          <ProductThumbnail
-            slug={product.slug}
-            className="h-full w-full rounded-neu-lg"
-          />
-        </div>
+        {/* gallery */}
+        <ProductGallery images={productImages} slug={product.slug} />
 
         {/* details */}
         <div className="flex flex-col gap-6">

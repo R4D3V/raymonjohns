@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useEffect, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Save, Loader2 } from "lucide-react";
 import type { Product } from "@/lib/products";
-import { saveProduct, type ProductFormInput } from "@/lib/admin/actions";
+import { saveProduct, saveProductImagesAction, loadProductImages, type ProductFormInput } from "@/lib/admin/actions";
 import RepeatingListInput from "@/components/admin/repeating-list-input";
 import SpecsListInput from "@/components/admin/specs-list-input";
+import ProductImageUploader from "@/components/admin/product-image-uploader";
 
 type Props = {
   product?: Product; // omitted when creating
@@ -53,6 +54,22 @@ export default function ProductForm({ product, categories }: Props) {
   const [accent, setAccent] = useState<Product["accent"]>(product?.accent ?? "blue");
   const [badge, setBadge] = useState(product?.badge ?? "");
 
+  // Images: array of 4 slots (string = base64 data URI, null = empty)
+  const [images, setImages] = useState<(string | null)[]>([null, null, null, null]);
+
+  // Load existing images when editing
+  useEffect(() => {
+    if (!product?.slug) return;
+    loadProductImages(product.slug).then((loaded) => {
+      setImages([
+        loaded[0] ?? null,
+        loaded[1] ?? null,
+        loaded[2] ?? null,
+        loaded[3] ?? null,
+      ]);
+    });
+  }, [product?.slug]);
+
   const handleNameChange = (value: string) => {
     setName(value);
     if (!slugTouched) setSlug(slugify(value));
@@ -80,7 +97,9 @@ export default function ProductForm({ product, categories }: Props) {
 
     startTransition(async () => {
       try {
-        await saveProduct(input);
+        const { slug: savedSlug } = await saveProduct(input);
+        // Save images using the final (possibly updated) slug
+        await saveProductImagesAction(savedSlug, images);
         router.push("/admin/products");
       } catch (err) {
         setError(err instanceof Error ? err.message : "Something went wrong.");
@@ -94,13 +113,22 @@ export default function ProductForm({ product, categories }: Props) {
         <div className="neu-inset rounded-neu-md p-4 text-sm text-accent-coral">{error}</div>
       )}
 
+      {/* Images */}
+      <div className="neu-raised flex flex-col gap-5 p-6 sm:p-8">
+        <p className="eyebrow">Images</p>
+        <ProductImageUploader images={images} onChange={setImages} />
+      </div>
+
+      {/* Basics */}
       <div className="neu-raised flex flex-col gap-5 p-6 sm:p-8">
         <p className="eyebrow">Basics</p>
+
 
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label className="font-mono text-[11px] uppercase tracking-wider text-ink-faint">
               Name
+
             </label>
             <input
               type="text"

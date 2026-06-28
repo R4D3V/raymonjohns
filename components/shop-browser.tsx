@@ -13,9 +13,10 @@ const PAGE_SIZE = 10;
 type Props = {
   initialProducts: Product[];
   initialCategories: string[];
+  productImages: Record<string, string>; // slug → primary base64 image
 };
 
-export default function ShopBrowser({ initialProducts, initialCategories }: Props) {
+export default function ShopBrowser({ initialProducts, initialCategories, productImages }: Props) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [page, setPage] = useState(1);
@@ -150,7 +151,11 @@ export default function ShopBrowser({ initialProducts, initialCategories }: Prop
           />
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {pageItems.map((product) => (
-              <ProductCard key={product.slug} product={product} />
+              <ProductCard
+                key={product.slug}
+                product={product}
+                primaryImage={productImages[product.slug]}
+              />
             ))}
           </div>
 
