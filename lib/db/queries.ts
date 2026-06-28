@@ -113,16 +113,16 @@ export async function insertProduct(
   const supabase = createAdminClient();
 
   // get current max sort_order so new product goes to the end
-  const { data: maxRow } = await supabase
+  const { data: maxRow } = (await supabase
     .from("products")
     .select("sort_order")
     .order("sort_order", { ascending: false })
     .limit(1)
-    .single();
+    .single()) as unknown as { data: { sort_order: number } | null };
 
   const sort_order = (maxRow?.sort_order ?? 0) + 1;
 
-  const { error } = await supabase.from("products").insert({
+  const { error } = await (supabase.from("products") as any).insert({
     slug: product.slug,
     name: product.name,
     category: product.category,
@@ -136,7 +136,7 @@ export async function insertProduct(
     accent: product.accent,
     badge: product.badge ?? null,
     sort_order,
-  });
+  }) as { error: { message: string } | null };
 
   if (error) throw new Error(`Failed to create product: ${error.message}`);
   return product.slug;
@@ -148,8 +148,7 @@ export async function updateProduct(
   product: Product
 ): Promise<void> {
   const supabase = createAdminClient();
-  const { error } = await supabase
-    .from("products")
+  const { error } = await (supabase.from("products") as any)
     .update({
       slug: product.slug,
       name: product.name,
@@ -164,7 +163,7 @@ export async function updateProduct(
       accent: product.accent,
       badge: product.badge ?? null,
     })
-    .eq("slug", originalSlug);
+    .eq("slug", originalSlug) as unknown as { error: { message: string } | null };
 
   if (error) throw new Error(`Failed to update product: ${error.message}`);
 }
@@ -172,10 +171,9 @@ export async function updateProduct(
 /** Delete a single product by slug. */
 export async function deleteProductBySlug(slug: string): Promise<void> {
   const supabase = createAdminClient();
-  const { error } = await supabase
-    .from("products")
+  const { error } = await (supabase.from("products") as any)
     .delete()
-    .eq("slug", slug);
+    .eq("slug", slug) as unknown as { error: { message: string } | null };
 
   if (error) throw new Error(`Failed to delete product: ${error.message}`);
 }
@@ -185,11 +183,10 @@ export async function deleteProductsBySlugs(
   slugs: string[]
 ): Promise<number> {
   const supabase = createAdminClient();
-  const { data, error } = await supabase
-    .from("products")
+  const { data, error } = await (supabase.from("products") as any)
     .delete()
     .in("slug", slugs)
-    .select("slug");
+    .select("slug") as unknown as { data: { slug: string }[] | null; error: { message: string } | null };
 
   if (error) throw new Error(`Failed to delete products: ${error.message}`);
   return data?.length ?? 0;
@@ -200,13 +197,15 @@ export async function deleteProductsBySlugs(
 /** Fetch all categories ordered by sort_order. Returns name strings. */
 export async function getAllCategories(): Promise<string[]> {
   const supabase = await createServerClient();
-  const { data, error } = await supabase
-    .from("categories")
+  const { data, error } = await (supabase.from("categories") as any)
     .select("name")
-    .order("sort_order", { ascending: true });
+    .order("sort_order", { ascending: true }) as unknown as {
+    data: Pick<CategoryRow, "name">[] | null;
+    error: { message: string } | null;
+  };
 
   if (error) throw new Error(`Failed to fetch categories: ${error.message}`);
-  return (data as Pick<CategoryRow, "name">[]).map((r) => r.name);
+  return (data ?? []).map((r) => r.name);
 }
 
 /** Replace the full categories list. Validates none of the removed
@@ -215,17 +214,19 @@ export async function setCategories(categories: string[]): Promise<void> {
   const supabase = createAdminClient();
 
   // check for categories still used by products
-  const { data: existing } = await supabase
+  const { data: existing } = (await supabase
     .from("categories")
-    .select("name");
+    .select("name")) as unknown as { data: Pick<CategoryRow, "name">[] | null };
   const existingNames = (existing ?? []).map((r) => r.name);
   const removed = existingNames.filter((n) => !categories.includes(n));
 
   if (removed.length > 0) {
-    const { data: inUse } = await supabase
+    const { data: inUse } = (await supabase
       .from("products")
       .select("category")
-      .in("category", removed);
+      .in("category", removed)) as unknown as {
+      data: Pick<ProductRow, "category">[] | null;
+    };
 
     const inUseNames = [...new Set((inUse ?? []).map((r) => r.category))];
     if (inUseNames.length > 0) {
@@ -238,11 +239,11 @@ export async function setCategories(categories: string[]): Promise<void> {
   }
 
   // delete all and re-insert in order (simplest approach for small lists)
-  await supabase.from("categories").delete().not("id", "is", null);
+  await (supabase.from("categories") as any).delete().not("id", "is", null);
   if (categories.length === 0) return;
 
   const rows = categories.map((name, i) => ({ name, sort_order: i }));
-  const { error } = await supabase.from("categories").insert(rows);
+  const { error } = await (supabase.from("categories") as any).insert(rows) as unknown as { error: { message: string } | null };
   if (error) throw new Error(`Failed to save categories: ${error.message}`);
 }
 
@@ -250,10 +251,12 @@ export async function setCategories(categories: string[]): Promise<void> {
 export async function deleteCategoriesByName(names: string[]): Promise<number> {
   const supabase = createAdminClient();
 
-  const { data: inUse } = await supabase
+  const { data: inUse } = (await supabase
     .from("products")
     .select("category")
-    .in("category", names);
+    .in("category", names)) as unknown as {
+    data: Pick<ProductRow, "category">[] | null;
+  };
 
   const inUseNames = [...new Set((inUse ?? []).map((r) => r.category))];
   if (inUseNames.length > 0) {
@@ -264,11 +267,10 @@ export async function deleteCategoriesByName(names: string[]): Promise<number> {
     );
   }
 
-  const { data, error } = await supabase
-    .from("categories")
+  const { data, error } = await (supabase.from("categories") as any)
     .delete()
     .in("name", names)
-    .select("id");
+    .select("id") as unknown as { data: Pick<CategoryRow, "id">[] | null; error: { message: string } | null };
 
   if (error) throw new Error(`Failed to delete categories: ${error.message}`);
   return data?.length ?? 0;

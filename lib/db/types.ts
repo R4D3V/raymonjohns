@@ -39,6 +39,7 @@ export type Database = {
           "id" | "created_at" | "updated_at"
         >;
         Update: Partial<Database["public"]["Tables"]["products"]["Insert"]>;
+        Relationships: [];
       };
       categories: {
         Row: {
@@ -52,6 +53,7 @@ export type Database = {
           "id" | "created_at"
         >;
         Update: Partial<Database["public"]["Tables"]["categories"]["Insert"]>;
+        Relationships: [];
       };
     };
   };
