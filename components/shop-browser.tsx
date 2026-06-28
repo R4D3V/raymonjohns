@@ -99,11 +99,11 @@ export default function ShopBrowser({ initialProducts, initialCategories, produc
           Shuffle
         </button>
       </div>
-      {shuffleSeed !== null && (
+      {/* {shuffleSeed !== null && (
         <p className="font-mono text-[10px] uppercase tracking-wider text-ink-faint">
           Arrangement #{(shuffleSeed % 100000).toString().padStart(5, "0")} — changes every visit
         </p>
-      )}
+      )} */}
 
       {/* category chips — clickable filters */}
       <div className="flex flex-wrap gap-2">

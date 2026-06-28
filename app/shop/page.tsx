@@ -24,7 +24,7 @@ export default async function ShopPage() {
   const productImages = await getPrimaryImages(slugs);
 
   return (
-    <div className="flex flex-col gap-16 py-12 sm:py-16">
+    <div className="flex flex-col gap-14 py-6 sm:py-6">
       <SectionHeading
         eyebrow="The shop"
         title="Accessories and parts, picked deliberately"
