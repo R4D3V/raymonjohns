@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { headers } from "next/headers";
 import { LogOut, ShieldCheck } from "lucide-react";
 import { createClient } from "@/utils/supabase/server";
 import { signOut } from "@/lib/admin/auth-actions";
@@ -14,14 +13,9 @@ export default async function AdminLayout({
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Read the current path to know if we're on the login page
-  const headersList = await headers();
-  const pathname = headersList.get("x-invoke-path") ?? "";
-  const isLoginPage =
-    pathname === "/admin/login" || pathname.endsWith("/admin/login");
-
-  // On the login page just render children — no chrome needed
-  if (!user || isLoginPage) {
+  // Not authenticated — middleware handles the redirect to /admin/login,
+  // but if the request reaches here just render children without admin chrome.
+  if (!user) {
     return <>{children}</>;
   }
 

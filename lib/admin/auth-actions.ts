@@ -6,13 +6,12 @@ import { createClient } from "@/utils/supabase/server";
 /**
  * Sign in with email + password.
  * Called from the /admin/login page.
- * Throws a plain string error message on failure so the form can display it.
+ * Returns a result object — the caller handles redirect on the client side.
  */
 export async function signIn(
   email: string,
-  password: string,
-  next = "/admin/products"
-): Promise<void> {
+  password: string
+): Promise<{ success: boolean; error?: string }> {
   const supabase = await createClient();
 
   const { error } = await supabase.auth.signInWithPassword({
@@ -21,17 +20,16 @@ export async function signIn(
   });
 
   if (error) {
-    // Surface a friendly message — don't leak "Invalid login credentials" etc.
     if (
       error.message.toLowerCase().includes("invalid") ||
       error.message.toLowerCase().includes("credentials")
     ) {
-      throw new Error("Incorrect email or password. Please try again.");
+      return { success: false, error: "Incorrect email or password. Please try again." };
     }
-    throw new Error(error.message);
+    return { success: false, error: error.message };
   }
 
-  redirect(next);
+  return { success: true };
 }
 
 /**

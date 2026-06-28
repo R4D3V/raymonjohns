@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, FormEvent } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, FormEvent, Suspense } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Lock, Mail, Eye, EyeOff, LogIn, AlertCircle } from "lucide-react";
 import { signIn } from "@/lib/admin/auth-actions";
 
-export default function AdminLoginPage() {
+function LoginForm() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const next = searchParams.get("next") ?? "/admin/products";
 
   const [email, setEmail] = useState("");
@@ -20,10 +21,12 @@ export default function AdminLoginPage() {
     setError(null);
     setLoading(true);
 
-    try {
-      await signIn(email, password, next);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong.");
+    const result = await signIn(email, password);
+
+    if (result.success) {
+      router.push(next);
+    } else {
+      setError(result.error ?? "Something went wrong.");
       setLoading(false);
     }
   }
@@ -31,7 +34,6 @@ export default function AdminLoginPage() {
   return (
     <div className="flex min-h-[80vh] items-center justify-center py-12">
       <div className="w-full max-w-sm">
-        {/* Header */}
         <div className="mb-10 text-center">
           <div className="neu-raised mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-neu-md">
             <Lock size={24} className="text-accent-blue" />
@@ -44,10 +46,8 @@ export default function AdminLoginPage() {
           </p>
         </div>
 
-        {/* Form */}
         <div className="neu-raised rounded-neu-lg p-8">
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-            {/* Email */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="email"
@@ -72,7 +72,6 @@ export default function AdminLoginPage() {
               </div>
             </div>
 
-            {/* Password */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="password"
@@ -105,7 +104,6 @@ export default function AdminLoginPage() {
               </div>
             </div>
 
-            {/* Error message */}
             {error && (
               <div className="neu-inset flex items-start gap-3 rounded-neu-sm p-3">
                 <AlertCircle
@@ -118,7 +116,6 @@ export default function AdminLoginPage() {
               </div>
             )}
 
-            {/* Submit */}
             <button
               type="submit"
               disabled={loading}
@@ -147,5 +144,19 @@ export default function AdminLoginPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function AdminLoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-[80vh] items-center justify-center py-12">
+          <p className="text-sm text-ink-muted">Loading…</p>
+        </div>
+      }
+    >
+      <LoginForm />
+    </Suspense>
   );
 }
