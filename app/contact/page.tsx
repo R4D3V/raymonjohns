@@ -15,11 +15,11 @@ const details = [
     href: "mailto:raymonjohns@gmail.com",
   },
 
-  { icon: Phone, label: "+256 751 621 505", href: "tel:+256751621505" },
+  { icon: Phone, label: "+256 751 621 506", href: "tel:+256751621506" },
   {
     icon: MessageCircle,
     label: "Chat on WhatsApp",
-    href: "https://wa.me/256751621505",
+    href: "https://wa.me/256751621506",
   },
   { icon: MapPin, label: "Entebbe, Uganda", href: undefined },
 ];
