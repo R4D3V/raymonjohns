@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import SectionHeading from "@/components/section-heading";
 import { ButtonLink } from "@/components/neu-button";
+import ScrollReveal from "@/components/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "MunoWatch APK — RaymonJohns",
@@ -89,135 +90,145 @@ export default function ApkPage() {
       </Link>
 
       {/* Hero */}
-      <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-start">
-        <div>
-          <div className="flex items-center gap-3">
-            <div className="neu-inset-sm flex h-12 w-12 items-center justify-center text-accent-blue">
-              <Smartphone size={22} />
-            </div>
-            <p className="eyebrow text-accent-blue">Android app</p>
-          </div>
-          <h1 className="mt-4 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">
-            MunoWatch
-          </h1>
-          <p className="mt-2 font-mono text-xs uppercase tracking-wider text-ink-faint">
-            Watch Translated Movies Online &amp; TV Shows
-          </p>
-          <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink-muted">
-            MunoWatch provides its audience with a media localization mechanism
-            called Veejay that makes it easy, fun, and comfortable for domestic
-            audiences to consume foreign media and entertainment content.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="/apk/munowatch.apk"
-              download
-              className="neu-pressable neu-focus inline-flex items-center gap-2 rounded-neu-pill bg-accent-blue px-6 py-3 font-mono text-xs uppercase tracking-wider text-[#fff] transition-colors hover:opacity-85"
-            >
-              <Download size={14} /> Download APK
-            </a>
-            <ButtonLink href="https://apps.apple.com/app/id1640656202" withArrow>
-              iOS app
-            </ButtonLink>
-          </div>
-          <p className="mt-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-ink-faint">
-            <ShieldCheck size={13} className="text-accent-coral" />
-            Direct download — served from this site, no mirrors
-          </p>
-        </div>
-
-        {/* At a glance */}
-        <div className="neu-raised h-fit p-6 sm:p-8">
-          <p className="eyebrow">At a glance</p>
-          <dl className="mt-4 space-y-4">
-            {details.map((d) => (
-              <div key={d.label}>
-                <dt className="font-mono text-[11px] uppercase tracking-wider text-ink-faint">
-                  {d.label}
-                </dt>
-                <dd className="mt-1 font-display text-sm font-bold text-ink">
-                  {d.value}
-                </dd>
+      <ScrollReveal>
+        <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-start">
+          <div>
+            <div className="flex items-center gap-3">
+              <div className="neu-inset-sm flex h-12 w-12 items-center justify-center text-accent-blue">
+                <Smartphone size={22} />
               </div>
-            ))}
-          </dl>
+              <p className="eyebrow text-accent-blue">Android app</p>
+            </div>
+            <h1 className="mt-4 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">
+              MunoWatch
+            </h1>
+            <p className="mt-2 font-mono text-xs uppercase tracking-wider text-ink-faint">
+              Watch Translated Movies Online &amp; TV Shows
+            </p>
+            <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink-muted">
+              MunoWatch provides its audience with a media localization mechanism
+              called Veejay that makes it easy, fun, and comfortable for domestic
+              audiences to consume foreign media and entertainment content.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href="/apk/munowatch.apk"
+                download
+                className="neu-pressable neu-focus inline-flex items-center gap-2 rounded-neu-pill bg-accent-blue px-6 py-3 font-mono text-xs uppercase tracking-wider text-[#fff] transition-colors hover:opacity-85"
+              >
+                <Download size={14} /> Download APK
+              </a>
+              <ButtonLink href="https://apps.apple.com/app/id1640656202" withArrow>
+                iOS app
+              </ButtonLink>
+            </div>
+            <p className="mt-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-ink-faint">
+              <ShieldCheck size={13} className="text-accent-coral" />
+              Direct download — served from this site, no mirrors
+            </p>
+          </div>
+
+          {/* At a glance */}
+          <div className="neu-raised h-fit p-6 sm:p-8">
+            <p className="eyebrow">At a glance</p>
+            <dl className="mt-4 space-y-4">
+              {details.map((d) => (
+                <div key={d.label}>
+                  <dt className="font-mono text-[11px] uppercase tracking-wider text-ink-faint">
+                    {d.label}
+                  </dt>
+                  <dd className="mt-1 font-display text-sm font-bold text-ink">
+                    {d.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* Features */}
-      <section className="flex flex-col gap-6">
-        <SectionHeading
-          eyebrow="What it does"
-          title="Translated entertainment, made comfortable"
-          description="Foreign movies and TV shows shouldn't be a barrier. MunoWatch brings them into your language and keeps the watching experience fun."
-        />
-        <div className="grid gap-6 sm:grid-cols-2">
-          {features.map(({ icon: Icon, title, body }) => (
-            <div key={title} className="neu-raised flex flex-col gap-3 p-6 sm:p-8">
-              <div className="neu-inset-sm flex h-11 w-11 items-center justify-center text-accent-blue">
-                <Icon size={20} />
+      <ScrollReveal>
+        <section className="flex flex-col gap-6">
+          <SectionHeading
+            eyebrow="What it does"
+            title="Translated entertainment, made comfortable"
+            description="Foreign movies and TV shows shouldn't be a barrier. MunoWatch brings them into your language and keeps the watching experience fun."
+          />
+          <div className="grid gap-6 sm:grid-cols-2">
+            {features.map(({ icon: Icon, title, body }) => (
+              <div key={title} className="neu-raised flex flex-col gap-3 p-6 sm:p-8">
+                <div className="neu-inset-sm flex h-11 w-11 items-center justify-center text-accent-blue">
+                  <Icon size={20} />
+                </div>
+                <h3 className="font-display text-lg font-bold text-ink">{title}</h3>
+                <p className="text-sm leading-relaxed text-ink-muted">{body}</p>
               </div>
-              <h3 className="font-display text-lg font-bold text-ink">{title}</h3>
-              <p className="text-sm leading-relaxed text-ink-muted">{body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Install */}
-      <section className="flex flex-col gap-6">
-        <SectionHeading
-          eyebrow="Getting started"
-          title="Install the APK in three steps"
-          description="The file downloads straight from this site, then installs like any other Android app."
-        />
-        <div className="grid gap-6 sm:grid-cols-3">
-          {steps.map(({ step, title, body }) => (
-            <div key={step} className="neu-raised flex flex-col gap-3 p-6">
-              <span className="gradient-number text-sm">{step}</span>
-              <h3 className="font-display text-lg font-bold text-ink">{title}</h3>
-              <p className="text-sm leading-relaxed text-ink-muted">{body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ScrollReveal>
+        <section className="flex flex-col gap-6">
+          <SectionHeading
+            eyebrow="Getting started"
+            title="Install the APK in three steps"
+            description="The file downloads straight from this site, then installs like any other Android app."
+          />
+          <div className="grid gap-6 sm:grid-cols-3">
+            {steps.map(({ step, title, body }) => (
+              <div key={step} className="neu-raised flex flex-col gap-3 p-6">
+                <span className="gradient-number text-sm">{step}</span>
+                <h3 className="font-display text-lg font-bold text-ink">{title}</h3>
+                <p className="text-sm leading-relaxed text-ink-muted">{body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Notes */}
-      <section className="flex flex-col gap-6">
-        <SectionHeading eyebrow="Good to know" title="Notes on this build" />
-        <ul className="grid gap-3 sm:grid-cols-2">
-          {notes.map((n) => (
-            <li key={n} className="neu-raised flex items-start gap-3 p-5">
-              <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-accent-coral" />
-              <span className="text-sm leading-relaxed text-ink-muted">{n}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <ScrollReveal>
+        <section className="flex flex-col gap-6">
+          <SectionHeading eyebrow="Good to know" title="Notes on this build" />
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {notes.map((n) => (
+              <li key={n} className="neu-raised flex items-start gap-3 p-5">
+                <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-accent-coral" />
+                <span className="text-sm leading-relaxed text-ink-muted">{n}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </ScrollReveal>
 
       {/* CTA */}
-      <div className="neu-raised-lg flex flex-col items-center gap-4 p-10 text-center sm:p-14">
-        <p className="eyebrow">Ready to watch?</p>
-        <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
-          Download MunoWatch and start watching translated movies &amp; TV shows.
-        </h2>
-        <a
-          href="/apk/munowatch.apk"
-          download
-          className="neu-pressable neu-focus inline-flex items-center gap-2 rounded-neu-pill bg-accent-blue px-6 py-3 font-mono text-xs uppercase tracking-wider text-[#fff] transition-colors hover:opacity-85"
-        >
-          <Download size={14} /> Download APK
-        </a>
-        <p className="mt-2 text-sm text-ink-muted">
-          Questions? Email{" "}
+      <ScrollReveal>
+        <div className="neu-raised-lg flex flex-col items-center gap-4 p-10 text-center sm:p-14">
+          <p className="eyebrow">Ready to watch?</p>
+          <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
+            Download MunoWatch and start watching translated movies &amp; TV shows.
+          </h2>
           <a
-            href="mailto:info@munowatch.com"
-            className="text-accent-blue underline-offset-4 hover:underline"
+            href="/apk/munowatch.apk"
+            download
+            className="neu-pressable neu-focus inline-flex items-center gap-2 rounded-neu-pill bg-accent-blue px-6 py-3 font-mono text-xs uppercase tracking-wider text-[#fff] transition-colors hover:opacity-85"
           >
-            info@munowatch.com
+            <Download size={14} /> Download APK
           </a>
-        </p>
-      </div>
+          <p className="mt-2 text-sm text-ink-muted">
+            Questions? Email{" "}
+            <a
+              href="mailto:info@munowatch.com"
+              className="text-accent-blue underline-offset-4 hover:underline"
+            >
+              info@munowatch.com
+            </a>
+          </p>
+        </div>
+      </ScrollReveal>
     </div>
   );
 }

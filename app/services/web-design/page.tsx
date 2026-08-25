@@ -4,6 +4,7 @@ import { ArrowLeft, CheckCircle2, Layers, Zap, Code2, Globe } from "lucide-react
 import SectionHeading from "@/components/section-heading";
 import { ButtonLink } from "@/components/neu-button";
 import { accentText } from "@/lib/accent";
+import ScrollReveal from "@/components/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "Web Design & Development — RaymonJohns",
@@ -63,6 +64,7 @@ export default function WebDesignPage() {
       </Link>
 
       {/* Hero */}
+      <ScrollReveal>
       <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-start">
         <div>
           <div className="flex items-center gap-3">
@@ -114,8 +116,10 @@ export default function WebDesignPage() {
           </dl>
         </div>
       </div>
+      </ScrollReveal>
 
       {/* What's included */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Deliverables" title="What's included" />
         <ul className="grid gap-3 sm:grid-cols-2">
@@ -127,8 +131,10 @@ export default function WebDesignPage() {
           ))}
         </ul>
       </section>
+      </ScrollReveal>
 
       {/* Process */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="How it works" title="The process" />
         <div className="grid gap-6 sm:grid-cols-2">
@@ -141,8 +147,10 @@ export default function WebDesignPage() {
           ))}
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Who it's for */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Right fit" title="Who this is for" />
         <ul className="flex flex-col gap-3">
@@ -154,8 +162,10 @@ export default function WebDesignPage() {
           ))}
         </ul>
       </section>
+      </ScrollReveal>
 
       {/* CTA */}
+      <ScrollReveal>
       <div className="neu-raised-lg flex flex-col items-center gap-4 p-10 text-center sm:p-14">
         <p className="eyebrow">Ready to build?</p>
         <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
@@ -165,6 +175,7 @@ export default function WebDesignPage() {
           Start a conversation
         </ButtonLink>
       </div>
+      </ScrollReveal>
     </div>
   );
 }

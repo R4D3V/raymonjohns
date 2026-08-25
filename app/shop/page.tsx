@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SectionHeading from "@/components/section-heading";
 import ShopBrowser from "@/components/shop-browser";
+import ScrollReveal from "@/components/scroll-reveal";
 import { getAllProducts, getAllCategories } from "@/lib/db/queries";
 import { getPrimaryImages } from "@/lib/db/queries";
 
@@ -25,16 +26,20 @@ export default async function ShopPage() {
 
   return (
     <div className="flex flex-col gap-14 py-6 sm:py-6">
-      <SectionHeading
-        eyebrow="The shop"
-        title="Accessories and parts, picked deliberately"
-        description="A small catalog of chargers, audio, protection, storage, and repair parts — the same things that come up across phone and laptop repair work."
-      />
-      <ShopBrowser
-        initialProducts={products}
-        initialCategories={categories}
-        productImages={productImages}
-      />
+      <ScrollReveal>
+        <SectionHeading
+          eyebrow="The shop"
+          title="Accessories and parts, picked deliberately"
+          description="A small catalog of chargers, audio, protection, storage, and repair parts — the same things that come up across phone and laptop repair work."
+        />
+      </ScrollReveal>
+      <ScrollReveal>
+        <ShopBrowser
+          initialProducts={products}
+          initialCategories={categories}
+          productImages={productImages}
+        />
+      </ScrollReveal>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, CheckCircle2, Image } from "lucide-react";
 import SectionHeading from "@/components/section-heading";
 import { ButtonLink } from "@/components/neu-button";
+import ScrollReveal from "@/components/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "Graphic Design — RaymonJohns",
@@ -85,6 +86,7 @@ export default function GraphicDesignPage() {
       </Link>
 
       {/* Hero */}
+      <ScrollReveal>
       <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-start">
         <div>
           <div className="flex items-center gap-3">
@@ -136,8 +138,10 @@ export default function GraphicDesignPage() {
           </dl>
         </div>
       </div>
+      </ScrollReveal>
 
       {/* What's on offer */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Scope" title="What I design" />
         <div className="grid gap-6 sm:grid-cols-3">
@@ -156,8 +160,10 @@ export default function GraphicDesignPage() {
           ))}
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Process */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="How it works" title="The process" />
         <div className="grid gap-6 sm:grid-cols-2">
@@ -170,8 +176,10 @@ export default function GraphicDesignPage() {
           ))}
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Who it's for */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Right fit" title="Who this is for" />
         <ul className="flex flex-col gap-3">
@@ -183,8 +191,10 @@ export default function GraphicDesignPage() {
           ))}
         </ul>
       </section>
+      </ScrollReveal>
 
       {/* CTA */}
+      <ScrollReveal>
       <div className="neu-raised-lg flex flex-col items-center gap-4 p-10 text-center sm:p-14">
         <p className="eyebrow">Have something to design?</p>
         <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
@@ -194,6 +204,7 @@ export default function GraphicDesignPage() {
           Start a conversation
         </ButtonLink>
       </div>
+      </ScrollReveal>
     </div>
   );
 }

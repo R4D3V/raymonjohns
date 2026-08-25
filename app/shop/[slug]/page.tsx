@@ -9,6 +9,7 @@ import { ButtonLink } from "@/components/neu-button";
 import ProductGallery from "@/components/product-gallery";
 import ProductCard from "@/components/product-card";
 import SectionHeading from "@/components/section-heading";
+import ScrollReveal from "@/components/scroll-reveal";
 
 type Params = { slug: string };
 
@@ -66,124 +67,130 @@ export default async function ProductPage({
       </Link>
 
       {/* main grid */}
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-        {/* gallery */}
-        <ProductGallery images={productImages} slug={product.slug} />
+      <ScrollReveal>
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          {/* gallery */}
+          <ProductGallery images={productImages} slug={product.slug} />
 
-        {/* details */}
-        <div className="flex flex-col gap-6">
-          <div>
-            <p className={`eyebrow ${accentText[product.accent]}`}>
-              {product.category}
-            </p>
-            {product.badge && (
-              <span
-                className={`neu-inset-sm mt-2 inline-block px-2.5 py-1 font-mono text-[10px] uppercase tracking-wide ${accentText[product.accent]}`}
-              >
-                {product.badge}
-              </span>
-            )}
-            <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-ink sm:text-4xl">
-              {product.name}
-            </h1>
-            <p className="mt-4 text-base leading-relaxed text-ink-muted">
-              {product.summary}
-            </p>
-          </div>
-
-          {/* price */}
-          <div className="flex items-baseline gap-3">
-            <span className="font-display text-3xl font-bold text-ink">
-              {formatPrice(product.price)}
-            </span>
-            {product.compareAtPrice && (
-              <span className="text-sm text-ink-faint line-through">
-                {formatPrice(product.compareAtPrice)}
-              </span>
-            )}
-          </div>
-
-          {/* stock */}
-          <div className="flex items-center gap-2">
-            <Package
-              size={14}
-              className={
-                product.stock === "in-stock"
-                  ? "text-accent-green"
-                  : product.stock === "low-stock"
-                    ? "text-accent-coral"
-                    : "text-ink-faint"
-              }
-            />
-            <span className="font-mono text-xs uppercase tracking-wider text-ink-muted">
-              {stockLabel[product.stock]}
-            </span>
-          </div>
-
-          {/* CTA */}
-          <ButtonLink href="/contact" withArrow>
-            <MessageCircle size={14} />
-            Enquire to order
-          </ButtonLink>
-
-          {/* specs */}
-          {product.specs.length > 0 && (
-            <div className="neu-inset p-5">
-              <p className="eyebrow mb-4">Specs</p>
-              <dl className="grid grid-cols-2 gap-x-6 gap-y-3">
-                {product.specs.map((s) => (
-                  <div key={s.label}>
-                    <dt className="font-mono text-[10px] uppercase tracking-wider text-ink-faint">
-                      {s.label}
-                    </dt>
-                    <dd className="mt-0.5 text-sm text-ink">{s.value}</dd>
-                  </div>
-                ))}
-              </dl>
+          {/* details */}
+          <div className="flex flex-col gap-6">
+            <div>
+              <p className={`eyebrow ${accentText[product.accent]}`}>
+                {product.category}
+              </p>
+              {product.badge && (
+                <span
+                  className={`neu-inset-sm mt-2 inline-block px-2.5 py-1 font-mono text-[10px] uppercase tracking-wide ${accentText[product.accent]}`}
+                >
+                  {product.badge}
+                </span>
+              )}
+              <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-ink sm:text-4xl">
+                {product.name}
+              </h1>
+              <p className="mt-4 text-base leading-relaxed text-ink-muted">
+                {product.summary}
+              </p>
             </div>
-          )}
 
-          {/* features */}
-          {product.features.length > 0 && (
-            <ul className="flex flex-col gap-2">
-              {product.features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-ink-muted">
-                  <CheckCircle2
-                    size={14}
-                    className={`mt-0.5 shrink-0 ${accentText[product.accent]}`}
-                  />
-                  {f}
-                </li>
-              ))}
-            </ul>
-          )}
+            {/* price */}
+            <div className="flex items-baseline gap-3">
+              <span className="font-display text-3xl font-bold text-ink">
+                {formatPrice(product.price)}
+              </span>
+              {product.compareAtPrice && (
+                <span className="text-sm text-ink-faint line-through">
+                  {formatPrice(product.compareAtPrice)}
+                </span>
+              )}
+            </div>
+
+            {/* stock */}
+            <div className="flex items-center gap-2">
+              <Package
+                size={14}
+                className={
+                  product.stock === "in-stock"
+                    ? "text-accent-green"
+                    : product.stock === "low-stock"
+                      ? "text-accent-coral"
+                      : "text-ink-faint"
+                }
+              />
+              <span className="font-mono text-xs uppercase tracking-wider text-ink-muted">
+                {stockLabel[product.stock]}
+              </span>
+            </div>
+
+            {/* CTA */}
+            <ButtonLink href="/contact" withArrow>
+              <MessageCircle size={14} />
+              Enquire to order
+            </ButtonLink>
+
+            {/* specs */}
+            {product.specs.length > 0 && (
+              <div className="neu-inset p-5">
+                <p className="eyebrow mb-4">Specs</p>
+                <dl className="grid grid-cols-2 gap-x-6 gap-y-3">
+                  {product.specs.map((s) => (
+                    <div key={s.label}>
+                      <dt className="font-mono text-[10px] uppercase tracking-wider text-ink-faint">
+                        {s.label}
+                      </dt>
+                      <dd className="mt-0.5 text-sm text-ink">{s.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            )}
+
+            {/* features */}
+            {product.features.length > 0 && (
+              <ul className="flex flex-col gap-2">
+                {product.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm text-ink-muted">
+                    <CheckCircle2
+                      size={14}
+                      className={`mt-0.5 shrink-0 ${accentText[product.accent]}`}
+                    />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* description */}
       {product.description.length > 0 && (
-        <section className="max-w-2xl">
-          <SectionHeading eyebrow="Details" title="About this product" />
-          <div className="mt-6 flex flex-col gap-4">
-            {product.description.map((para, i) => (
-              <p key={i} className="leading-relaxed text-ink-muted">
-                {para}
-              </p>
-            ))}
-          </div>
-        </section>
+        <ScrollReveal>
+          <section className="max-w-2xl">
+            <SectionHeading eyebrow="Details" title="About this product" />
+            <div className="mt-6 flex flex-col gap-4">
+              {product.description.map((para, i) => (
+                <p key={i} className="leading-relaxed text-ink-muted">
+                  {para}
+                </p>
+              ))}
+            </div>
+          </section>
+        </ScrollReveal>
       )}
 
       {/* related */}
       {related.length > 0 && (
-        <section>
-          <SectionHeading eyebrow="More picks" title="Related products" />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
-          </div>
-        </section>
+        <ScrollReveal>
+          <section>
+            <SectionHeading eyebrow="More picks" title="Related products" />
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((p) => (
+                <ProductCard key={p.slug} product={p} />
+              ))}
+            </div>
+          </section>
+        </ScrollReveal>
       )}
     </div>
   );

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle2, MessageCircle } from "lucide-react";
 import SectionHeading from "@/components/section-heading";
 import { resellTools } from "@/lib/data";
+import ScrollReveal from "@/components/scroll-reveal";
 
 const WHATSAPP_NUMBER = "256751621506";
 
@@ -45,6 +46,7 @@ export default async function ToolPage({ params }: Props) {
       </Link>
 
       {/* Hero */}
+      <ScrollReveal>
       <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-start">
         <div>
           <div className="flex items-center gap-4">
@@ -85,8 +87,10 @@ export default async function ToolPage({ params }: Props) {
           </p>
         </div>
       </div>
+      </ScrollReveal>
 
       {/* About */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading
           eyebrow="About this tool"
@@ -103,8 +107,10 @@ export default async function ToolPage({ params }: Props) {
           ))}
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Features */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Capabilities" title="What it can do" />
         <ul className="grid gap-3 sm:grid-cols-2">
@@ -121,8 +127,10 @@ export default async function ToolPage({ params }: Props) {
           ))}
         </ul>
       </section>
+      </ScrollReveal>
 
       {/* Other tools */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading
           eyebrow="Looking for something else"
@@ -150,8 +158,10 @@ export default async function ToolPage({ params }: Props) {
             ))}
         </div>
       </section>
+      </ScrollReveal>
 
       {/* CTA */}
+      <ScrollReveal>
       <div className="neu-raised-lg flex flex-col items-center gap-4 p-10 text-center sm:p-14">
         <p className="eyebrow">Ready to get {tool.name} activated?</p>
         <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
@@ -168,6 +178,7 @@ export default async function ToolPage({ params }: Props) {
           Inquire on WhatsApp
         </a>
       </div>
+      </ScrollReveal>
     </div>
   );
 }

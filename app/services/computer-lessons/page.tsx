@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, CheckCircle2, GraduationCap } from "lucide-react";
 import SectionHeading from "@/components/section-heading";
 import { ButtonLink } from "@/components/neu-button";
+import ScrollReveal from "@/components/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "Computer Lessons — RaymonJohns",
@@ -76,6 +77,7 @@ export default function ComputerLessonsPage() {
       </Link>
 
       {/* Hero */}
+      <ScrollReveal>
       <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-start">
         <div>
           <div className="flex items-center gap-3">
@@ -124,8 +126,10 @@ export default function ComputerLessonsPage() {
           </dl>
         </div>
       </div>
+      </ScrollReveal>
 
       {/* Training levels */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Pick a starting point" title="Training levels" />
         <div className="grid gap-6 sm:grid-cols-3">
@@ -143,8 +147,10 @@ export default function ComputerLessonsPage() {
           ))}
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Theory modules */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Foundations" title="Theory modules" />
         <ul className="grid gap-3 sm:grid-cols-2">
@@ -156,8 +162,10 @@ export default function ComputerLessonsPage() {
           ))}
         </ul>
       </section>
+      </ScrollReveal>
 
       {/* Practical sessions */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Hands-on" title="Practical sessions" />
         <ul className="grid gap-3 sm:grid-cols-2">
@@ -169,8 +177,10 @@ export default function ComputerLessonsPage() {
           ))}
         </ul>
       </section>
+      </ScrollReveal>
 
       {/* Who it's for */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Right fit" title="Enroll if…" />
         <ul className="flex flex-col gap-3">
@@ -182,8 +192,10 @@ export default function ComputerLessonsPage() {
           ))}
         </ul>
       </section>
+      </ScrollReveal>
 
       {/* CTA */}
+      <ScrollReveal>
       <div className="neu-raised-lg flex flex-col items-center gap-4 p-10 text-center sm:p-14">
         <p className="eyebrow">Ready to learn?</p>
         <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
@@ -193,6 +205,7 @@ export default function ComputerLessonsPage() {
           Get in touch
         </ButtonLink>
       </div>
+      </ScrollReveal>
     </div>
   );
 }

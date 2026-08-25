@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, MessageCircle, KeyRound } from "lucide-react";
 import SectionHeading from "@/components/section-heading";
 import { resellTools } from "@/lib/data";
+import ScrollReveal from "@/components/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "Software Reselling — RaymonJohns",
@@ -41,6 +42,7 @@ export default function SoftwareResellingPage() {
       </Link>
 
       {/* Hero */}
+      <ScrollReveal>
       <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-start">
         <div>
           <div className="flex items-center gap-3">
@@ -89,8 +91,10 @@ export default function SoftwareResellingPage() {
           </dl>
         </div>
       </div>
+      </ScrollReveal>
 
       {/* The tools */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="What I resell" title="The five tools" />
         <div className="grid gap-6 sm:grid-cols-2">
@@ -125,8 +129,10 @@ export default function SoftwareResellingPage() {
           ))}
         </div>
       </section>
+      </ScrollReveal>
 
       {/* What's included */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Deliverables" title="What's covered" />
         <ul className="grid gap-3 sm:grid-cols-2">
@@ -138,8 +144,10 @@ export default function SoftwareResellingPage() {
           ))}
         </ul>
       </section>
+      </ScrollReveal>
 
       {/* Who it's for */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Right fit" title="This is for you if…" />
         <ul className="flex flex-col gap-3">
@@ -151,8 +159,10 @@ export default function SoftwareResellingPage() {
           ))}
         </ul>
       </section>
+      </ScrollReveal>
 
       {/* CTA */}
+      <ScrollReveal>
       <div className="neu-raised-lg flex flex-col items-center gap-4 p-10 text-center sm:p-14">
         <p className="eyebrow">Need a license activated?</p>
         <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
@@ -168,6 +178,7 @@ export default function SoftwareResellingPage() {
           Inquire on WhatsApp
         </a>
       </div>
+      </ScrollReveal>
     </div>
   );
 }

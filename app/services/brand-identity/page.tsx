@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, CheckCircle2, Paintbrush } from "lucide-react";
 import SectionHeading from "@/components/section-heading";
 import { ButtonLink } from "@/components/neu-button";
+import ScrollReveal from "@/components/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "Brand Identity — RaymonJohns",
@@ -62,6 +63,7 @@ export default function BrandIdentityPage() {
       </Link>
 
       {/* Hero */}
+      <ScrollReveal>
       <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-start">
         <div>
           <div className="flex items-center gap-3">
@@ -113,8 +115,10 @@ export default function BrandIdentityPage() {
           </dl>
         </div>
       </div>
+      </ScrollReveal>
 
       {/* Deliverables */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Deliverables" title="What's included" />
         <ul className="grid gap-3 sm:grid-cols-2">
@@ -126,8 +130,10 @@ export default function BrandIdentityPage() {
           ))}
         </ul>
       </section>
+      </ScrollReveal>
 
       {/* Process */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="How it works" title="The process" />
         <div className="grid gap-6 sm:grid-cols-2">
@@ -140,8 +146,10 @@ export default function BrandIdentityPage() {
           ))}
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Who it's for */}
+      <ScrollReveal>
       <section className="flex flex-col gap-6">
         <SectionHeading eyebrow="Right fit" title="Who this is for" />
         <ul className="flex flex-col gap-3">
@@ -153,8 +161,10 @@ export default function BrandIdentityPage() {
           ))}
         </ul>
       </section>
+      </ScrollReveal>
 
       {/* CTA */}
+      <ScrollReveal>
       <div className="neu-raised-lg flex flex-col items-center gap-4 p-10 text-center sm:p-14">
         <p className="eyebrow">Ready to build your brand?</p>
         <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
@@ -164,6 +174,7 @@ export default function BrandIdentityPage() {
           Start a conversation
         </ButtonLink>
       </div>
+      </ScrollReveal>
     </div>
   );
 }
