@@ -156,6 +156,11 @@ const tools: FrpTool[] = [
     href: "https://raw.githubusercontent.com/vnrom/bypass/master/ES_File_Explorer.apk",
     icon: Download,
   },
+  {
+    label: "AuroraStore-4.8.4.apk",
+    href: "/apk/AuroraStore-4.8.4.apk",
+    icon: FileDown,
+  },
 ];
 
 export default function FrpPage() {
@@ -176,7 +181,7 @@ export default function FrpPage() {
                     href.startsWith("http") ? "noopener noreferrer" : undefined
                   }
                   download={
-                    href.startsWith("http") &&
+                    (href.startsWith("http") || href.startsWith("/")) &&
                     !href.startsWith("https://galaxystore")
                       ? true
                       : undefined
@@ -188,7 +193,7 @@ export default function FrpPage() {
                     <Icon size={12} />
                   </span>
                   <span className="flex-1 break-words">{label}</span>
-                  {href.startsWith("http") ? (
+                  {href.startsWith("http") || href.startsWith("/") ? (
                     <ExternalLink
                       size={12}
                       className="shrink-0 text-slate-400"
